@@ -1,0 +1,41 @@
+name: Build dashboard
+
+# On every push to main (including PR merges), build the HTML dashboard
+# and PNG overview from data/*.csv and upload them as a workflow artifact.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow (PNG chart)
+        run: pip install pillow
+
+      - name: Generate dashboard
+        run: |
+          mkdir -p dist
+          python3 scripts/visualize_data.py \
+            --html dist/dashboard.html \
+            --png dist/data_overview.png
+
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-dashboard-${{ github.sha }}
+          path: |
+            dist/dashboard.html
+            dist/data_overview.png
+          if-no-files-found: error
+          retention-days: 30
