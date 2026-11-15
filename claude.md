@@ -35,20 +35,63 @@
 
 ---
 
-## 3. Agent Tooling & Capabilities
+## 3. Agent Tooling, Direct Python Fetcher & Data Visualization
 
-The agent has access to the following functional tools during execution loops:
+The agent executes its data ingestion, quantitative modeling, and visualization directly via two zero-config Python scripts in `scripts/`:
 
-1. `fetch_liquid_market_data(tickers: list, interval: str)`
-   - Queries REST/WebSocket feeds for OHLCV (Open, High, Low, Close, Volume), funding rates, and yield curves.
-2. `scrape_illiquid_comps(query: str, grade_filter: str, lookback_days: int)`
-   - Queries completed auction sales and accepted best offers (e.g., via eBay/130point/TCGplayer), stripping out outliers, shill bids, and unverified sellers.
-3. `calculate_fair_market_value(asset_id: str, sales_array: list)`
-   - Computes volume-weighted average price (VWAP), 30-day moving average ($MA_{30}$), and bid-ask spread for illiquid items.
-4. `evaluate_cross_asset_correlation(asset_a: str, asset_b: str, window: int)`
-   - Computes rolling Pearson correlation $\rho$ (e.g., tracking how `BTC` liquidity spikes lead high-end Sports Card/Watch auctions by 14–30 days).
+### A. Direct Market Data Fetcher (`scripts/fetch_market_data.py`)
+
+Implements the five core functional tools and orchestrates live ingestion across all working public endpoints (Yahoo Finance v8 API, Treasury.gov daily par yield curve CSV, CoinGecko, OKX & Deribit perpetual swaps, DefiLlama stablecoins, Polymarket Gamma/CLOB history, Kalshi public API, PriceCharting verified eBay sold comps, Kitco spot metals, Vast.ai offers API, and RunPod cloud GPU pricing):
+
+1. `fetch_liquid_market_data(tickers: list = None, interval: str = "1d", range_str: str = "6mo")`
+   - Queries Yahoo Finance v8 chart feeds and CoinGecko live spot feeds for all 30 liquid assets (`SPY`, `QQQ`, 11 SPDR sector ETFs, `URA`, `ES=F`, `NQ=F`, `CL=F`, `GC=F`, `SI=F`, `PL=F`, `HG=F`, `^VIX`, `DX-Y.NYB`, `USDJPY=X`, `EURUSD=X`, `^TNX`, `^TYX`, `BTC-USD`, `ETH-USD`, `SOL-USD`), computing 24h/5d changes, 20-period population Z-score ($Z = (P_t - \mu_{20}) / \sigma_{20}$), 20-period volume ratio, and 30-day closing highs.
+2. `scrape_illiquid_comps(query: str = None, grade_filter: str = None, lookback_days: int = 30)`
+   - Scrapes verified eBay completed sales from PriceCharting's condition-specific tabs (`completed-auctions-used` for factory-sealed booster boxes, `completed-auctions-manual-only` for PSA 10 TCG grails, `completed-auctions-new` for factory-sealed LEGO sets, `completed-auctions-cib` for CIB retro games), filtering out variant mismatches and unverified outliers.
+3. `calculate_fair_market_value(asset_id: str, sales_array: list, live_ask_usd: float = None, shipping_usd: float = 0.0, fee_rate: float = 0.13)`
+   - Computes the 10%-trimmed median ($\text{FMV}_{30}$), 30-day moving average ($MA_{30}$), comp count ($n \ge 3$ required, else `LOW_LIQUIDITY_UNPRICED`), 22%-discount deal line ($\le 0.78 \times \text{FMV}_{30}$), and fee-adjusted net arbitrage spread.
+4. `evaluate_cross_asset_correlation(asset_a: str, asset_b: str, window: int = 30, lag_days: int = 0)`
+   - Computes rolling Pearson correlation $\rho$ (both price levels and daily percentage returns) from `data/prices_wide.csv` with optional lead/lag day offsets.
 5. `emit_alert(severity: str, asset: str, signal_type: str, payload: dict)`
-   - Dispatches structured Markdown or JSON alerts to the user's dashboard, Discord/Telegram webhook, or local SQLite database.
+   - Evaluates all §4 quantitative triggers and formats structured alert rows for `data/alerts.csv`, terminal output, or JSON dispatch.
+
+#### CLI Usage (`scripts/fetch_market_data.py`)
+```bash
+# Preview live data across all asset classes in the terminal without modifying CSVs
+python3 scripts/fetch_market_data.py --dry-run
+
+# Fetch all live sources and idempotently update data/*.csv + regenerate data/prices_wide.csv
+python3 scripts/fetch_market_data.py --write-csv
+
+# Fetch specific sections only (liquid, macro, crypto, prediction, illiquid, metals, gpu)
+python3 scripts/fetch_market_data.py --section liquid macro crypto --dry-run
+
+# Fetch a specific subset of liquid tickers or output machine-readable JSON
+python3 scripts/fetch_market_data.py --section liquid --tickers SPY QQQ BTC-USD ^VIX --dry-run
+python3 scripts/fetch_market_data.py --dry-run --json
+
+# Compute rolling cross-asset correlation (with optional lead/lag days)
+python3 scripts/fetch_market_data.py --correlate BTC-USD SPY --window 30 --lag 0
+
+# Run full pipeline, update data/*.csv, and write a §6 Markdown Intelligence Brief
+python3 scripts/fetch_market_data.py --write-csv --write-report reports/YYYY-MM-DD.md
+```
+
+### B. Data Folder Visualizer (`scripts/visualize_data.py`)
+
+Reads all canonical CSV files in `data/` (`timeseries.csv`, `prices_wide.csv`, `liquid.csv`, `macro.csv`, `crypto_derivatives.csv`, `prediction.csv`, `illiquid.csv`, `comps.csv`, `alerts.csv` — see `data/README.md` for schema details) and generates three visual outputs:
+
+1. **Terminal Visual Dashboard (`stdout`):** Prints dataset inventory, macro regime status banner, 90-day Unicode sparklines, horizontal 20d Z-score breakout bars (`±2.5σ`), prediction market probability bars, collectible FMV & comp dispersion, GPU rental spreads, and active alerts.
+2. **Multi-Panel High-Resolution PNG Chart (`reports/data_overview.png`):** Renders a 6-panel dark-mode overview chart using Pillow (90-day normalized cross-asset trajectories, U.S. Treasury yield curve, Z-score breakout scanner, prediction market movers, collectible comps dispersion, and GPU cloud spot rental comparison).
+3. **Interactive Self-Contained HTML Dashboard (`reports/dashboard.html`):** Generates a zero-dependency interactive browser dashboard featuring a 90-day multi-series chart explorer (Indexed 100 vs. Raw Level), Treasury yield & stablecoin liquidity toggle, sortable/filterable Z-score table, collectible eBay sold-comps scatter plot, GPU rental & perp funding tables, and a 30-day cross-asset return correlation heatmap.
+
+#### CLI Usage (`scripts/visualize_data.py`)
+```bash
+# Print terminal dashboard and generate reports/dashboard.html + reports/data_overview.png
+python3 scripts/visualize_data.py
+
+# Customize output paths or open the interactive HTML dashboard in the default browser
+python3 scripts/visualize_data.py --html reports/dashboard.html --png reports/data_overview.png --open
+```
 
 ---
 
