@@ -1,15 +1,15 @@
-date_utc,item,category,grade_condition,live_ask,fmv_30d,n_comps,net_spread_pct,status,url
-2026-11-15,"2018 Panini Prizm Luka Doncic #280",sports cards,PSA 10,,,0,,LOW_LIQUIDITY_UNPRICED,https://www.sportscardspro.com/game/basketball-cards-2018-panini-prizm/luka-doncic-280
-2026-11-15,"2003-04 Topps Chrome LeBron James #111",sports cards,PSA 10,,,0,,LOW_LIQUIDITY_UNPRICED,
-2026-11-15,"Pokemon Evolving Skies Booster Box (EN)",TCG,factory sealed,,2000.00,13,,PRICED,https://www.pricecharting.com/game/pokemon-evolving-skies/booster-box
-2026-11-15,"Pokemon SV 151 sv2a Booster Box (Japanese)",TCG,factory sealed,,231.20,15,,PRICED,https://www.pricecharting.com/game/pokemon-japanese-scarlet-&-violet-151/booster-box
-2026-11-15,"Umbreon VMAX 215/203 Evolving Skies",TCG,PSA 10,,3585.00,11,,PRICED,https://www.pricecharting.com/game/pokemon-evolving-skies/umbreon-vmax-215
-2026-11-15,"LEGO 75192 UCS Millennium Falcon",LEGO/comics/retro,factory sealed,,875.00,10,,PRICED,https://www.pricecharting.com/game/lego-star-wars/millennium-falcon-75192
-2026-11-15,"LEGO 10179 UCS Millennium Falcon",LEGO/comics/retro,factory sealed,,,2,,LOW_LIQUIDITY_UNPRICED,https://www.pricecharting.com/game/lego-creator-expert/millennium-falcon-10179
-2026-11-15,"LEGO 10255 Assembly Square",LEGO/comics/retro,factory sealed,,329.95,12,,PRICED,https://www.pricecharting.com/game/lego-creator-expert/assembly-square-10255
-2026-11-15,"Super Mario 64 (N64)",LEGO/comics/retro,CIB,,130.99,11,,PRICED,https://www.pricecharting.com/game/nintendo-64/super-mario-64
-2026-11-15,"Rolex Submariner Date 126610LN",watches,pre-owned/new full set,,,0,,LOW_LIQUIDITY_UNPRICED,https://everywatch.com/rolex/submariner/126610/watch-33352848
-2026-11-15,"Rolex Daytona 116500LN",watches,pre-owned full set,,,0,,LOW_LIQUIDITY_UNPRICED,
-2026-11-15,"Rolex GMT-Master II 126710BLRO",watches,pre-owned full set,,,0,,LOW_LIQUIDITY_UNPRICED,
-2026-11-15,"NVIDIA RTX 4090",GPUs,used,,,0,,LOW_LIQUIDITY_UNPRICED,https://gpupoet.com/gpu/learn/price/november-2026/nvidia-geforce-rtx-4090
-2026-11-15,"NVIDIA RTX 5090",GPUs,new,,,0,,LOW_LIQUIDITY_UNPRICED,
+date,timestamp_utc,item_id,category,grade_condition,live_ask_usd,shipping_usd,fmv_30d_usd,n_comps,net_spread_pct,status,url
+2026-11-14,2026-11-15T02:45:00Z,pokemon-evolving-skies-booster-box-sealed,TCG,factory sealed (EN),,,2088.05,21,,PRICED,https://www.pricecharting.com/game/pokemon-evolving-skies/booster-box
+2026-11-14,2026-11-15T02:45:00Z,pokemon-sv151-jp-booster-box-sealed,TCG,factory sealed (JP),,,229.93,30,,PRICED,https://www.pricecharting.com/game/pokemon-japanese-scarlet-&-violet-151/booster-box
+2026-11-14,2026-11-15T02:45:00Z,pokemon-umbreon-vmax-215-203-psa10,TCG,PSA 10,,,3542.5,28,,PRICED,https://www.pricecharting.com/game/pokemon-evolving-skies/umbreon-vmax-215
+2026-11-14,2026-11-15T02:45:00Z,lego-75192-ucs-millennium-falcon-sealed,LEGO,new / factory sealed,,,880,27,,PRICED,https://www.pricecharting.com/game/lego-star-wars/millennium-falcon-75192
+2026-11-14,2026-11-15T02:45:00Z,lego-10255-assembly-square-sealed,LEGO,new / factory sealed,,,329.95,26,,PRICED,https://www.pricecharting.com/game/lego-creator/assembly-square-10255
+2026-11-14,2026-11-15T02:45:00Z,lego-10179-ucs-millennium-falcon-sealed,LEGO,new / factory sealed,,,,1,,LOW_LIQUIDITY_UNPRICED,https://www.pricecharting.com/game/lego-star-wars/millennium-falcon-10179
+2026-11-14,2026-11-15T02:45:00Z,super-mario-64-n64-cib,Retro game,CIB,,,129.99,29,,PRICED,https://www.pricecharting.com/game/nintendo-64/super-mario-64
+2026-11-14,2026-11-15T02:45:00Z,panini-prizm-2018-luka-doncic-280-psa10,Sports card,PSA 10,,,,0,,LOW_LIQUIDITY_UNPRICED,https://www.sportscardspro.com/game/basketball-cards-2018-panini-prizm/luka-doncic-280
+2026-11-14,2026-11-15T02:45:00Z,topps-chrome-2003-lebron-james-111-psa10,Sports card,PSA 10,,,,0,,LOW_LIQUIDITY_UNPRICED,https://www.sportscardspro.com/game/basketball-cards-2003-topps-chrome/lebron-james-111
+2026-11-14,2026-11-15T02:45:00Z,rolex-submariner-126610ln-full-set,Watch,"full set, unworn/mint",,,,0,,LOW_LIQUIDITY_UNPRICED,https://watchcharts.com/watch_model/4121-rolex-submariner-126610ln/overview
+2026-11-14,2026-11-15T02:45:00Z,rolex-daytona-116500ln-full-set,Watch,"full set, unworn/mint",,,,0,,LOW_LIQUIDITY_UNPRICED,https://watchcharts.com/watches/rolex/daytona
+2026-11-14,2026-11-15T02:45:00Z,rolex-gmt-master-ii-126710blro-full-set,Watch,"full set, unworn/mint",,,,0,,LOW_LIQUIDITY_UNPRICED,https://watchcharts.com/watches/rolex/gmt-master-ii
+2026-11-14,2026-11-15T02:45:00Z,nvidia-rtx-4090-used,GPU,"used, working",,,,0,,LOW_LIQUIDITY_UNPRICED,https://www.ebay.com/sch/i.html?_nkw=rtx+4090
+2026-11-14,2026-11-15T02:45:00Z,nvidia-rtx-5090-new,GPU,"new, sealed",,,,0,,LOW_LIQUIDITY_UNPRICED,https://www.ebay.com/sch/i.html?_nkw=rtx+5090
