@@ -29,6 +29,9 @@ jobs:
           python3 scripts/visualize_data.py \
             --html dist/dashboard.html \
             --png dist/data_overview.png
+          python3 scripts/visualize_asset_classes.py --quiet \
+            --html dist/asset_classes_dashboard.html \
+            --png dist/asset_classes_overview.png
 
       - name: Upload dashboard artifact
         uses: actions/upload-artifact@v4
@@ -37,5 +40,7 @@ jobs:
           path: |
             dist/dashboard.html
             dist/data_overview.png
+            dist/asset_classes_dashboard.html
+            dist/asset_classes_overview.png
           if-no-files-found: error
           retention-days: 30

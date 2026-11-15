@@ -28,3 +28,25 @@ python3 scripts/visualize_data.py
 # Open the interactive HTML dashboard in your default browser
 python3 scripts/visualize_data.py --open
 ```
+
+### 3. Watch Fourteen Asset Classes (`scripts/watch_asset_classes.py`)
+Stocks, bonds, cash, commodities, real estate, alternatives, ETFs, index funds, mutual funds, options,
+futures & forwards, swaps, structured products & hybrids, and annuities.
+```bash
+# Preview in the terminal
+python3 scripts/watch_asset_classes.py --dry-run
+
+# Update data/asset_class*.csv and write a Markdown brief
+python3 scripts/watch_asset_classes.py --write-csv --write-report reports/asset-classes-YYYY-MM-DD.md
+
+# Only some classes, or list the watched universe
+python3 scripts/watch_asset_classes.py --classes options swaps annuities --dry-run
+python3 scripts/watch_asset_classes.py --list
+```
+
+### 4. Visualize the Asset-Class Watch (`scripts/visualize_asset_classes.py`)
+```bash
+# Terminal dashboard + reports/asset_classes_dashboard.html & reports/asset_classes_overview.png
+python3 scripts/visualize_asset_classes.py
+```
+The PNG needs Pillow (`pip install pillow`); the terminal view and HTML dashboard need only the standard library.

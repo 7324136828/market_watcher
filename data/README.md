@@ -90,3 +90,53 @@ They used a `date_utc` header and the UTC run date; the current files use `date`
 ### `watchlist.md`
 The illiquid watchlist: up to 5 items per category, each with the permanent `item_id` slug used above.
 IDs are never renamed or reused; at most two items may be swapped per run, with the reason logged.
+
+## Asset-class watch files (`scripts/watch_asset_classes.py`)
+
+Same conventions as above. `class_id` is the stable slug of an asset class: `stocks`, `bonds`, `cash`,
+`commodities`, `real_estate`, `alternatives`, `etfs`, `index_funds`, `mutual_funds`, `options`,
+`futures_forwards`, `swaps`, `structured`, `annuities`. `group` is one of `Core asset classes`,
+`Investment vehicles`, `Broader financial instruments`. A ticker may appear under more than one class.
+
+### `asset_classes.csv` — instrument snapshot
+`date,timestamp_utc,group,class_id,asset_class,sub_class,asset_id,asset_name,instrument_type,unit,price,change_1d_abs,change_1d_pct,change_5d_pct,change_1m_pct,change_3m_pct,change_ytd_pct,change_1y_pct,z_score_20d,volume,vol_ratio_20d,realized_vol_30d_pct,drawdown_52w_pct,above_50dma,above_200dma,last_bar_date,source`
+- `price` is the latest raw close; `unit` says what it is: `usd`, `pct` (a yield), `index`, `fx`.
+- `change_*_pct` are **total returns** from dividend-adjusted closes over 1 / 5 / 21 / 63 sessions, since the
+  last close of the prior year, and over the trailing year. `change_1d_abs` is in price units (for a yield,
+  percentage points).
+- `z_score_20d` and `vol_ratio_20d` are defined as in `liquid.csv`. `realized_vol_30d_pct` = population σ of
+  the last 30 daily log returns × √252. `drawdown_52w_pct` = latest close vs the trailing-year closing high.
+- `above_50dma` / `above_200dma` are `true` / `false`, empty when there is too little history.
+
+### `asset_class_summary.csv` — one row per class per date
+`date,timestamp_utc,group,class_id,asset_class,coverage,n_instruments,median_change_1d_pct,median_change_5d_pct,median_change_1m_pct,median_change_3m_pct,median_change_ytd_pct,median_change_1y_pct,pct_up_1d,pct_above_50dma,median_realized_vol_30d_pct,best_1d_id,best_1d_pct,worst_1d_id,worst_1d_pct,max_abs_z_id,max_abs_z,trend`
+- `coverage` ∈ `direct` (quoted instruments of the class) | `proxy` (listed stand-ins for an OTC or private
+  market) | `model` (computed estimate, not a quote).
+- `trend` ∈ `ADVANCING` (median 1m ≥ +2% and ≥ 60% above the 50-day average) | `DECLINING` (≤ −2% and ≤ 40%)
+  | `MIXED` | `UNRATED`. For `options` the instruments are volatility indices, so the labels are
+  `VOL RISING` / `VOL FALLING`.
+
+### `asset_class_metrics.csv` — class-specific derived metrics (long format)
+`date,timestamp_utc,class_id,asset_class,metric_id,metric_name,value,unit,source,note`
+`unit` ∈ `pct`, `bps`, `pts` (percentage points), `ratio`, `usd`, `contracts`, `count`. Stable `metric_id`
+families: `ust_par_<tenor>`, `curve_2s10s_bps`, `tbill_<n>w_yield_pct`, `sofr_pct`, `effr_pct`,
+`mortgage_30y_pct`, `tracking_gap_1y_<fund>_pts`, `excess_return_1y_<fund>_pts`, `vix_term_ratio`,
+`vix_percentile_1y_pct`, `put_call_volume_ratio_<sym>`, `put_call_oi_ratio_<sym>`, `iv30_<sym>_pct`,
+`atm_iv_<sym>_pct`, `skew_25d_<sym>_pts`, `term_structure_12m_<root>_pct`, `basis_<root>_pct`,
+`implied_carry_<root>_pct`, `sofr_fwd_3m_<yyyy_mm>_pct`, `sofr_swap_implied_<n>y_pct`,
+`swap_spread_<n>y_bps`, `fed_funds_implied_<n>m_pct`, `fed_cuts_priced_12m`, `spia_payout_age<nn>_pct`,
+`spia_monthly_income_age<nn>_usd`.
+- Model metrics say so in `source` / `note`: implied swap rates come from the SOFR futures strip with no
+  convexity adjustment; annuity payouts are actuarially fair values from the Treasury par curve and a
+  Gompertz mortality law (m = 88, b = 10), before insurer loads — neither is a market quote.
+
+### `asset_class_alerts.csv`
+`date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,details`
+`signal_type` slugs: `z_score_volume_breakout`, `z_score_extreme`, `new_52w_high`, `new_52w_low`,
+`class_rally`, `class_selloff`, `vix_term_backwardation`, `iv_rank_high`, `yield_curve_inverted`,
+`steep_contango`, `steep_backwardation`, `fed_path_repricing`. Only a full run (all classes) replaces a
+date's alerts.
+
+### `asset_classes_history.csv` — wide price history
+`date,<asset_id>,…` — one column per watched instrument, dividend-adjusted daily closes for the trailing
+year. Regenerated on every run (not append-only); empty where an instrument did not trade that day.
