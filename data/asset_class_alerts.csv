@@ -1,0 +1,20 @@
+date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,details
+2026-11-15,2026-11-15T13:41:00Z,medium,annuities,Annuities,class_rally,4.03584,class median 5d move >= 3.0%,Annuities: median instrument +4.04% over 5 sessions; 90% above their 50-day average.
+2026-11-15,2026-11-15T13:41:00Z,medium,stocks,Stocks (Equities),class_rally,3.11124,class median 5d move >= 3.0%,Stocks (Equities): median instrument +3.11% over 5 sessions; 67% above their 50-day average.
+2026-11-15,2026-11-15T13:41:00Z,medium,6E=F,Futures & Forwards,z_score_extreme,-2.58213,|Z| >= 2.5,"Euro FX (6E=F) at 1.1024: Z=-2.58 vs its 20-day mean, 1d -0.29%, volume 0.8x average."
+2026-11-15,2026-11-15T13:41:00Z,medium,BTC=F,Futures & Forwards,z_score_extreme,-2.51782,|Z| >= 2.5,"CME Bitcoin (BTC=F) at 65,515: Z=-2.52 vs its 20-day mean, 1d -4.93%, volume 0.1x average."
+2026-11-15,2026-11-15T13:41:00Z,medium,PGX,Structured Products & Hybrid Securities,z_score_extreme,-2.71938,|Z| >= 2.5,"Invesco Preferred (PGX) at 9.6700: Z=-2.72 vs its 20-day mean, 1d -0.92%, volume 1.2x average."
+2026-11-15,2026-11-15T13:41:00Z,info,ZQ,Swaps,fed_path_repricing,-3.43999,>= 2 moves priced in 12 months,Fed funds futures price 3.4 hikes of 25 bp over the next 12 months.
+2026-11-15,2026-11-15T13:41:00Z,info,CRBG,Annuities,new_52w_high,36.35,close at 1-year high,Corebridge Financial (CRBG) closed at a 1-year high of 36.35.
+2026-11-15,2026-11-15T13:41:00Z,info,AAPL,Stocks (Equities),new_52w_high,356.27,close at 1-year high,Apple (AAPL) closed at a 1-year high of 356.27.
+2026-11-15,2026-11-15T13:41:00Z,info,BRK-B,Stocks (Equities),new_52w_high,592.94,close at 1-year high,Berkshire Hathaway B (BRK-B) closed at a 1-year high of 592.94.
+2026-11-15,2026-11-15T13:41:00Z,info,LLY,Stocks (Equities),new_52w_high,1443.5,close at 1-year high,"Eli Lilly (LLY) closed at a 1-year high of 1,444."
+2026-11-15,2026-11-15T13:41:00Z,info,SI=F,Commodities,new_52w_low,49.031,close at 1-year low,Silver (SI=F) closed at a 1-year low of 49.03.
+2026-11-15,2026-11-15T13:41:00Z,info,SLV,Commodities,new_52w_low,44.13,close at 1-year low,iShares Silver Trust (SLV) closed at a 1-year low of 44.13.
+2026-11-15,2026-11-15T13:41:00Z,info,6E=F,Futures & Forwards,new_52w_low,1.1024,close at 1-year low,Euro FX (6E=F) closed at a 1-year low of 1.1024.
+2026-11-15,2026-11-15T13:41:00Z,info,NVDA,Stocks (Equities),new_52w_low,162.85,close at 1-year low,NVIDIA (NVDA) closed at a 1-year low of 162.85.
+2026-11-15,2026-11-15T13:41:00Z,info,PFF,Structured Products & Hybrid Securities,new_52w_low,27.88,close at 1-year low,iShares Preferred & Income (PFF) closed at a 1-year low of 27.88.
+2026-11-15,2026-11-15T13:41:00Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.59,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.59.
+2026-11-15,2026-11-15T13:41:00Z,info,PGX,Structured Products & Hybrid Securities,new_52w_low,9.67,close at 1-year low,Invesco Preferred (PGX) closed at a 1-year low of 9.6700.
+2026-11-15,2026-11-15T13:41:00Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.7554,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.8% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-13).
+2026-11-15,2026-11-15T13:41:00Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,19.6949,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +19.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-13).

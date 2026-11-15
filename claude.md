@@ -37,7 +37,7 @@
 
 ## 3. Agent Tooling, Direct Python Fetcher & Data Visualization
 
-The agent executes its data ingestion, quantitative modeling, and visualization directly via two zero-config Python scripts in `scripts/`:
+The agent executes its data ingestion, quantitative modeling, and visualization directly via four zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), and the asset-class taxonomy watcher and its visualizer (C, D).
 
 ### A. Direct Market Data Fetcher (`scripts/fetch_market_data.py`)
 
@@ -91,6 +91,61 @@ python3 scripts/visualize_data.py
 
 # Customize output paths or open the interactive HTML dashboard in the default browser
 python3 scripts/visualize_data.py --html reports/dashboard.html --png reports/data_overview.png --open
+```
+
+### C. Asset-Class Taxonomy Watcher (`scripts/watch_asset_classes.py`)
+
+Watches fourteen asset classes and instrument families in three groups, using only public no-key endpoints (Yahoo Finance v8 chart API, treasury.gov par-yield and bill-rate CSVs, NY Fed Markets API, Cboe delayed option chains, Freddie Mac PMMS):
+
+| Group | Class (`class_id`) | Coverage | What is watched |
+| :--- | :--- | :--- | :--- |
+| Core asset classes | Stocks (Equities) (`stocks`) | `direct` | US and global indices, 15 mega-cap stocks; breadth and small-vs-large gauges. |
+| Core asset classes | Bonds (Fixed Income) (`bonds`) | `direct` | Treasury yields and full par curve, 2s10s / 3m10y slopes, Treasury / IG / HY / muni / EM / TIPS bond ETFs. |
+| Core asset classes | Cash & Cash Equivalents (`cash`) | `direct` | T-bill and ultra-short ETFs, bill coupon-equivalent yields, SOFR / EFFR / OBFR, Fed target range. |
+| Core asset classes | Commodities (`commodities`) | `direct` | Energy, metals and agriculture front-month futures, broad ETFs, gold/silver and copper/gold ratios. |
+| Core asset classes | Real Estate (`real_estate`) | `proxy` | REIT ETFs, sector REITs, homebuilders, Freddie Mac mortgage rates and spread to the 10Y. |
+| Core asset classes | Alternative Investments (`alternatives`) | `proxy` | Crypto, listed private-markets managers, BDCs, managed futures, hedge-fund replication, infrastructure, timber. |
+| Investment vehicles | Exchange-Traded Funds (`etfs`) | `direct` | Largest ETFs by market cap, region, style, factor and sector; dollar volume. |
+| Investment vehicles | Index Funds (`index_funds`) | `direct` | Index mutual funds; 1-year tracking gap vs the ETF on the same benchmark. |
+| Investment vehicles | Mutual Funds (`mutual_funds`) | `direct` | Large active funds; 1-year excess return vs a passive benchmark, share beating it. |
+| Broader financial instruments | Options (`options`) | `direct` | Implied-volatility indices, VIX term structure and 1-year percentile, put/call ratios, ATM IV, 25-delta skew. |
+| Broader financial instruments | Futures & Forwards (`futures_forwards`) | `direct` | Index, Treasury, FX and crypto futures; 12-month curve slope (contango / backwardation); dated-future basis and annualised forward premium. |
+| Broader financial instruments | Swaps (`swaps`) | `proxy` | SOFR and averages, par OIS swap rates and swap spreads implied from the SOFR futures strip, Fed-funds-futures path, funds holding swaps / swaptions / CDS. |
+| Broader financial instruments | Structured Products & Hybrid Securities (`structured`) | `proxy` | Preferreds, convertibles, buffer and option-income funds, MBS, CMBS, CLOs, leveraged loans. |
+| Broader financial instruments | Annuities (`annuities`) | `model` | Model life-annuity payout rates (Treasury curve + Gompertz mortality), life/annuity insurer equities. |
+
+`coverage` states how literally a class is observed: `direct` = quoted instruments of the class itself, `proxy` = listed stand-ins for an OTC or private market, `model` = a computed estimate, never a quote. Missing inputs leave cells empty; nothing is extrapolated (§7.4).
+
+Per instrument: price, 1d / 5d / 1m / 3m / YTD / 1y total return (adjusted close), 20-day population Z-score, 20-day volume ratio, 30-day realised volatility, 52-week drawdown, 50- and 200-day trend flags. Per class: median returns, breadth, best / worst, trend label (`ADVANCING | MIXED | DECLINING`). Alerts reuse the §4.1 Z-score rule (`|Z| ≥ 2.5` with volume `> 1.8×`) and add class rallies / sell-offs (median 5d move `≥ 3%`), new 52-week highs / lows, VIX term-structure backwardation, IV rank `≥ 80%`, yield-curve inversion, steep futures curves (`≥ 10%` over 12 months) and Fed-path repricing.
+
+#### CLI Usage (`scripts/watch_asset_classes.py`)
+```bash
+# Preview all fourteen classes in the terminal without writing files
+python3 scripts/watch_asset_classes.py --dry-run
+
+# Update data/asset_class*.csv and write a Markdown brief
+python3 scripts/watch_asset_classes.py --write-csv --write-report reports/asset-classes-YYYY-MM-DD.md
+
+# Only some classes (stocks bonds cash commodities real_estate alternatives etfs index_funds
+# mutual_funds options futures_forwards swaps structured annuities)
+python3 scripts/watch_asset_classes.py --classes options swaps annuities --dry-run
+
+# List the watched universe, or emit JSON
+python3 scripts/watch_asset_classes.py --list
+python3 scripts/watch_asset_classes.py --dry-run --json
+```
+
+### D. Asset-Class Visualizer (`scripts/visualize_asset_classes.py`)
+
+Reads `data/asset_classes.csv`, `asset_class_summary.csv`, `asset_class_metrics.csv`, `asset_class_alerts.csv` and `asset_classes_history.csv` and generates:
+
+1. **Terminal dashboard (`stdout`):** class scoreboard with 90-day sparklines, largest Z-score deviations, rates (bills, Treasury curve, implied swaps), options term structure and put/call ratios, futures curve slopes, model annuity payouts, alerts.
+2. **PNG overview (`reports/asset_classes_overview.png`, needs Pillow):** six panels — return heatmap by class and horizon, breadth, Z-score deviations, Treasury vs implied swap curve, options, futures curves and annuity payouts.
+3. **Interactive HTML dashboard (`reports/asset_classes_dashboard.html`):** self-contained; class cards, return heatmap, per-class chart explorer (indexed or raw, 1M–1Y) with sortable instrument table, rates and forward-rate charts, options and futures panels, fund scorecards, annuity table, filterable metric browser, alerts and coverage notes.
+
+```bash
+python3 scripts/visualize_asset_classes.py
+python3 scripts/visualize_asset_classes.py --html reports/asset_classes_dashboard.html --png reports/asset_classes_overview.png --open
 ```
 
 ---
