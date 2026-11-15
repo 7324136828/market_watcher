@@ -37,7 +37,7 @@
 
 ## 3. Agent Tooling, Direct Python Fetcher & Data Visualization
 
-The agent executes its data ingestion, quantitative modeling, and visualization directly via four zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), and the asset-class taxonomy watcher and its visualizer (C, D).
+The agent executes its data ingestion, quantitative modeling, and visualization directly via six zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), the asset-class taxonomy watcher and its visualizer (C, D), and the goods, drugs and housing price watcher and its visualizer (E, F).
 
 ### A. Direct Market Data Fetcher (`scripts/fetch_market_data.py`)
 
@@ -158,6 +158,56 @@ python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 25
 ```
 
 Movers are read from the watcher's collection (`data/asset_class_movers.csv`), so every view uses the same ranking; if that file has no rows for the latest date the visualizer rebuilds the ranking from `asset_classes.csv`. Treasury yield series are excluded (a rising yield is a falling bond price), and a class with fewer than twice the requested count shows half its instruments per side. Continuous front-month futures (`=F`) splice contracts together, so their Z-score and 52-week alerts are capped at `medium` and carry a roll caveat; rate futures are read from dated contracts only.
+
+### E. Goods, Drugs & Housing Price Watcher (`scripts/watch_goods_drugs_housing.py`)
+
+Watches real-world prices in three sections, all from public key-free sources. Each section states exactly which price it is, because none of them is a quoted market price.
+
+| Section | What is watched | Price basis | Sources |
+| :--- | :--- | :--- | :--- |
+| `luxury` | 18 brands (Louis Vuitton, Chanel, Gucci, Hermès, Christian Dior, Prada, Saint Laurent, Bottega Veneta, Fendi, Celine, Goyard, Balenciaga, Loewe, Burberry, Cartier, Van Cleef & Arpels, Tiffany, Rolex) by category, and 57 iconic models (Neverfull MM, Classic Flap, Birkin 30, GG Marmont, Love bracelet, Datejust, ...) | **Resale asking price** of live pre-owned listings, USD. Not boutique retail, not sold prices. | Public product feeds of Fashionphile, Dallas Designer Handbags, Madison Avenue Couture |
+| `drugs` | 20 pharmacy drugs (Ozempic, Wegovy, Rybelsus, Mounjaro, Zepbound, Trulicity, Eliquis, Xarelto, Jardiance, Farxiga, Entresto, Januvia, Humira, Enbrel, Dupixent, Stelara, Skyrizi, Biktarvy, Lantus, Humalog) | **NADAC**: what US retail pharmacies pay per unit (weekly), scaled to a reference pack | data.medicaid.gov |
+| `drugs` | 11 physician-administered drugs (Keytruda, Opdivo, Tecentriq, Imfinzi, Darzalex Faspro, Enhertu, Eylea, Prolia, Ocrevus, Entyvio, Botox) | **Medicare Part B payment limit**: average sales price + 6% per billing unit (quarterly), scaled to a reference dose | cms.gov payment-limit files |
+| `housing` | United States: nation, 51 states, 50 largest metros | Typical home value (USD) and typical rent | Zillow Research (ZHVI, ZORI) |
+| `housing` | Brazil: 56 cities + composite; national collateral-value index | Asking price per m² (BRL), rent per m², rental yield; IVG-R index | FIPE / ZAP (FipeZap), Banco Central do Brasil |
+| `housing` | Europe: about 30 countries + EU / euro-area aggregates; UK nations and 9 English regions | House price index (2015 = 100); UK average price (GBP) | Eurostat `prc_hpi_q`, HM Land Registry UK HPI |
+| `housing` | Other economies: about 60 countries + world / advanced / emerging aggregates | Residential property price index, nominal and inflation-adjusted change | BIS `WS_SPP` |
+
+Rules that carry over from §7: a brand, category or model with fewer than 3 listings is `LOW_LIQUIDITY_UNPRICED` (§7.4); model matching is strict on whole-word keywords, excluded words and category so that pouches, wallets and straps are not counted as the bag (§7.2); medians with quartiles are used instead of means so one extreme listing cannot move a figure (§7.1). Housing values stay in local currency and index levels are never compared across sources.
+
+Limits to know: drug figures are not list prices, patient prices or net prices after rebates, and cover the US only. Luxury figures are a sample of up to 1,000 of the newest listings per brand and store (`--luxury-pages`), fetched one request at a time because the largest feed rate-limits faster access. Brand boutiques' own retail prices are not collected: the brand sites either block automated access or do not publish prices in the page.
+
+Alerts: a model's median moving ≥ 10% since the previous run, a drug price moving ≥ 3% since the previous file or ≥ 8% over a year, and a region's home prices falling ≥ 5% or rising ≥ 15% over a year.
+
+#### CLI Usage (`scripts/watch_goods_drugs_housing.py`)
+```bash
+# Preview all three sections in the terminal without writing files (about 4 minutes; luxury is the slow part)
+python3 scripts/watch_goods_drugs_housing.py --dry-run
+
+# Update data/luxury_*.csv, drug_prices.csv, housing_*.csv and write a Markdown brief
+python3 scripts/watch_goods_drugs_housing.py --write-csv --write-report reports/goods-drugs-housing-YYYY-MM-DD.md
+
+# Only some sections (luxury drugs housing); drugs and housing together take under a minute
+python3 scripts/watch_goods_drugs_housing.py --section drugs housing --dry-run
+
+# Read more or fewer luxury listings per brand and store (pages of 250, newest first; default 4)
+python3 scripts/watch_goods_drugs_housing.py --section luxury --luxury-pages 8 --dry-run
+```
+
+To watch another brand, model or drug, add a line to `LUXURY_STORES` / `LUXURY_MODELS`, `RETAIL_DRUGS` (exact NADAC description and pack size) or `PART_B_DRUGS` (HCPCS code and reference dose) at the top of the relevant section.
+
+### F. Goods, Drugs & Housing Visualizer (`scripts/visualize_goods_drugs_housing.py`)
+
+Reads `data/luxury_brands.csv`, `luxury_models.csv`, `drug_prices.csv`, `housing_prices.csv`, `housing_history.csv` and `goods_drugs_housing_alerts.csv`; a section with no data is left out.
+
+1. **Terminal dashboard (`stdout`):** brand medians with bars, model table, both drug tables, one-year housing movers per market, alerts.
+2. **PNG overview (`reports/goods_drugs_housing_overview.png`, needs Pillow):** nine panels — luxury brand medians, luxury models, pharmacy drugs, physician-administered drugs, and one-year home-price movers for US metros, US states, Brazilian cities, Europe / UK and the world.
+3. **Interactive HTML dashboard (`reports/goods_drugs_housing_dashboard.html`):** brand bars by store and category, sortable model table with a link to the cheapest listing, drug tables, and a housing explorer per market (US metros, US states, Brazil cities, Europe, UK regions, World) with movers, a filterable sortable table and an indexed price-history chart of the selected regions.
+
+```bash
+python3 scripts/visualize_goods_drugs_housing.py
+python3 scripts/visualize_goods_drugs_housing.py --html reports/goods_drugs_housing_dashboard.html --png reports/goods_drugs_housing_overview.png --open
+```
 
 ---
 

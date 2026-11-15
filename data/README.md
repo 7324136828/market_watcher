@@ -151,3 +151,54 @@ date's alerts.
 ### `asset_classes_history.csv` — wide price history
 `date,<asset_id>,…` — one column per watched instrument, dividend-adjusted daily closes for the trailing
 year. Regenerated on every run (not append-only); empty where an instrument did not trade that day.
+
+## Goods, drugs & housing files (`scripts/watch_goods_drugs_housing.py`)
+
+Same conventions as above. Each file keeps one snapshot per run date, except `housing_history.csv`.
+
+### `luxury_brands.csv` — resale asking prices by brand, store and category
+`date,timestamp_utc,store_id,store_name,brand,category,n_listings,median_usd,p25_usd,p75_usd,min_usd,max_usd,prev_date,change_vs_prev_pct,source`
+- Live pre-owned listings, USD **asking** prices (not retail, not sold). `store_id` ∈ `all`, `fashionphile`,
+  `ddh`, `mac`; `category` ∈ `all`, `bags`, `jewelry`, `watches`, `other` (from the store's product type).
+- A row exists only when the group has ≥ 3 listings. `change_vs_prev_pct` compares the median with the
+  most recent earlier run date (`prev_date`); empty on the first run.
+- Each brand and store is a sample of up to 1,000 of its newest listings (4 pages of 250).
+
+### `luxury_models.csv` — resale asking prices of iconic models
+`date,timestamp_utc,model_id,brand,model,category,n_listings,median_usd,p25_usd,p75_usd,min_usd,max_usd,prev_date,change_vs_prev_pct,cheapest_title,cheapest_url,stores,status`
+- A listing belongs to a model when all keywords of one keyword set appear as whole words in its title, no
+  excluded word does, and its category matches. `stores` is `store_id:count` pairs.
+- `status` ∈ `PRICED` | `LOW_LIQUIDITY_UNPRICED` (fewer than 3 listings: no median or quartiles).
+
+### `drug_prices.csv` — US drug prices
+`date,timestamp_utc,drug,generic,maker,therapeutic_area,channel,price_basis,reference,unit_price_usd,units_per_reference,reference_cost_usd,as_of,change_prev_pct,change_ytd_pct,change_1y_pct,source,note`
+- `channel` = `retail_pharmacy`: `unit_price_usd` is NADAC, the average price US retail pharmacies pay per
+  pricing unit (mL or each), from Medicaid's weekly survey. `change_prev_pct` is against the previous weekly
+  file, `change_ytd_pct` against the first file of the year.
+- `channel` = `physician_administered`: `unit_price_usd` is the Medicare Part B payment limit per HCPCS
+  billing unit (average sales price + 6%). `change_prev_pct` is against the previous quarter;
+  `change_ytd_pct` is empty.
+- `reference_cost_usd` = `unit_price_usd` × `units_per_reference`, the pack or dose named in `reference`.
+- Neither is a list price, a patient's out-of-pocket price, or a net price after rebates.
+
+### `housing_prices.csv` — home prices by region
+`date,timestamp_utc,market,level,region_id,region_name,parent,series,value,unit,period,frequency,change_prev_pct,change_1y_pct,change_5y_pct,real_change_1y_pct,rent_value,rent_unit,rent_change_1y_pct,rental_yield_pct,source`
+- `market` ∈ `United States`, `Brazil`, `Europe`, `World`. `level` ∈ `country`, `state`, `metro`, `city`,
+  `composite`, `aggregate`, `uk_country`, `uk_region`. `region_id` is stable: `us-national`, `us-state-ca`,
+  `us-metro-new-york-ny`, `br-city-sao-paulo`, `br-fipezap-composite`, `br-ivgr`, `eu-de`, `uk-london`, `bis-cn`.
+- `value` is in `unit`: `USD` (Zillow typical home value), `BRL per m²` (FipeZap asking price), `GBP` (UK
+  average price) or `index`. `period` is the month (`YYYY-MM`) or quarter (`YYYY-Qn`) the value refers to,
+  which lags the run date by one to six months depending on the source.
+- `change_prev_pct` is against the previous month or quarter (`frequency`). `real_change_1y_pct` (BIS only)
+  is the one-year change after inflation. `rental_yield_pct` is gross and annual: 12 × rent ÷ value.
+- Index levels use different base years (Eurostat 2015 = 100, BIS 2010 = 100) and are not comparable in
+  level across sources. A country can appear under both `Europe` (Eurostat) and `World` (BIS).
+
+### `housing_history.csv` — price history behind the charts
+`region_id,period,value` — up to 60 months or 25 quarters per region, same unit as `housing_prices.csv`.
+Regenerated on every run (not append-only).
+
+### `goods_drugs_housing_alerts.csv`
+`date,timestamp_utc,severity,asset_id,section,signal_type,value,threshold,details`
+`signal_type` slugs: `luxury_model_price_shift`, `drug_price_change`, `drug_price_change_1y`,
+`housing_price_fall`, `housing_price_surge`. Only a run of all three sections replaces a date's alerts.
