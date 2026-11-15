@@ -4,6 +4,7 @@ visualize_asset_classes.py — Visualizer for the asset-class watch (`scripts/wa
 
 Reads the CSV files that the watcher writes into `data/`:
   asset_classes.csv, asset_class_summary.csv, asset_class_metrics.csv, asset_class_alerts.csv,
+  asset_class_movers.csv,
   asset_classes_history.csv
 and produces three views of the latest run:
 
@@ -39,10 +40,11 @@ try:
 except ImportError:
     HAS_PIL = False
 
-try:  # class notes live with the watcher's universe definition
-    from watch_asset_classes import UNIVERSE
+try:  # class notes and the movers ranking rule live with the watcher
+    from watch_asset_classes import UNIVERSE, collect_movers
 except Exception:
     UNIVERSE = {}
+    collect_movers = None
 
 GROUPS = ["Core asset classes", "Investment vehicles", "Broader financial instruments"]
 HORIZONS = [("1d", "median_change_1d_pct"), ("5d", "median_change_5d_pct"), ("1m", "median_change_1m_pct"),
@@ -112,6 +114,7 @@ def load_datasets(data_dir: Path) -> Dict[str, Any]:
     summaries = latest_rows(load_csv(data_dir / "asset_class_summary.csv"))
     metrics = latest_rows(load_csv(data_dir / "asset_class_metrics.csv"))
     all_alerts = load_csv(data_dir / "asset_class_alerts.csv")
+    mover_rows = load_csv(data_dir / "asset_class_movers.csv")
     latest_date = max((r["date"] for r in rows), default="")
     alerts = [a for a in all_alerts if a["date"] == latest_date]
     history = load_csv(data_dir / "asset_classes_history.csv")
@@ -154,6 +157,7 @@ def load_datasets(data_dir: Path) -> Dict[str, Any]:
         "metrics": metrics,
         "metric_by_id": {m["metric_id"]: m for m in metrics},
         "alerts": alerts,
+        "movers": index_movers(mover_rows, rows, latest_date),
         "dates": dates,
         "series": series,
     }
@@ -168,24 +172,39 @@ MOVER_HORIZONS = {"1d": "change_1d_pct", "5d": "change_5d_pct", "1m": "change_1m
 MOVER_LABELS = {"1d": "1 day", "5d": "5 days", "1m": "1 month", "3m": "3 months", "ytd": "year to date", "1y": "1 year"}
 
 
-def class_movers(ds: Dict[str, Any], horizon: str = "1d", count: int = 3) -> List[Dict[str, Any]]:
+def index_movers(mover_rows: List[Dict[str, str]], rows: List[Dict[str, Any]], latest_date: str) -> Dict[str, Any]:
     """
-    Per class, the `count` best and worst instruments by total return over the horizon.
-    A class with fewer than 2 x count instruments shows half of them on each side, so no
-    instrument is ever listed as both a top and a bottom mover. Yield series (unit `pct`) are
-    left out: a rising yield is a falling bond price, so ranking them with prices would mislead.
+    The movers collection as {scope: {horizon: {"top": [...], "bottom": [...]}}}, best / worst first.
+    Scope is a class id or `all`. Read from `asset_class_movers.csv`; if that file has nothing for
+    the latest date (data written by an older watcher), the same ranking is rebuilt from the snapshot.
     """
-    key = MOVER_HORIZONS[horizon]
-    out = []
-    for s in ds["summaries"]:
-        ranked = sorted((r for r in ds["rows"] if r["class_id"] == s["class_id"] and r[key] is not None and r["unit"] != "pct"),
-                        key=lambda r: -r[key])
-        k = min(count, len(ranked) // 2)
-        if k < 1:
+    latest = [m for m in mover_rows if m["date"] == latest_date]
+    if not latest and collect_movers is not None:
+        latest = collect_movers(rows)
+    out: Dict[str, Any] = {}
+    for m in sorted(latest, key=lambda m: int(m["rank"])):
+        change = to_float(m["change_pct"])
+        if change is None:
             continue
-        out.append({"class_id": s["class_id"], "asset_class": s["asset_class"], "short_name": s["short_name"],
-                    "top": [(r["asset_id"], r["asset_name"], r[key]) for r in ranked[:k]],
-                    "bottom": [(r["asset_id"], r["asset_name"], r[key]) for r in ranked[::-1][:k]]})
+        side = out.setdefault(m["class_id"], {}).setdefault(m["horizon"], {"top": [], "bottom": []})[m["side"]]
+        side.append({"asset_id": m["asset_id"], "asset_name": m["asset_name"], "sub_class": m["sub_class"],
+                     "home_class_id": m["home_class_id"], "change_pct": change})
+    return out
+
+
+def class_movers(ds: Dict[str, Any], horizon: str = "1d", count: int = 3, include_all: bool = False) -> List[Dict[str, Any]]:
+    """Per class (plus the cross-class `all` scope if asked), the first `count` top and bottom movers."""
+    scopes = [(s["class_id"], s["asset_class"], s["short_name"]) for s in ds["summaries"]]
+    if include_all:
+        scopes.append(("all", "All classes", "All classes"))
+    out = []
+    for scope_id, name, short in scopes:
+        sides = ds["movers"].get(scope_id, {}).get(horizon)
+        if not sides or not sides["top"]:
+            continue
+        out.append({"class_id": scope_id, "asset_class": name, "short_name": short,
+                    "top": [(m["asset_id"], m["asset_name"], m["change_pct"]) for m in sides["top"][:count]],
+                    "bottom": [(m["asset_id"], m["asset_name"], m["change_pct"]) for m in sides["bottom"][:count]]})
     return out
 
 
@@ -263,11 +282,12 @@ def render_terminal(ds: Dict[str, Any], horizon: str = "1d", count: int = 3) -> 
                   + f"{breadth:>6}  {sparkline(s['index_90d']):<24}  {s['trend']}")
 
     print(f"\n[Top and bottom movers by class — total return over {MOVER_LABELS[horizon]}]")
-    for mv in class_movers(ds, horizon, count):
-        ups = "  ".join(f"{t} {fmt_pct(v)}" for t, _, v in mv["top"])
-        downs = "  ".join(f"{t} {fmt_pct(v)}" for t, _, v in mv["bottom"])
-        print(f"  {mv['short_name']:<18} ▲ {ups}")
-        print(f"  {'':<18} ▼ {downs}")
+    for mv in class_movers(ds, horizon, count, include_all=True):
+        for arrow, items in (("▲", mv["top"]), ("▼", mv["bottom"])):
+            cells = [f"{t} {fmt_pct(v)}" for t, _, v in items]
+            for i in range(0, len(cells), 6):  # wrap long lists, six movers to a line
+                label = mv["short_name"] if arrow == "▲" and i == 0 else ""
+                print(f"  {label:<18} {arrow if i == 0 else ' '} " + "  ".join(f"{c:<16}" for c in cells[i:i + 6]).rstrip())
 
     print("\n[Largest deviations — |Z| vs 20-day mean]")
     for r in top_deviations(ds, 10):
@@ -360,6 +380,7 @@ def load_font(kind: str, size: int) -> Any:
 def render_png(ds: Dict[str, Any], out_path: Path, horizon: str = "1d", count: int = 3) -> bool:
     if not HAS_PIL:
         return False
+    count = min(count, 5)  # the strip has room for five per side; the full list is in the HTML dashboard
     movers = class_movers(ds, horizon, count)
     mover_rows = (len(movers) + 6) // 7
     cell_h = 62 + 30 * count
@@ -627,7 +648,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .sub { color:var(--muted); font-size:0.83rem; margin-bottom:12px; }
   section { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:18px; }
   .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap:18px; margin-bottom:18px; }
-  .grid2 > section { margin-bottom:0; min-width:0; }
+  .grid2 > section { margin-bottom:0; }
+  .grid2 > * { min-width:0; }
+  td.name { white-space:normal; text-align:left; }
   .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
   .card { background:var(--panel-alt); border:1px solid var(--border); border-radius:8px; padding:12px 14px; cursor:pointer; text-align:left;
     color:inherit; font:inherit; }
@@ -675,6 +698,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .mover h4 { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin:10px 0 5px; font-weight:600; }
   .mover .bars { grid-template-columns:minmax(64px,max-content) 1fr max-content; font-size:0.82rem; }
   .mover .bars .track { height:12px; min-width:40px; }
+  h4.mh { font-size:0.8rem; color:var(--muted); margin-bottom:6px; font-weight:600; }
   .kv { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
   .kv div { background:var(--panel-alt); border:1px solid var(--border); border-radius:8px; padding:10px 12px; }
   .kv div > span { display:block; color:var(--muted); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
@@ -708,6 +732,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <p class="sub" id="moverSub"></p>
   <div class="controls"><span id="moverHz"></span><span id="moverN"></span></div>
   <div class="movers" id="movers"></div>
+  <h3>Full movers list</h3>
+  <div class="controls"><select id="moverScope" aria-label="Movers scope"></select><span class="muted" id="moverCount" style="font-size:0.83rem"></span></div>
+  <div class="grid2" style="margin-bottom:0">
+    <div><h4 class="mh">Top movers</h4><div class="scroll tall"><table id="moverTop"></table></div></div>
+    <div><h4 class="mh">Bottom movers</h4><div class="scroll tall"><table id="moverBottom"></table></div></div>
+  </div>
 </section>
 
 <section id="explorer">
@@ -922,31 +952,44 @@ const HZ = __HORIZONS__;
 })();
 
 /* ---------- top and bottom movers ---------- */
-const MOVER_HZ = [["1D", "change_1d_pct", "1 day"], ["5D", "change_5d_pct", "5 days"], ["1M", "change_1m_pct", "1 month"],
-  ["3M", "change_3m_pct", "3 months"], ["YTD", "change_ytd_pct", "year to date"], ["1Y", "change_1y_pct", "1 year"]];
-const mover = {k: __MOVER_KEY__, n: __MOVER_COUNT__};
+const MOVER_HZ = [["1D", "1d", "1 day"], ["5D", "5d", "5 days"], ["1M", "1m", "1 month"],
+  ["3M", "3m", "3 months"], ["YTD", "ytd", "year to date"], ["1Y", "1y", "1 year"]];
+const mover = {k: __MOVER_KEY__, n: Math.min(__MOVER_COUNT__, 10), scope: D.movers.all ? "all" : (D.summaries[0] || {}).class_id};
+const className = Object.fromEntries(D.summaries.map(s => [s.class_id, s.asset_class]));
 $("moverHz").innerHTML = MOVER_HZ.map(([l, k]) => `<button class="opt" data-k="${k}">${l}</button>`).join(" ");
-$("moverN").innerHTML = [3, 5].map(n => `<button class="opt" data-n="${n}">Top ${n}</button>`).join(" ");
+$("moverN").innerHTML = [3, 5, 10].map(n => `<button class="opt" data-n="${n}">Top ${n}</button>`).join(" ");
+$("moverScope").innerHTML = (D.movers.all ? '<option value="all">All classes</option>' : "") + D.summaries.map(s => `<option value="${s.class_id}">${esc(s.asset_class)}</option>`).join("");
 $("moverHz").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { mover.k = b.dataset.k; drawMovers(); }));
 $("moverN").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { mover.n = +b.dataset.n; drawMovers(); }));
+$("moverScope").addEventListener("change", e => { mover.scope = e.target.value; drawMoverTable(); });
+const moverSides = scope => ((D.movers[scope] || {})[mover.k]) || {top: [], bottom: []};
 function drawMovers() {
   const hz = MOVER_HZ.find(h => h[1] === mover.k);
   $("moverHz").querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.k === mover.k));
   $("moverN").querySelectorAll("button").forEach(b => b.classList.toggle("active", +b.dataset.n === mover.n));
-  $("moverSub").textContent = `Best and worst instruments in each asset class by total return over ${hz[2]}. Bars are scaled within each class. Treasury yield series are left out, so Bonds ranks bond funds by price. For Options the instruments are volatility indices, so a top mover is implied volatility rising. Select a class name to open it in the explorer.`;
+  $("moverSub").textContent = `Best and worst instruments in each asset class by total return over ${hz[2]}. Bars are scaled within each class. Treasury yield series are left out, so Bonds ranks bond funds by price. For Options the instruments are volatility indices, so a top mover is implied volatility rising. Select a class name to open it in the explorer, or see every collected mover (up to 100 per side) in the full list below.`;
   $("movers").innerHTML = D.summaries.map(s => {
-    const ranked = D.rows.filter(r => r.class_id === s.class_id && r[mover.k] != null && r.unit !== "pct").sort((a, b) => b[mover.k] - a[mover.k]);
-    const k = Math.min(mover.n, Math.floor(ranked.length / 2));
-    if (k < 1) return "";
-    const top = ranked.slice(0, k), bottom = ranked.slice(-k).reverse();
-    const scale = Math.max(...top.concat(bottom).map(r => Math.abs(r[mover.k]))) || 1;
-    const block = rows => `<div class="bars">` + rows.map(r => {
-      const v = r[mover.k], w = (Math.min(Math.abs(v) / scale, 1) * 100).toFixed(1);
-      return `<div title="${esc(r.asset_name)}"><b>${esc(r.asset_id)}</b></div><div class="track zero" title="${esc(r.asset_name)}"><b style="left:0;width:${w}%;background:var(--${v >= 0 ? "green" : "red"})"></b></div><div class="v">${signed(v)}</div>`;
+    const sides = moverSides(s.class_id), top = sides.top.slice(0, mover.n), bottom = sides.bottom.slice(0, mover.n);
+    if (!top.length) return "";
+    const scale = Math.max(...top.concat(bottom).map(m => Math.abs(m.change_pct))) || 1;
+    const block = rows => `<div class="bars">` + rows.map(m => {
+      const v = m.change_pct, w = (Math.min(Math.abs(v) / scale, 1) * 100).toFixed(1);
+      return `<div title="${esc(m.asset_name)}"><b>${esc(m.asset_id)}</b></div><div class="track zero" title="${esc(m.asset_name)}"><b style="left:0;width:${w}%;background:var(--${v >= 0 ? "green" : "red"})"></b></div><div class="v">${signed(v)}</div>`;
     }).join("") + "</div>";
-    return `<div class="mover"><button data-c="${s.class_id}">${esc(s.asset_class)}</button><h4>Top ${k}</h4>${block(top)}<h4>Bottom ${k}</h4>${block(bottom)}</div>`;
+    return `<div class="mover"><button data-c="${s.class_id}">${esc(s.asset_class)}</button><h4>Top ${top.length}</h4>${block(top)}<h4>Bottom ${bottom.length}</h4>${block(bottom)}</div>`;
   }).join("");
   $("movers").querySelectorAll("button[data-c]").forEach(b => b.addEventListener("click", () => { selectClass(b.dataset.c); $("explorer").scrollIntoView({behavior: "smooth"}); }));
+  drawMoverTable();
+}
+function drawMoverTable() {
+  const sides = moverSides(mover.scope), all = mover.scope === "all";
+  $("moverScope").value = mover.scope;
+  $("moverCount").textContent = `${sides.top.length} top and ${sides.bottom.length} bottom movers collected for this view`;
+  const table = rows => rows.length ? `<tr><th>#</th><th class="l">Ticker</th><th class="l">Name</th><th class="l">${all ? "Asset class" : "Type"}</th><th>Return</th></tr>` +
+    rows.map((m, i) => `<tr><td>${i + 1}</td><td class="l"><b>${esc(m.asset_id)}</b></td><td class="name">${esc(m.asset_name)}</td><td class="name muted">${esc(all ? (className[m.home_class_id] || m.home_class_id) : m.sub_class)}</td><td>${signed(m.change_pct)}</td></tr>`).join("")
+    : '<tr><td class="empty">No movers collected for this view.</td></tr>';
+  $("moverTop").innerHTML = table(sides.top);
+  $("moverBottom").innerHTML = table(sides.bottom);
 }
 
 /* ---------- class explorer ---------- */
@@ -957,7 +1000,17 @@ $("classSel").addEventListener("change", e => selectClass(e.target.value));
 $("winBtns").innerHTML = WINDOWS.map(([l, n]) => `<button class="opt" data-n="${n}">${l}</button>`).join(" ");
 $("winBtns").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { state.win = +b.dataset.n; drawExplorer(); }));
 $("modeBtn").addEventListener("click", () => { state.indexed = !state.indexed; drawExplorer(); });
-function selectClass(c) { state.cls = c; state.hidden = new Set(); $("classSel").value = c; drawExplorer(); }
+function selectClass(c) {
+  state.cls = c; state.hidden = new Set(); $("classSel").value = c;
+  // a large class is unreadable as 100 lines: start with its six best and six worst over one month
+  const rows = D.rows.filter(r => r.class_id === c);
+  if (rows.length > 30) {
+    const ranked = rows.filter(r => r.change_1m_pct != null).sort((a, b) => b.change_1m_pct - a.change_1m_pct);
+    const keep = new Set(ranked.slice(0, 6).concat(ranked.slice(-6)).map(r => r.asset_id));
+    rows.forEach(r => { if (!keep.has(r.asset_id)) state.hidden.add(r.asset_id); });
+  }
+  drawExplorer();
+}
 const colorFor = (i, n) => `hsl(${Math.round(i * 360 / Math.max(n, 1))},65%,${matchMedia("(prefers-color-scheme: light)").matches ? 40 : 62}%)`;
 let chartGeom = null, chartSeries = [], chartDates = [];
 function drawExplorer() {
@@ -982,7 +1035,8 @@ function drawExplorer() {
   for (let j = 0; j < chartDates.length; j += step) ticks.push([j, chartDates[j].slice(2)]);
   chartGeom = lineChart($("lineChart"), shown, {xTicks: ticks, xDomain: [0, Math.max(chartDates.length - 1, 1)], baseline: state.indexed ? 100 : null,
     yFmt: v => Math.abs(v) >= 1000 ? v.toFixed(0) : v.toFixed(1), label: `${s.asset_class} price history`});
-  $("legend").innerHTML = chartSeries.map(x => `<button data-id="${esc(x.id)}" class="${state.hidden.has(x.id) ? "off" : ""}"><i style="background:${x.color}"></i>${esc(x.id)}</button>`).join("");
+  const nHidden = chartSeries.filter(x => state.hidden.has(x.id)).length;
+  $("legend").innerHTML = (nHidden ? `<span class="muted" style="width:100%">Showing ${chartSeries.length - nHidden} of ${chartSeries.length} lines. Select a ticker to show or hide it.</span>` : "") + chartSeries.map(x => `<button data-id="${esc(x.id)}" class="${state.hidden.has(x.id) ? "off" : ""}"><i style="background:${x.color}"></i>${esc(x.id)}</button>`).join("");
   $("legend").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
     state.hidden.has(b.dataset.id) ? state.hidden.delete(b.dataset.id) : state.hidden.add(b.dataset.id); drawExplorer(); }));
   drawInstTable(rows);
@@ -1034,7 +1088,7 @@ function drawInstTable(rows) {
     drawInstTable(rows);
   }));
 }
-drawExplorer();
+selectClass(state.cls);
 drawMovers();
 
 /* ---------- rates & swaps ---------- */
@@ -1158,6 +1212,7 @@ def render_html(ds: Dict[str, Any], out_path: Path, horizon: str = "1d", count: 
         "summaries": ds["summaries"],
         "metrics": ds["metrics"],
         "alerts": ds["alerts"],
+        "movers": ds["movers"],
         "dates": ds["dates"],
         "series": ds["series"],
     }
@@ -1166,7 +1221,7 @@ def render_html(ds: Dict[str, Any], out_path: Path, horizon: str = "1d", count: 
         HTML_TEMPLATE.replace("__PAYLOAD__", blob)
         .replace("__GROUPS__", json.dumps(GROUPS))
         .replace("__HORIZONS__", json.dumps(HORIZONS))
-        .replace("__MOVER_KEY__", json.dumps(MOVER_HORIZONS[horizon]))
+        .replace("__MOVER_KEY__", json.dumps(horizon))
         .replace("__MOVER_COUNT__", str(count))
         .replace("__DATE__", ds["latest_date"])
     )
@@ -1181,11 +1236,14 @@ def main() -> int:
     parser.add_argument("--png", default="reports/asset_classes_overview.png", help="Output path for the PNG overview")
     parser.add_argument("--movers-horizon", choices=list(MOVER_HORIZONS), default="1d",
                         help="Return horizon for the top/bottom movers (default: 1d); the HTML dashboard can switch it live")
-    parser.add_argument("--movers-count", type=int, choices=[3, 5], default=3,
-                        help="Movers shown per side in each class (default: 3)")
+    parser.add_argument("--movers-count", type=int, default=3, metavar="N",
+                        help="Movers shown per side in each class in the terminal view, 1-100 (default: 3). The PNG strip "
+                             "and the dashboard cards show at most 5 and 10; the dashboard's full list always has all of them")
     parser.add_argument("--quiet", action="store_true", help="Skip the terminal dashboard")
     parser.add_argument("--open", action="store_true", help="Open the HTML dashboard in the default browser")
     args = parser.parse_args()
+    if not 1 <= args.movers_count <= 100:
+        parser.error("--movers-count must be between 1 and 100")
 
     data_dir = Path(args.data_dir)
     ds = load_datasets(data_dir)

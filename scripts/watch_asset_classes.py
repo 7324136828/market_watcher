@@ -79,7 +79,7 @@ UNIVERSE: Dict[str, Dict[str, Any]] = {
         "name": "Stocks (Equities)",
         "group": GROUPS[0],
         "coverage": "direct",
-        "note": "Headline indices plus the largest US-listed companies.",
+        "note": "Headline indices plus about 100 of the largest US-listed companies, grouped by sector.",
         "instruments": [
             ("^GSPC", "S&P 500", "US index", "index"),
             ("^DJI", "Dow Jones Industrial Average", "US index", "index"),
@@ -90,21 +90,7 @@ UNIVERSE: Dict[str, Dict[str, Any]] = {
             ("^STOXX50E", "Euro Stoxx 50", "Global index", "index"),
             ("^N225", "Nikkei 225", "Global index", "index"),
             ("^HSI", "Hang Seng", "Global index", "index"),
-            ("AAPL", "Apple", "Mega-cap stock", "usd"),
-            ("MSFT", "Microsoft", "Mega-cap stock", "usd"),
-            ("NVDA", "NVIDIA", "Mega-cap stock", "usd"),
-            ("AMZN", "Amazon", "Mega-cap stock", "usd"),
-            ("GOOGL", "Alphabet", "Mega-cap stock", "usd"),
-            ("META", "Meta Platforms", "Mega-cap stock", "usd"),
-            ("TSLA", "Tesla", "Mega-cap stock", "usd"),
-            ("AVGO", "Broadcom", "Mega-cap stock", "usd"),
-            ("BRK-B", "Berkshire Hathaway B", "Mega-cap stock", "usd"),
-            ("JPM", "JPMorgan Chase", "Mega-cap stock", "usd"),
-            ("LLY", "Eli Lilly", "Mega-cap stock", "usd"),
-            ("V", "Visa", "Mega-cap stock", "usd"),
-            ("XOM", "Exxon Mobil", "Mega-cap stock", "usd"),
-            ("WMT", "Walmart", "Mega-cap stock", "usd"),
-            ("UNH", "UnitedHealth", "Mega-cap stock", "usd"),
+            # ~100 large US companies are appended below from LARGE_CAP_STOCKS
         ],
     },
     "bonds": {
@@ -423,6 +409,53 @@ UNIVERSE: Dict[str, Dict[str, Any]] = {
         ],
     },
 }
+
+# About 100 of the largest US-listed companies by sector (the Stocks class's movers pool).
+LARGE_CAP_STOCKS: Dict[str, List[Tuple[str, str]]] = {
+    "Technology": [
+        ("AAPL", "Apple"), ("MSFT", "Microsoft"), ("NVDA", "NVIDIA"), ("AVGO", "Broadcom"), ("ORCL", "Oracle"),
+        ("CRM", "Salesforce"), ("ADBE", "Adobe"), ("AMD", "Advanced Micro Devices"), ("CSCO", "Cisco Systems"),
+        ("ACN", "Accenture"), ("IBM", "IBM"), ("INTC", "Intel"), ("INTU", "Intuit"), ("NOW", "ServiceNow"),
+        ("QCOM", "Qualcomm"), ("TXN", "Texas Instruments"), ("AMAT", "Applied Materials"), ("PLTR", "Palantir"),
+    ],
+    "Communication": [
+        ("GOOGL", "Alphabet"), ("META", "Meta Platforms"), ("NFLX", "Netflix"), ("DIS", "Walt Disney"),
+        ("CMCSA", "Comcast"), ("T", "AT&T"), ("VZ", "Verizon"), ("TMUS", "T-Mobile US"), ("CHTR", "Charter Communications"),
+    ],
+    "Consumer discretionary": [
+        ("AMZN", "Amazon"), ("TSLA", "Tesla"), ("HD", "Home Depot"), ("MCD", "McDonald's"), ("LOW", "Lowe's"),
+        ("BKNG", "Booking Holdings"), ("NKE", "Nike"), ("SBUX", "Starbucks"), ("TGT", "Target"), ("GM", "General Motors"),
+    ],
+    "Consumer staples": [
+        ("WMT", "Walmart"), ("COST", "Costco"), ("PG", "Procter & Gamble"), ("KO", "Coca-Cola"), ("PEP", "PepsiCo"),
+        ("PM", "Philip Morris International"), ("MO", "Altria"), ("MDLZ", "Mondelez"), ("CL", "Colgate-Palmolive"),
+    ],
+    "Health care": [
+        ("LLY", "Eli Lilly"), ("UNH", "UnitedHealth"), ("JNJ", "Johnson & Johnson"), ("ABBV", "AbbVie"), ("MRK", "Merck"),
+        ("ABT", "Abbott Laboratories"), ("TMO", "Thermo Fisher Scientific"), ("AMGN", "Amgen"), ("PFE", "Pfizer"),
+        ("DHR", "Danaher"), ("ISRG", "Intuitive Surgical"), ("GILD", "Gilead Sciences"), ("BMY", "Bristol-Myers Squibb"),
+        ("MDT", "Medtronic"), ("CVS", "CVS Health"),
+    ],
+    "Financials": [
+        ("BRK-B", "Berkshire Hathaway B"), ("JPM", "JPMorgan Chase"), ("V", "Visa"), ("MA", "Mastercard"),
+        ("BAC", "Bank of America"), ("WFC", "Wells Fargo"), ("GS", "Goldman Sachs"), ("MS", "Morgan Stanley"),
+        ("AXP", "American Express"), ("C", "Citigroup"), ("BLK", "BlackRock"), ("SCHW", "Charles Schwab"),
+        ("SPGI", "S&P Global"), ("COF", "Capital One"), ("USB", "U.S. Bancorp"), ("BNY", "BNY Mellon"),
+        ("PYPL", "PayPal"), ("AIG", "American International Group"),
+    ],
+    "Industrials": [
+        ("GE", "GE Aerospace"), ("CAT", "Caterpillar"), ("RTX", "RTX"), ("HON", "Honeywell"), ("UNP", "Union Pacific"),
+        ("BA", "Boeing"), ("DE", "Deere"), ("LMT", "Lockheed Martin"), ("UPS", "United Parcel Service"), ("FDX", "FedEx"),
+        ("GD", "General Dynamics"), ("EMR", "Emerson Electric"), ("MMM", "3M"), ("UBER", "Uber Technologies"),
+    ],
+    "Energy": [("XOM", "Exxon Mobil"), ("CVX", "Chevron"), ("COP", "ConocoPhillips")],
+    "Utilities & materials": [
+        ("NEE", "NextEra Energy"), ("SO", "Southern Company"), ("DUK", "Duke Energy"), ("LIN", "Linde"),
+    ],
+}
+STOCK_SUB_SUFFIX = " stock"
+for _sector, _names in LARGE_CAP_STOCKS.items():
+    UNIVERSE["stocks"]["instruments"] += [(t, n, _sector + STOCK_SUB_SUFFIX, "usd") for t, n in _names]
 
 CLASS_ORDER = list(UNIVERSE.keys())
 
@@ -942,12 +975,12 @@ def compute_metrics(
         return snaps[t]["price"] if t in snaps else None
 
     # --- Stocks -----------------------------------------------------------
-    megacaps = [t for t, _, sub, _ in UNIVERSE["stocks"]["instruments"] if sub == "Mega-cap stock" and t in snaps]
+    megacaps = [t for t, _, sub, _ in UNIVERSE["stocks"]["instruments"] if sub.endswith(STOCK_SUB_SUFFIX) and t in snaps]
     if megacaps:
         above = [snaps[t]["above_50dma"] for t in megacaps if snaps[t]["above_50dma"] is not None]
         if above:
-            add("stocks", "megacap_above_50dma_pct", "Mega-caps above their 50-day average",
-                sum(above) / len(above) * 100.0, "pct", "yahoo daily closes")
+            add("stocks", "megacap_above_50dma_pct", "Large-cap stocks above their 50-day average",
+                sum(above) / len(above) * 100.0, "pct", "yahoo daily closes", note=f"{len(above)} stocks")
     add("stocks", "small_vs_large_1m_pts", "Russell 2000 minus S&P 500, 1-month return",
         rel(snaps, "^RUT", "^GSPC", "change_1m_pct"), "pts", "yahoo daily closes")
     add("stocks", "equal_vs_cap_weight_1m_pts", "Equal-weight (RSP) minus cap-weight (SPY), 1-month return",
@@ -1304,10 +1337,63 @@ def build_alerts(rows: List[Dict[str, Any]], summaries: List[Dict[str, Any]], me
 
 
 # ---------------------------------------------------------------------------
+# Movers collection
+# ---------------------------------------------------------------------------
+
+MOVER_HORIZONS = [("1d", "change_1d_pct"), ("5d", "change_5d_pct"), ("1m", "change_1m_pct"),
+                  ("3m", "change_3m_pct"), ("ytd", "change_ytd_pct"), ("1y", "change_1y_pct")]
+MOVERS_LIMIT_MAX = 100
+ALL_CLASSES_ID = "all"
+
+
+def rank_movers(members: List[Dict[str, Any]], key: str, limit: int) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """
+    (top, bottom) movers by total return, best / worst first, at most `limit` per side.
+    A pool smaller than 2 x limit is split in half, so nothing is both a top and a bottom mover.
+    Yield series (unit `pct`) are left out: a rising yield is a falling bond price.
+    """
+    ranked = sorted((r for r in members if r.get(key) is not None and r.get("unit") != "pct"), key=lambda r: -r[key])
+    k = min(limit, len(ranked) // 2)
+    return ranked[:k], ranked[::-1][:k]
+
+
+def collect_movers(rows: List[Dict[str, Any]], limit: int = MOVERS_LIMIT_MAX, include_all: bool = True) -> List[Dict[str, Any]]:
+    """
+    The movers collection: for every class and every horizon, up to `limit` top and `limit` bottom
+    movers. With `include_all`, an extra `all` scope ranks every watched instrument once across
+    classes (volatility indices excluded, since they are not returns on something you can hold).
+    """
+    limit = max(1, min(limit, MOVERS_LIMIT_MAX))
+    scopes: List[Tuple[str, str, List[Dict[str, Any]]]] = []
+    for cls in dict.fromkeys(r["class_id"] for r in rows):
+        members = [r for r in rows if r["class_id"] == cls]
+        scopes.append((cls, members[0]["asset_class"], members))
+    if include_all:
+        unique: Dict[str, Dict[str, Any]] = {}
+        for r in rows:
+            if r["class_id"] != "options":
+                unique.setdefault(r["asset_id"], r)
+        scopes.append((ALL_CLASSES_ID, "All classes", list(unique.values())))
+    out: List[Dict[str, Any]] = []
+    for scope_id, scope_name, members in scopes:
+        for horizon, key in MOVER_HORIZONS:
+            top, bottom = rank_movers(members, key, limit)
+            for side, items in (("top", top), ("bottom", bottom)):
+                for rank, r in enumerate(items, start=1):
+                    out.append({
+                        "class_id": scope_id, "asset_class": scope_name, "horizon": horizon, "side": side, "rank": rank,
+                        "asset_id": r["asset_id"], "asset_name": r["asset_name"], "home_class_id": r["class_id"],
+                        "sub_class": r["sub_class"], "change_pct": r[key], "price": r["price"],
+                        "z_score_20d": r["z_score_20d"], "last_bar_date": r["last_bar_date"],
+                    })
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Orchestration
 # ---------------------------------------------------------------------------
 
-def run_watch(classes: List[str]) -> Dict[str, Any]:
+def run_watch(classes: List[str], movers_limit: int = MOVERS_LIMIT_MAX) -> Dict[str, Any]:
     now_utc = dt.datetime.now(UTC_TZ)
     run_date = now_utc.astimezone(NY_TZ).strftime("%Y-%m-%d")
     today = now_utc.date()
@@ -1371,6 +1457,8 @@ def run_watch(classes: List[str]) -> Dict[str, Any]:
         "metrics": metrics,
         "alerts": alerts,
         "missing": missing,
+        # the cross-class ranking is only meaningful when every class was fetched
+        "movers": collect_movers(rows, movers_limit, include_all=set(classes) == set(CLASS_ORDER)),
         "history": {t: hist[t] for t in wanted},
     }
 
@@ -1393,6 +1481,8 @@ SUMMARY_COLS = [
     "max_abs_z_id", "max_abs_z", "trend",
 ]
 METRIC_COLS = ["date", "timestamp_utc", "class_id", "asset_class", "metric_id", "metric_name", "value", "unit", "source", "note"]
+MOVER_COLS = ["date", "timestamp_utc", "class_id", "asset_class", "horizon", "side", "rank", "asset_id", "asset_name",
+              "home_class_id", "sub_class", "change_pct", "price", "z_score_20d", "last_bar_date"]
 ALERT_COLS = ["date", "timestamp_utc", "severity", "asset_id", "asset_class", "signal_type", "value", "threshold", "details"]
 
 
@@ -1408,14 +1498,19 @@ def cell(val: Any) -> str:
 
 
 def upsert_date_rows(path: Path, header: List[str], new_rows: List[Dict[str, Any]], run_date: str,
-                     replace_class_ids: Optional[List[str]] = None) -> None:
-    """Replace this run date's rows (optionally only for the given classes); keep earlier dates untouched."""
+                     replace_class_ids: Optional[List[str]] = None, latest_only: bool = False) -> None:
+    """
+    Replace this run date's rows (optionally only for the given classes); keep earlier dates untouched.
+    With `latest_only`, rows of earlier dates are dropped, for files that are a view of the latest run.
+    """
     kept: List[Dict[str, str]] = []
     if path.exists():
         with path.open(newline="", encoding="utf-8") as fh:
             for row in csv.DictReader(fh):
                 same_date = row.get("date") == run_date
                 in_scope = replace_class_ids is None or row.get("class_id") in replace_class_ids
+                if latest_only and not same_date:
+                    continue
                 if not (same_date and in_scope):
                     kept.append(row)
     with path.open("w", newline="", encoding="utf-8") as fh:
@@ -1465,6 +1560,10 @@ def write_csvs(result: Dict[str, Any], data_dir: Path) -> None:
     if not partial:  # alerts span classes, so only a full run may replace the day's alert set
         upsert_date_rows(data_dir / "asset_class_alerts.csv", ALERT_COLS, [{**stamp, **a} for a in result["alerts"]],
                          result["run_date"])
+    # Latest run date only: the ranking is derived from asset_classes.csv, which keeps the history.
+    # A partial run replaces only its own classes' movers; the `all` scope waits for the next full run.
+    upsert_date_rows(data_dir / "asset_class_movers.csv", MOVER_COLS, [{**stamp, **m} for m in result["movers"]],
+                     result["run_date"], scope, latest_only=True)
     write_history_wide(data_dir / "asset_classes_history.csv", result["history"], partial)
 
 
@@ -1479,7 +1578,7 @@ def render_markdown(result: Dict[str, Any]) -> str:
     L.append("")
     L.append(f"> Run date `{result['run_date']}` (`America/New_York`). Generated by `scripts/watch_asset_classes.py`. "
              f"{len(result['rows'])} instruments across {len(result['summaries'])} asset classes, "
-             f"{len(result['metrics'])} derived metrics, {len(result['alerts'])} alerts.")
+             f"{len(result['metrics'])} derived metrics, {len(result['movers'])} mover rows, {len(result['alerts'])} alerts.")
     L.append("")
     L.append("### 1. Asset-Class Scoreboard")
     L.append("Median total return of each class's tracked instruments. Breadth = share above their 50-day average.")
@@ -1519,7 +1618,35 @@ def render_markdown(result: Dict[str, Any]) -> str:
         if len(seen) >= 15:
             break
     L.append("")
-    L.append("### 3. Class-Specific Metrics")
+    L.append("### 3. Top and Bottom Movers (1 day)")
+    L.append("Best and worst instruments by total return. The full collection (every horizon, up to "
+             f"{MOVERS_LIMIT_MAX} per side per class) is in `data/asset_class_movers.csv`.")
+    L.append("")
+
+    def movers_of(scope: str, side: str, n: int) -> List[Dict[str, Any]]:
+        return [m for m in result["movers"] if m["class_id"] == scope and m["horizon"] == "1d" and m["side"] == side][:n]
+
+    def tick(m: Dict[str, Any]) -> str:
+        return f"`{m['asset_id']}` {m['change_pct']:+.2f}%"
+
+    L.append("| Asset class | Top movers | Bottom movers |")
+    L.append("| :--- | :--- | :--- |")
+    for cls in result["classes"]:
+        top, bottom = movers_of(cls, "top", 3), movers_of(cls, "bottom", 3)
+        if top:
+            L.append(f"| {UNIVERSE[cls]['name']} | {' · '.join(tick(m) for m in top)} | {' · '.join(tick(m) for m in bottom)} |")
+    overall_top, overall_bottom = movers_of(ALL_CLASSES_ID, "top", 10), movers_of(ALL_CLASSES_ID, "bottom", 10)
+    if overall_top:
+        L.append("")
+        L.append("**Across all classes**")
+        L.append("")
+        L.append("| # | Top mover | Class | 1d | Bottom mover | Class | 1d |")
+        L.append("| ---: | :--- | :--- | ---: | :--- | :--- | ---: |")
+        for i, (a, b) in enumerate(zip(overall_top, overall_bottom), start=1):
+            L.append(f"| {i} | `{a['asset_id']}` {a['asset_name']} | {UNIVERSE[a['home_class_id']]['name']} | {a['change_pct']:+.2f}% | "
+                     f"`{b['asset_id']}` {b['asset_name']} | {UNIVERSE[b['home_class_id']]['name']} | {b['change_pct']:+.2f}% |")
+    L.append("")
+    L.append("### 4. Class-Specific Metrics")
     for cls in result["classes"]:
         ms = [m for m in result["metrics"] if m["asset_class"] == cls]
         if not ms:
@@ -1538,7 +1665,7 @@ def render_markdown(result: Dict[str, Any]) -> str:
         for m in shown:
             L.append(f"| {m['metric_name']} | {format_metric(m)} | {m['source']} | {m['note']} |")
     L.append("")
-    L.append("### 4. Alerts")
+    L.append("### 5. Alerts")
     L.append("")
     if result["alerts"]:
         L.append("| Severity | Asset | Asset class | Signal | Details |")
@@ -1548,7 +1675,7 @@ def render_markdown(result: Dict[str, Any]) -> str:
     else:
         L.append("No triggers fired.")
     L.append("")
-    L.append("### 5. Coverage & Data Gaps")
+    L.append("### 6. Coverage & Data Gaps")
     L.append("")
     L.append("- `direct` = quoted instruments of the class itself · `proxy` = listed stand-ins for an OTC or "
              "private market · `model` = computed estimate, not a quote.")
@@ -1626,8 +1753,13 @@ def main() -> int:
                         help=f"Subset of classes: {' '.join(CLASS_ORDER)}")
     parser.add_argument("--data-dir", default="data", help="Data directory (default: data)")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON instead of the terminal view")
+    parser.add_argument("--movers-limit", type=int, default=MOVERS_LIMIT_MAX, metavar="N",
+                        help=f"Top and bottom movers kept per class and horizon in data/asset_class_movers.csv "
+                             f"(1-{MOVERS_LIMIT_MAX}, default {MOVERS_LIMIT_MAX})")
     parser.add_argument("--list", action="store_true", help="List the watched universe and exit")
     args = parser.parse_args()
+    if not 1 <= args.movers_limit <= MOVERS_LIMIT_MAX:
+        parser.error(f"--movers-limit must be between 1 and {MOVERS_LIMIT_MAX}")
 
     if args.list:
         for group in GROUPS:
@@ -1640,7 +1772,7 @@ def main() -> int:
         return 0
 
     classes = [c for c in CLASS_ORDER if not args.classes or c in args.classes]
-    result = run_watch(classes)
+    result = run_watch(classes, args.movers_limit)
     if not result["rows"]:
         print("[ERR] No instrument data could be fetched.", file=sys.stderr)
         return 1

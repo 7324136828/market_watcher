@@ -137,6 +137,17 @@ families: `ust_par_<tenor>`, `curve_2s10s_bps`, `tbill_<n>w_yield_pct`, `sofr_pc
 `steep_contango`, `steep_backwardation`, `fed_path_repricing`. Only a full run (all classes) replaces a
 date's alerts.
 
+### `asset_class_movers.csv` — movers collection (latest run only)
+`date,timestamp_utc,class_id,asset_class,horizon,side,rank,asset_id,asset_name,home_class_id,sub_class,change_pct,price,z_score_20d,last_bar_date`
+- One row per mover. `class_id` is the scope: an asset class, or `all` for the ranking across every watched
+  instrument (each counted once; volatility indices excluded). `home_class_id` is the instrument's own class.
+- `horizon` ∈ `1d`, `5d`, `1m`, `3m`, `ytd`, `1y`; `side` ∈ `top`, `bottom`; `rank` 1 is the largest gain
+  (`top`) or the largest loss (`bottom`). `change_pct` is the total return over the horizon.
+- Up to 100 rows per scope, horizon and side (`--movers-limit`). A scope with fewer than 200 rankable
+  instruments is split in half, so no instrument is both a top and a bottom mover. Yield series are excluded.
+- Holds the **latest run date only** (not append-only): the ranking is derived from `asset_classes.csv`, which
+  keeps the history. The `all` scope is refreshed only by a full run.
+
 ### `asset_classes_history.csv` — wide price history
 `date,<asset_id>,…` — one column per watched instrument, dividend-adjusted daily closes for the trailing
 year. Regenerated on every run (not append-only); empty where an instrument did not trade that day.

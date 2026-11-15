@@ -99,7 +99,7 @@ Watches fourteen asset classes and instrument families in three groups, using on
 
 | Group | Class (`class_id`) | Coverage | What is watched |
 | :--- | :--- | :--- | :--- |
-| Core asset classes | Stocks (Equities) (`stocks`) | `direct` | US and global indices, 15 mega-cap stocks; breadth and small-vs-large gauges. |
+| Core asset classes | Stocks (Equities) (`stocks`) | `direct` | US and global indices, about 100 of the largest US companies by sector; breadth and small-vs-large gauges. |
 | Core asset classes | Bonds (Fixed Income) (`bonds`) | `direct` | Treasury yields and full par curve, 2s10s / 3m10y slopes, Treasury / IG / HY / muni / EM / TIPS bond ETFs. |
 | Core asset classes | Cash & Cash Equivalents (`cash`) | `direct` | T-bill and ultra-short ETFs, bill coupon-equivalent yields, SOFR / EFFR / OBFR, Fed target range. |
 | Core asset classes | Commodities (`commodities`) | `direct` | Energy, metals and agriculture front-month futures, broad ETFs, gold/silver and copper/gold ratios. |
@@ -116,7 +116,9 @@ Watches fourteen asset classes and instrument families in three groups, using on
 
 `coverage` states how literally a class is observed: `direct` = quoted instruments of the class itself, `proxy` = listed stand-ins for an OTC or private market, `model` = a computed estimate, never a quote. Missing inputs leave cells empty; nothing is extrapolated (§7.4).
 
-Per instrument: price, 1d / 5d / 1m / 3m / YTD / 1y total return (adjusted close), 20-day population Z-score, 20-day volume ratio, 30-day realised volatility, 52-week drawdown, 50- and 200-day trend flags. Per class: median returns, breadth, best / worst, trend label (`ADVANCING | MIXED | DECLINING`). Alerts reuse the §4.1 Z-score rule (`|Z| ≥ 2.5` with volume `> 1.8×`) and add class rallies / sell-offs (median 5d move `≥ 3%`), new 52-week highs / lows, VIX term-structure backwardation, IV rank `≥ 80%`, yield-curve inversion, steep futures curves (`≥ 10%` over 12 months) and Fed-path repricing.
+Per instrument: price, 1d / 5d / 1m / 3m / YTD / 1y total return (adjusted close), 20-day population Z-score, 20-day volume ratio, 30-day realised volatility, 52-week drawdown, 50- and 200-day trend flags. Per class: median returns, breadth, best / worst, trend label (`ADVANCING | MIXED | DECLINING`). **Movers collection:** for every class and every horizon (1d / 5d / 1m / 3m / YTD / 1y) the watcher ranks the instruments by total return and saves up to 100 top and 100 bottom movers to `data/asset_class_movers.csv`, plus an `all` scope ranking every watched instrument once across classes (`--movers-limit N`, 1–100, default 100). A pool smaller than twice the limit is split in half, so nothing is both a top and a bottom mover; yield series are excluded.
+
+Alerts reuse the §4.1 Z-score rule (`|Z| ≥ 2.5` with volume `> 1.8×`) and add class rallies / sell-offs (median 5d move `≥ 3%`), new 52-week highs / lows, VIX term-structure backwardation, IV rank `≥ 80%`, yield-curve inversion, steep futures curves (`≥ 10%` over 12 months) and Fed-path repricing.
 
 #### CLI Usage (`scripts/watch_asset_classes.py`)
 ```bash
@@ -130,6 +132,9 @@ python3 scripts/watch_asset_classes.py --write-csv --write-report reports/asset-
 # mutual_funds options futures_forwards swaps structured annuities)
 python3 scripts/watch_asset_classes.py --classes options swaps annuities --dry-run
 
+# Keep fewer movers per class and horizon in data/asset_class_movers.csv (default and maximum: 100 per side)
+python3 scripts/watch_asset_classes.py --write-csv --movers-limit 25
+
 # List the watched universe, or emit JSON
 python3 scripts/watch_asset_classes.py --list
 python3 scripts/watch_asset_classes.py --dry-run --json
@@ -137,22 +142,22 @@ python3 scripts/watch_asset_classes.py --dry-run --json
 
 ### D. Asset-Class Visualizer (`scripts/visualize_asset_classes.py`)
 
-Reads `data/asset_classes.csv`, `asset_class_summary.csv`, `asset_class_metrics.csv`, `asset_class_alerts.csv` and `asset_classes_history.csv` and generates:
+Reads `data/asset_classes.csv`, `asset_class_summary.csv`, `asset_class_metrics.csv`, `asset_class_alerts.csv`, `asset_class_movers.csv` and `asset_classes_history.csv` and generates:
 
 1. **Terminal dashboard (`stdout`):** class scoreboard with 90-day sparklines, top and bottom movers per class, largest Z-score deviations, rates (bills, Treasury curve, implied swaps), options term structure and put/call ratios, futures curve slopes, model annuity payouts, alerts.
 2. **PNG overview (`reports/asset_classes_overview.png`, needs Pillow):** six panels — return heatmap by class and horizon, breadth, Z-score deviations, Treasury vs implied swap curve, options, futures curves and annuity payouts — plus a strip of top and bottom movers for every class.
-3. **Interactive HTML dashboard (`reports/asset_classes_dashboard.html`):** self-contained; class cards, return heatmap, top and bottom movers per class (switchable 1D / 5D / 1M / 3M / YTD / 1Y, top 3 or 5), per-class chart explorer (indexed or raw, 1M–1Y) with sortable instrument table, rates and forward-rate charts, options and futures panels, fund scorecards, annuity table, filterable metric browser, alerts and coverage notes.
+3. **Interactive HTML dashboard (`reports/asset_classes_dashboard.html`):** self-contained; class cards, return heatmap, top and bottom movers per class (switchable 1D / 5D / 1M / 3M / YTD / 1Y, top 3 / 5 / 10) with a full movers list of up to 100 per side for any class or across all classes, per-class chart explorer (indexed or raw, 1M–1Y) with sortable instrument table, rates and forward-rate charts, options and futures panels, fund scorecards, annuity table, filterable metric browser, alerts and coverage notes.
 
 ```bash
 python3 scripts/visualize_asset_classes.py
 python3 scripts/visualize_asset_classes.py --html reports/asset_classes_dashboard.html --png reports/asset_classes_overview.png --open
 
-# Rank movers over another horizon (1d 5d 1m 3m ytd 1y) or show 5 per side; applies to the terminal, the PNG
-# and the HTML dashboard's initial view
-python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 5
+# Rank movers over another horizon (1d 5d 1m 3m ytd 1y) and show more per side (1-100) in the terminal view;
+# the PNG strip shows at most 5, the dashboard cards at most 10, and the dashboard's full list all of them
+python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 25
 ```
 
-Movers are the best and worst instruments of each class by total return. Treasury yield series are excluded (a rising yield is a falling bond price), and a class with fewer than twice the requested count shows half its instruments per side. Continuous front-month futures (`=F`) splice contracts together, so their Z-score and 52-week alerts are capped at `medium` and carry a roll caveat; rate futures are read from dated contracts only.
+Movers are read from the watcher's collection (`data/asset_class_movers.csv`), so every view uses the same ranking; if that file has no rows for the latest date the visualizer rebuilds the ranking from `asset_classes.csv`. Treasury yield series are excluded (a rising yield is a falling bond price), and a class with fewer than twice the requested count shows half its instruments per side. Continuous front-month futures (`=F`) splice contracts together, so their Z-score and 52-week alerts are capped at `medium` and carry a roll caveat; rate futures are read from dated contracts only.
 
 ---
 
