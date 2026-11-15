@@ -7,9 +7,10 @@ Reads the CSV files that the watcher writes into `data/`:
   asset_classes_history.csv
 and produces three views of the latest run:
 
-  1. Terminal dashboard (stdout): scoreboard with 90-day sparklines per class, return heatmap,
+  1. Terminal dashboard (stdout): scoreboard with 90-day sparklines per class, top and bottom movers
+     per class, return heatmap,
      largest Z-score deviations, rates / options / futures / annuity highlights, alerts.
-  2. PNG overview (`reports/asset_classes_overview.png`, needs Pillow): six panels — return heatmap,
+  2. PNG overview (`reports/asset_classes_overview.png`, needs Pillow): six panels plus a movers strip — return heatmap,
      breadth, Z-score deviations, Treasury vs implied swap curve, options, futures curve slopes.
   3. Self-contained interactive HTML dashboard (`reports/asset_classes_dashboard.html`): class cards,
      return heatmap, per-class chart explorer with sortable instrument table, rates & swaps curves,
@@ -132,6 +133,11 @@ def load_datasets(data_dir: Path) -> Dict[str, Any]:
     tickers = [c for c in (history[0].keys() if history else []) if c != "date"]
     series = {t: [to_float(h.get(t)) for h in history] for t in tickers}
 
+    # keep the canonical class order even after a partial (--classes) run rewrote some rows last
+    order = {cls: i for i, cls in enumerate(SHORT_NAMES)}
+    summaries.sort(key=lambda s: order.get(s["class_id"], len(order)))
+    rows.sort(key=lambda r: order.get(r["class_id"], len(order)))
+
     by_class: Dict[str, List[str]] = {}
     for r in rows:
         by_class.setdefault(r["class_id"], []).append(r["asset_id"])
@@ -156,6 +162,32 @@ def load_datasets(data_dir: Path) -> Dict[str, Any]:
 # ---------------------------------------------------------------------------
 # Shared selections used by all three renderers
 # ---------------------------------------------------------------------------
+
+MOVER_HORIZONS = {"1d": "change_1d_pct", "5d": "change_5d_pct", "1m": "change_1m_pct", "3m": "change_3m_pct",
+                  "ytd": "change_ytd_pct", "1y": "change_1y_pct"}
+MOVER_LABELS = {"1d": "1 day", "5d": "5 days", "1m": "1 month", "3m": "3 months", "ytd": "year to date", "1y": "1 year"}
+
+
+def class_movers(ds: Dict[str, Any], horizon: str = "1d", count: int = 3) -> List[Dict[str, Any]]:
+    """
+    Per class, the `count` best and worst instruments by total return over the horizon.
+    A class with fewer than 2 x count instruments shows half of them on each side, so no
+    instrument is ever listed as both a top and a bottom mover. Yield series (unit `pct`) are
+    left out: a rising yield is a falling bond price, so ranking them with prices would mislead.
+    """
+    key = MOVER_HORIZONS[horizon]
+    out = []
+    for s in ds["summaries"]:
+        ranked = sorted((r for r in ds["rows"] if r["class_id"] == s["class_id"] and r[key] is not None and r["unit"] != "pct"),
+                        key=lambda r: -r[key])
+        k = min(count, len(ranked) // 2)
+        if k < 1:
+            continue
+        out.append({"class_id": s["class_id"], "asset_class": s["asset_class"], "short_name": s["short_name"],
+                    "top": [(r["asset_id"], r["asset_name"], r[key]) for r in ranked[:k]],
+                    "bottom": [(r["asset_id"], r["asset_name"], r[key]) for r in ranked[::-1][:k]]})
+    return out
+
 
 def top_deviations(ds: Dict[str, Any], n: int = 12) -> List[Dict[str, Any]]:
     seen, out = set(), []
@@ -212,7 +244,7 @@ def sparkline(values: List[float], width: int = 24) -> str:
 # 1. Terminal dashboard
 # ---------------------------------------------------------------------------
 
-def render_terminal(ds: Dict[str, Any]) -> None:
+def render_terminal(ds: Dict[str, Any], horizon: str = "1d", count: int = 3) -> None:
     bar = "=" * 124
     print(bar)
     print(f" ASSET-CLASS WATCH DASHBOARD — {ds['latest_date']} ({ds['timestamp_utc']}) | "
@@ -229,6 +261,13 @@ def render_terminal(ds: Dict[str, Any]) -> None:
             print(f"  {s['asset_class']:<41}{s['coverage']:<7}{s['n_instruments']:>3}"
                   + "".join(f"{fmt_pct(s[k]):>9}" for _, k in HORIZONS)
                   + f"{breadth:>6}  {sparkline(s['index_90d']):<24}  {s['trend']}")
+
+    print(f"\n[Top and bottom movers by class — total return over {MOVER_LABELS[horizon]}]")
+    for mv in class_movers(ds, horizon, count):
+        ups = "  ".join(f"{t} {fmt_pct(v)}" for t, _, v in mv["top"])
+        downs = "  ".join(f"{t} {fmt_pct(v)}" for t, _, v in mv["bottom"])
+        print(f"  {mv['short_name']:<18} ▲ {ups}")
+        print(f"  {'':<18} ▼ {downs}")
 
     print("\n[Largest deviations — |Z| vs 20-day mean]")
     for r in top_deviations(ds, 10):
@@ -318,10 +357,14 @@ def load_font(kind: str, size: int) -> Any:
         return ImageFont.load_default()
 
 
-def render_png(ds: Dict[str, Any], out_path: Path) -> bool:
+def render_png(ds: Dict[str, Any], out_path: Path, horizon: str = "1d", count: int = 3) -> bool:
     if not HAS_PIL:
         return False
-    W, H = 2400, 1560
+    movers = class_movers(ds, horizon, count)
+    mover_rows = (len(movers) + 6) // 7
+    cell_h = 62 + 30 * count
+    strip_h = (96 + mover_rows * (cell_h + 12)) if movers else 0
+    W, H = 2400, 1560 + (strip_h + 20 if movers else 0)
     BG, CARD, BORDER = (13, 17, 23), (22, 27, 34), (48, 54, 61)
     TEXT, MUTED = (230, 237, 243), (139, 148, 158)
     GREEN, RED, BLUE, AMBER, PURPLE = (63, 185, 80), (248, 81, 73), (88, 166, 255), (210, 153, 34), (188, 140, 255)
@@ -379,7 +422,7 @@ def render_png(ds: Dict[str, Any], out_path: Path) -> bool:
     col_w = (W - 24 * 2 - 20 * 2) // 3
     xs = [24, 24 + col_w + 20, 24 + 2 * (col_w + 20)]
     row1 = (124, 850)
-    row2 = (870, H - 24)
+    row2 = (870, 1536)
 
     # Panel A: return heatmap
     x0, y0, x1, y1 = panel(xs[0], row1[0], xs[0] + col_w, row1[1], "Median return by asset class", "Median total return of each class's tracked instruments (%)")
@@ -518,6 +561,27 @@ def render_png(ds: Dict[str, Any], out_path: Path) -> bool:
         d.text((x0, y1 - 46), "Annualised forward premium (dated future vs spot):", font=f_small, fill=MUTED)
         d.text((x0, y1 - 24), "   ".join(carry), font=f_small, fill=TEXT)
 
+    # Movers strip: one cell per class, best performers on the left, worst on the right
+    if movers:
+        x0, y0, x1, y1 = panel(24, 1556, W - 24, 1556 + strip_h, "Top and bottom movers by asset class",
+                               f"Best and worst {count} instruments in each class by total return over {MOVER_LABELS[horizon]} (%)")
+        gap = 12
+        cw = (x1 - x0 - gap * 6) / 7
+        for i, mv in enumerate(movers):
+            cx = x0 + (i % 7) * (cw + gap)
+            cy = y0 + (i // 7) * (cell_h + gap)
+            d.rounded_rectangle([cx, cy, cx + cw, cy + cell_h], radius=8, fill=blend(MUTED, 0.08), outline=BORDER, width=1)
+            d.text((cx + 12, cy + 10), mv["short_name"], font=f_bold, fill=TEXT)
+            half = cw / 2
+            d.text((cx + 12, cy + 36), "TOP", font=f_small, fill=MUTED)
+            d.text((cx + half + 6, cy + 36), "BOTTOM", font=f_small, fill=MUTED)
+            for side, items in ((0, mv["top"]), (1, mv["bottom"])):
+                bx = cx + 12 + side * (half - 6)
+                for j, (ticker, _, v) in enumerate(items):
+                    ty = cy + 58 + j * 30
+                    d.text((bx, ty), ticker, font=f_body, fill=TEXT)
+                    right(bx + half - 22, ty, f"{v:+.2f}", f_bold, GREEN if v > 0 else (RED if v < 0 else MUTED))
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "PNG", optimize=True)
     return True
@@ -604,6 +668,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bars .track::after { content:""; position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--border); }
   .bars .track.zero::after { left:0; }
   .bars .v { font-variant-numeric:tabular-nums; font-weight:600; text-align:right; }
+  .movers { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:12px; }
+  .mover { background:var(--panel-alt); border:1px solid var(--border); border-radius:8px; padding:12px 14px; min-width:0; }
+  .mover > button { background:none; border:none; color:var(--text); font:inherit; font-weight:650; font-size:0.93rem; cursor:pointer; padding:0; text-align:left; }
+  .mover > button:hover { color:var(--blue); }
+  .mover h4 { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin:10px 0 5px; font-weight:600; }
+  .mover .bars { grid-template-columns:minmax(64px,max-content) 1fr max-content; font-size:0.82rem; }
+  .mover .bars .track { height:12px; min-width:40px; }
   .kv { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
   .kv div { background:var(--panel-alt); border:1px solid var(--border); border-radius:8px; padding:10px 12px; }
   .kv div > span { display:block; color:var(--muted); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
@@ -630,6 +701,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <h2>Return heatmap</h2>
   <p class="sub">Median total return (%) by horizon. Colour intensity is scaled within each column.</p>
   <div class="scroll"><table id="heat"></table></div>
+</section>
+
+<section>
+  <h2>Top and bottom movers</h2>
+  <p class="sub" id="moverSub"></p>
+  <div class="controls"><span id="moverHz"></span><span id="moverN"></span></div>
+  <div class="movers" id="movers"></div>
 </section>
 
 <section id="explorer">
@@ -843,6 +921,34 @@ const HZ = __HORIZONS__;
   $("heat").innerHTML = h;
 })();
 
+/* ---------- top and bottom movers ---------- */
+const MOVER_HZ = [["1D", "change_1d_pct", "1 day"], ["5D", "change_5d_pct", "5 days"], ["1M", "change_1m_pct", "1 month"],
+  ["3M", "change_3m_pct", "3 months"], ["YTD", "change_ytd_pct", "year to date"], ["1Y", "change_1y_pct", "1 year"]];
+const mover = {k: __MOVER_KEY__, n: __MOVER_COUNT__};
+$("moverHz").innerHTML = MOVER_HZ.map(([l, k]) => `<button class="opt" data-k="${k}">${l}</button>`).join(" ");
+$("moverN").innerHTML = [3, 5].map(n => `<button class="opt" data-n="${n}">Top ${n}</button>`).join(" ");
+$("moverHz").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { mover.k = b.dataset.k; drawMovers(); }));
+$("moverN").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { mover.n = +b.dataset.n; drawMovers(); }));
+function drawMovers() {
+  const hz = MOVER_HZ.find(h => h[1] === mover.k);
+  $("moverHz").querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.k === mover.k));
+  $("moverN").querySelectorAll("button").forEach(b => b.classList.toggle("active", +b.dataset.n === mover.n));
+  $("moverSub").textContent = `Best and worst instruments in each asset class by total return over ${hz[2]}. Bars are scaled within each class. Treasury yield series are left out, so Bonds ranks bond funds by price. For Options the instruments are volatility indices, so a top mover is implied volatility rising. Select a class name to open it in the explorer.`;
+  $("movers").innerHTML = D.summaries.map(s => {
+    const ranked = D.rows.filter(r => r.class_id === s.class_id && r[mover.k] != null && r.unit !== "pct").sort((a, b) => b[mover.k] - a[mover.k]);
+    const k = Math.min(mover.n, Math.floor(ranked.length / 2));
+    if (k < 1) return "";
+    const top = ranked.slice(0, k), bottom = ranked.slice(-k).reverse();
+    const scale = Math.max(...top.concat(bottom).map(r => Math.abs(r[mover.k]))) || 1;
+    const block = rows => `<div class="bars">` + rows.map(r => {
+      const v = r[mover.k], w = (Math.min(Math.abs(v) / scale, 1) * 100).toFixed(1);
+      return `<div title="${esc(r.asset_name)}"><b>${esc(r.asset_id)}</b></div><div class="track zero" title="${esc(r.asset_name)}"><b style="left:0;width:${w}%;background:var(--${v >= 0 ? "green" : "red"})"></b></div><div class="v">${signed(v)}</div>`;
+    }).join("") + "</div>";
+    return `<div class="mover"><button data-c="${s.class_id}">${esc(s.asset_class)}</button><h4>Top ${k}</h4>${block(top)}<h4>Bottom ${k}</h4>${block(bottom)}</div>`;
+  }).join("");
+  $("movers").querySelectorAll("button[data-c]").forEach(b => b.addEventListener("click", () => { selectClass(b.dataset.c); $("explorer").scrollIntoView({behavior: "smooth"}); }));
+}
+
 /* ---------- class explorer ---------- */
 const state = {cls: D.summaries.length ? D.summaries[0].class_id : null, win: 126, indexed: true, hidden: new Set(), sortK: "z_score_20d", sortDir: -1};
 const WINDOWS = [["1M", 21], ["3M", 63], ["6M", 126], ["1Y", 262]];
@@ -929,6 +1035,7 @@ function drawInstTable(rows) {
   }));
 }
 drawExplorer();
+drawMovers();
 
 /* ---------- rates & swaps ---------- */
 (function () {
@@ -1043,7 +1150,7 @@ drawExplorer();
 """
 
 
-def render_html(ds: Dict[str, Any], out_path: Path) -> None:
+def render_html(ds: Dict[str, Any], out_path: Path, horizon: str = "1d", count: int = 3) -> None:
     payload = {
         "latest_date": ds["latest_date"],
         "timestamp_utc": ds["timestamp_utc"],
@@ -1059,6 +1166,8 @@ def render_html(ds: Dict[str, Any], out_path: Path) -> None:
         HTML_TEMPLATE.replace("__PAYLOAD__", blob)
         .replace("__GROUPS__", json.dumps(GROUPS))
         .replace("__HORIZONS__", json.dumps(HORIZONS))
+        .replace("__MOVER_KEY__", json.dumps(MOVER_HORIZONS[horizon]))
+        .replace("__MOVER_COUNT__", str(count))
         .replace("__DATE__", ds["latest_date"])
     )
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1070,6 +1179,10 @@ def main() -> int:
     parser.add_argument("--data-dir", default="data", help="Data directory (default: data)")
     parser.add_argument("--html", default="reports/asset_classes_dashboard.html", help="Output path for the HTML dashboard")
     parser.add_argument("--png", default="reports/asset_classes_overview.png", help="Output path for the PNG overview")
+    parser.add_argument("--movers-horizon", choices=list(MOVER_HORIZONS), default="1d",
+                        help="Return horizon for the top/bottom movers (default: 1d); the HTML dashboard can switch it live")
+    parser.add_argument("--movers-count", type=int, choices=[3, 5], default=3,
+                        help="Movers shown per side in each class (default: 3)")
     parser.add_argument("--quiet", action="store_true", help="Skip the terminal dashboard")
     parser.add_argument("--open", action="store_true", help="Open the HTML dashboard in the default browser")
     args = parser.parse_args()
@@ -1082,12 +1195,12 @@ def main() -> int:
         return 1
 
     if not args.quiet:
-        render_terminal(ds)
+        render_terminal(ds, args.movers_horizon, args.movers_count)
     html_path = Path(args.html)
-    render_html(ds, html_path)
+    render_html(ds, html_path, args.movers_horizon, args.movers_count)
     print(f"[OK] Generated interactive HTML dashboard -> {html_path}")
     png_path = Path(args.png)
-    if render_png(ds, png_path):
+    if render_png(ds, png_path, args.movers_horizon, args.movers_count):
         print(f"[OK] Generated PNG overview -> {png_path}")
     else:
         print("[WARN] Pillow is not installed; skipped the PNG overview (`pip install pillow`).")

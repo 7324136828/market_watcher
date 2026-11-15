@@ -359,9 +359,10 @@ UNIVERSE: Dict[str, Dict[str, Any]] = {
         "coverage": "proxy",
         "note": "Swap and CDS quotes are dealer/OTC data with no free feed. Interest-rate swaps are watched "
         "through par OIS rates implied from the dated SOFR futures strip, Fed-funds futures, and listed funds "
-        "that hold rate swaps, swaptions or CDS. Currency, equity and total-return swaps are not covered.",
+        "that hold rate swaps, swaptions or CDS. Currency, equity and total-return swaps are not covered. "
+        "Rate futures are read from dated contracts only: a continuous front-month series steps to a "
+        "different month's rate at every roll, which is not a price move.",
         "instruments": [
-            ("ZQ=F", "30-Day Fed Funds Future", "OIS pricing", "usd"),
             ("LQDH", "iShares Interest Rate Hedged Corporate Bond", "Holds pay-fixed rate swaps", "usd"),
             ("HYGH", "iShares Interest Rate Hedged High Yield Bond", "Holds pay-fixed rate swaps", "usd"),
             ("PFIX", "Simplify Interest Rate Hedge", "Holds payer swaptions", "usd"),
@@ -1242,22 +1243,25 @@ def build_alerts(rows: List[Dict[str, Any]], summaries: List[Dict[str, Any]], me
             continue
         z, vr = r["z_score_20d"], r["vol_ratio_20d"]
         name = f"{r['asset_name']} ({r['asset_id']})"
+        # Yahoo's `=F` tickers splice successive contracts together, so a jump can be a roll, not a move
+        continuous = r["asset_id"].endswith("=F")
+        roll_note = " Continuous front-month series: confirm against the dated contract, a roll can cause this." if continuous else ""
         flagged = False
         if z is not None and abs(z) >= Z_TRIGGER:
             flagged = True
-            if vr is not None and vr > VOL_RATIO_TRIGGER:
+            if vr is not None and vr > VOL_RATIO_TRIGGER and not continuous:
                 emit("high", r["asset_id"], r["asset_class"], "z_score_volume_breakout", z,
                      f"|Z| >= {Z_TRIGGER} and volume > {VOL_RATIO_TRIGGER}x 20d avg",
                      f"{name} at {fmt_price(r['price'])}: Z={z:+.2f} on {vr:.1f}x average volume, 1d {fmt(r['change_1d_pct'], 2, '%', True)}.")
             else:
                 emit("medium", r["asset_id"], r["asset_class"], "z_score_extreme", z, f"|Z| >= {Z_TRIGGER}",
                      f"{name} at {fmt_price(r['price'])}: Z={z:+.2f} vs its 20-day mean, 1d {fmt(r['change_1d_pct'], 2, '%', True)}"
-                     + (f", volume {vr:.1f}x average." if vr is not None else " (no usable volume)."))
+                     + (f", volume {vr:.1f}x average." if vr is not None else " (no usable volume).") + roll_note)
         if r["is_52w_high"] or r["is_52w_low"]:
             flagged = True
             side = "high" if r["is_52w_high"] else "low"
             emit("info", r["asset_id"], r["asset_class"], f"new_52w_{side}", r["price"], f"close at 1-year {side}",
-                 f"{name} closed at a 1-year {side} of {fmt_price(r['price'])}.")
+                 f"{name} closed at a 1-year {side} of {fmt_price(r['price'])}.{roll_note}")
         if flagged:
             seen.add(r["asset_id"])
 

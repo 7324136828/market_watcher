@@ -139,14 +139,20 @@ python3 scripts/watch_asset_classes.py --dry-run --json
 
 Reads `data/asset_classes.csv`, `asset_class_summary.csv`, `asset_class_metrics.csv`, `asset_class_alerts.csv` and `asset_classes_history.csv` and generates:
 
-1. **Terminal dashboard (`stdout`):** class scoreboard with 90-day sparklines, largest Z-score deviations, rates (bills, Treasury curve, implied swaps), options term structure and put/call ratios, futures curve slopes, model annuity payouts, alerts.
-2. **PNG overview (`reports/asset_classes_overview.png`, needs Pillow):** six panels — return heatmap by class and horizon, breadth, Z-score deviations, Treasury vs implied swap curve, options, futures curves and annuity payouts.
-3. **Interactive HTML dashboard (`reports/asset_classes_dashboard.html`):** self-contained; class cards, return heatmap, per-class chart explorer (indexed or raw, 1M–1Y) with sortable instrument table, rates and forward-rate charts, options and futures panels, fund scorecards, annuity table, filterable metric browser, alerts and coverage notes.
+1. **Terminal dashboard (`stdout`):** class scoreboard with 90-day sparklines, top and bottom movers per class, largest Z-score deviations, rates (bills, Treasury curve, implied swaps), options term structure and put/call ratios, futures curve slopes, model annuity payouts, alerts.
+2. **PNG overview (`reports/asset_classes_overview.png`, needs Pillow):** six panels — return heatmap by class and horizon, breadth, Z-score deviations, Treasury vs implied swap curve, options, futures curves and annuity payouts — plus a strip of top and bottom movers for every class.
+3. **Interactive HTML dashboard (`reports/asset_classes_dashboard.html`):** self-contained; class cards, return heatmap, top and bottom movers per class (switchable 1D / 5D / 1M / 3M / YTD / 1Y, top 3 or 5), per-class chart explorer (indexed or raw, 1M–1Y) with sortable instrument table, rates and forward-rate charts, options and futures panels, fund scorecards, annuity table, filterable metric browser, alerts and coverage notes.
 
 ```bash
 python3 scripts/visualize_asset_classes.py
 python3 scripts/visualize_asset_classes.py --html reports/asset_classes_dashboard.html --png reports/asset_classes_overview.png --open
+
+# Rank movers over another horizon (1d 5d 1m 3m ytd 1y) or show 5 per side; applies to the terminal, the PNG
+# and the HTML dashboard's initial view
+python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 5
 ```
+
+Movers are the best and worst instruments of each class by total return. Treasury yield series are excluded (a rising yield is a falling bond price), and a class with fewer than twice the requested count shows half its instruments per side. Continuous front-month futures (`=F`) splice contracts together, so their Z-score and 52-week alerts are capped at `medium` and carry a roll caveat; rate futures are read from dated contracts only.
 
 ---
 

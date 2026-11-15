@@ -1,182 +1,182 @@
 date,timestamp_utc,class_id,asset_class,metric_id,metric_name,value,unit,source,note
-2026-11-15,2026-11-15T13:41:00Z,stocks,Stocks (Equities),megacap_above_50dma_pct,Mega-caps above their 50-day average,80,pct,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,stocks,Stocks (Equities),small_vs_large_1m_pts,"Russell 2000 minus S&P 500, 1-month return",3.19432,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,stocks,Stocks (Equities),equal_vs_cap_weight_1m_pts,"Equal-weight (RSP) minus cap-weight (SPY), 1-month return",5.12221,pts,yahoo daily closes,breadth gauge
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_1m,Treasury par yield 1M,4.1,pct,treasury.gov par yield curve 2026-11-13,prior session 4.12
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_2m,Treasury par yield 2M,4.26,pct,treasury.gov par yield curve 2026-11-13,prior session 4.26
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_3m,Treasury par yield 3M,4.32,pct,treasury.gov par yield curve 2026-11-13,prior session 4.32
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_4m,Treasury par yield 4M,4.34,pct,treasury.gov par yield curve 2026-11-13,prior session 4.35
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_6m,Treasury par yield 6M,4.42,pct,treasury.gov par yield curve 2026-11-13,prior session 4.42
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_1y,Treasury par yield 1Y,4.65,pct,treasury.gov par yield curve 2026-11-13,prior session 4.65
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_2y,Treasury par yield 2Y,4.88,pct,treasury.gov par yield curve 2026-11-13,prior session 4.86
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_3y,Treasury par yield 3Y,4.92,pct,treasury.gov par yield curve 2026-11-13,prior session 4.9
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_5y,Treasury par yield 5Y,4.98,pct,treasury.gov par yield curve 2026-11-13,prior session 4.95
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_7y,Treasury par yield 7Y,5.05,pct,treasury.gov par yield curve 2026-11-13,prior session 5.02
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_10y,Treasury par yield 10Y,5.15,pct,treasury.gov par yield curve 2026-11-13,prior session 5.1
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_20y,Treasury par yield 20Y,5.52,pct,treasury.gov par yield curve 2026-11-13,prior session 5.48
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_par_30y,Treasury par yield 30Y,5.47,pct,treasury.gov par yield curve 2026-11-13,prior session 5.43
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),curve_2s10s_bps,2s10s curve slope,27,bps,treasury.gov par yield curve 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),curve_3m10y_bps,3m10y curve slope,83,bps,treasury.gov par yield curve 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ust_10y_change_1d_bps,"10Y par yield, 1-session change",5,bps,treasury.gov par yield curve 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),high_yield_vs_treasury_1m_pts,"High yield (HYG) minus 7-10Y Treasuries (IEF), 1-month return",0.277162,pts,yahoo daily closes,credit-risk appetite proxy; negative = credit lagging
-2026-11-15,2026-11-15T13:41:00Z,bonds,Bonds (Fixed Income),ig_vs_treasury_1m_pts,"IG corporates (LQD) minus 7-10Y Treasuries (IEF), 1-month return",-0.279943,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,commodities,Commodities,gold_silver_ratio,Gold / silver ratio,79.2621,ratio,yahoo front-month futures,
-2026-11-15,2026-11-15T13:41:00Z,commodities,Commodities,copper_gold_ratio_x1000,Copper / gold ratio (x1000),1.56434,ratio,yahoo front-month futures,growth-vs-safety gauge
-2026-11-15,2026-11-15T13:41:00Z,commodities,Commodities,brent_wti_spread_usd,Brent minus WTI,7.28,usd,yahoo front-month futures,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,mortgage_30y_pct,30-year fixed mortgage rate,7.11,pct,Freddie Mac PMMS 2026-11-12,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,mortgage_15y_pct,15-year fixed mortgage rate,6.45,pct,Freddie Mac PMMS 2026-11-12,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,mortgage_30y_change_1w_bps,"30-year mortgage rate, 1-week change",-7,bps,Freddie Mac PMMS 2026-11-12,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,mortgage_30y_change_1y_bps,"30-year mortgage rate, 1-year change",87,bps,Freddie Mac PMMS 2026-11-12,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,mortgage_spread_10y_pts,30-year mortgage rate minus 10Y Treasury,1.96,pts,Freddie Mac PMMS 2026-11-12; treasury.gov par yield curve 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,real_estate,Real Estate,reits_vs_sp500_3m_pts,"REITs (VNQ) minus S&P 500 (SPY), 3-month return",1.43879,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,alternatives,Alternative Investments,btc_realized_vol_30d_pct,Bitcoin 30-day realised volatility,36.3394,pct,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,alternatives,Alternative Investments,managed_futures_vs_sp500_1m_pts,"Managed futures (DBMF) minus S&P 500 (SPY), 1-month return",1.00822,pts,yahoo daily closes,diversifier check
-2026-11-15,2026-11-15T13:41:00Z,alternatives,Alternative Investments,listed_pe_vs_sp500_3m_pts,"Listed private equity (PSP) minus S&P 500 (SPY), 3-month return",-2.68408,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,alternatives,Alternative Investments,bdc_vs_high_yield_3m_pts,"BDCs (BIZD) minus high-yield bonds (HYG), 3-month return",0.0525266,pts,yahoo daily closes,private-credit stress proxy
-2026-11-15,2026-11-15T13:41:00Z,etfs,Exchange-Traded Funds (ETFs),tracked_dollar_volume_usd,Dollar volume across tracked ETFs (latest session),9.08538e+10,usd,yahoo daily bars,
-2026-11-15,2026-11-15T13:41:00Z,etfs,Exchange-Traded Funds (ETFs),growth_vs_value_1m_pts,"Growth (VUG) minus value (VTV), 1-month return",-9.1149,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,etfs,Exchange-Traded Funds (ETFs),emerging_vs_developed_1m_pts,"Emerging (VWO) minus developed ex-US (VEA), 1-month return",-3.78351,pts,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vfiax_pts,"VFIAX minus SPY, 1-year total return",0.0464318,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_fxaix_pts,"FXAIX minus SPY, 1-year total return",0.0841174,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_swppx_pts,"SWPPX minus SPY, 1-year total return",0.050981,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vtsax_pts,"VTSAX minus VTI, 1-year total return",0.0105618,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_fskax_pts,"FSKAX minus VTI, 1-year total return",-0.155273,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vimax_pts,"VIMAX minus VO, 1-year total return",-0.0544518,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vsmax_pts,"VSMAX minus VB, 1-year total return",-0.0253971,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vtiax_pts,"VTIAX minus VXUS, 1-year total return",-0.102891,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_ftihx_pts,"FTIHX minus VXUS, 1-year total return",0.0998463,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_vbtlx_pts,"VBTLX minus AGG, 1-year total return",0.0108038,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,index_funds,Index Funds,tracking_gap_1y_fxnax_pts,"FXNAX minus AGG, 1-year total return",-0.0312767,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_fcntx_pts,"FCNTX minus SPY, 1-year total return",0.976783,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_agthx_pts,"AGTHX minus SPY, 1-year total return",-5.99406,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_prgfx_pts,"PRGFX minus SPY, 1-year total return",-16.6122,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_trbcx_pts,"TRBCX minus SPY, 1-year total return",-15.6557,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_vpmax_pts,"VPMAX minus SPY, 1-year total return",11.5331,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_awshx_pts,"AWSHX minus SPY, 1-year total return",1.32049,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_dodgx_pts,"DODGX minus SPY, 1-year total return",2.78036,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_oakmx_pts,"OAKMX minus SPY, 1-year total return",6.76405,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_dodfx_pts,"DODFX minus VXUS, 1-year total return",1.05688,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_abalx_pts,"ABALX minus AOR, 1-year total return",2.88254,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_vwelx_pts,"VWELX minus AOR, 1-year total return",-0.0263762,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_vwinx_pts,"VWINX minus AOK, 1-year total return",1.88929,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_vfifx_pts,"VFIFX minus AOA, 1-year total return",1.4127,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_pttrx_pts,"PTTRX minus AGG, 1-year total return",-0.0110696,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_dodix_pts,"DODIX minus AGG, 1-year total return",-0.324723,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,excess_return_1y_fagix_pts,"FAGIX minus HYG, 1-year total return",4.61201,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,funds_beating_benchmark_1y_pct,Active funds ahead of their benchmark over 1 year,62.5,pct,yahoo adjusted closes,16 funds
-2026-11-15,2026-11-15T13:41:00Z,mutual_funds,Mutual Funds,median_excess_return_1y_pts,Median 1-year excess return of active funds,1.18868,pts,yahoo adjusted closes,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,vix_percentile_1y_pct,VIX percentile over the past year (IV rank),74.8031,pct,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,vix_term_ratio,VIX / VIX3M term-structure ratio,0.935984,ratio,yahoo daily closes,above 1 = backwardation (near-term stress)
-2026-11-15,2026-11-15T13:41:00Z,options,Options,vix9d_vix_ratio,VIX9D / VIX ratio,0.923316,ratio,yahoo daily closes,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_volume_ratio_spy,SPY put/call volume ratio,1.14161,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_oi_ratio_spy,SPY put/call open-interest ratio,1.84944,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,iv30_spy_pct,SPY 30-day implied volatility,14.874,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,atm_iv_spy_pct,SPY at-the-money IV (2026-12-11 expiry),15.07,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,skew_25d_spy_pts,SPY 25-delta put minus call IV,5.99,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
-2026-11-15,2026-11-15T13:41:00Z,options,Options,option_volume_spy,SPY option contracts traded,3.6158e+06,contracts,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_volume_ratio_qqq,QQQ put/call volume ratio,1.15611,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_oi_ratio_qqq,QQQ put/call open-interest ratio,1.11238,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,iv30_qqq_pct,QQQ 30-day implied volatility,25.328,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,atm_iv_qqq_pct,QQQ at-the-money IV (2026-12-11 expiry),26.19,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,skew_25d_qqq_pts,QQQ 25-delta put minus call IV,7.56,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
-2026-11-15,2026-11-15T13:41:00Z,options,Options,option_volume_qqq,QQQ option contracts traded,2.22466e+06,contracts,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_volume_ratio_iwm,IWM put/call volume ratio,2.52204,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_oi_ratio_iwm,IWM put/call open-interest ratio,2.39895,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,iv30_iwm_pct,IWM 30-day implied volatility,18.594,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,atm_iv_iwm_pct,IWM at-the-money IV (2026-12-11 expiry),18.665,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,skew_25d_iwm_pts,IWM 25-delta put minus call IV,4.92,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
-2026-11-15,2026-11-15T13:41:00Z,options,Options,option_volume_iwm,IWM option contracts traded,724194,contracts,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_volume_ratio_tlt,TLT put/call volume ratio,0.583922,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_oi_ratio_tlt,TLT put/call open-interest ratio,0.549062,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,iv30_tlt_pct,TLT 30-day implied volatility,11.86,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,atm_iv_tlt_pct,TLT at-the-money IV (2026-12-11 expiry),11.73,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,skew_25d_tlt_pts,TLT 25-delta put minus call IV,0.38,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
-2026-11-15,2026-11-15T13:41:00Z,options,Options,option_volume_tlt,TLT option contracts traded,417300,contracts,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_volume_ratio_gld,GLD put/call volume ratio,3.06072,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,put_call_oi_ratio_gld,GLD put/call open-interest ratio,0.504227,ratio,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,iv30_gld_pct,GLD 30-day implied volatility,23.329,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,atm_iv_gld_pct,GLD at-the-money IV (2026-12-11 expiry),23.36,pct,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,options,Options,skew_25d_gld_pts,GLD 25-delta put minus call IV,1.85,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
-2026-11-15,2026-11-15T13:41:00Z,options,Options,option_volume_gld,GLD option contracts traded,450090,contracts,Cboe delayed chain 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_cl_pct,WTI crude: 12-month futures curve slope,-14.7554,pct,yahoo CLF27.NYM vs CLF28.NYM (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_ng_pct,Natural gas: 12-month futures curve slope,19.6949,pct,yahoo NGF27.NYM vs NGF28.NYM (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_gc_pct,Gold: 12-month futures curve slope,5.31608,pct,yahoo GCG27.CMX vs GCG28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_si_pct,Silver: 12-month futures curve slope,5.47086,pct,yahoo SIH27.CMX vs SIH28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_hg_pct,Copper: 12-month futures curve slope,5.19848,pct,yahoo HGH27.CMX vs HGH28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,term_structure_12m_zc_pct,Corn: 12-month futures curve slope,8.04598,pct,yahoo ZCH27.CBT vs ZCH28.CBT (2026-11-13),"positive = contango (far above near), negative = backwardation"
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_es_pct,S&P 500: dated future over spot,0.282082,pct,yahoo ESZ26.CME vs ^GSPC (2026-11-13),expires 2026-12-18; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_es_pct,S&P 500: annualised forward premium,2.94171,pct,yahoo ESZ26.CME vs ^GSPC (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_nq_pct,Nasdaq-100: dated future over spot,0.325689,pct,yahoo NQZ26.CME vs ^NDX (2026-11-13),expires 2026-12-18; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_nq_pct,Nasdaq-100: annualised forward premium,3.39647,pct,yahoo NQZ26.CME vs ^NDX (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_6e_pct,EUR/USD: dated future over spot,-0.119563,pct,yahoo 6EZ26.CME vs EURUSD=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_6e_pct,EUR/USD: annualised forward premium,-1.40776,pct,yahoo 6EZ26.CME vs EURUSD=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_6b_pct,GBP/USD: dated future over spot,-0.16147,pct,yahoo 6BZ26.CME vs GBPUSD=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_6b_pct,GBP/USD: annualised forward premium,-1.90118,pct,yahoo 6BZ26.CME vs GBPUSD=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_6j_pct,JPY/USD: dated future over spot,0.289588,pct,yahoo 6JZ26.CME vs USDJPY=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_6j_pct,JPY/USD: annualised forward premium,3.40967,pct,yahoo 6JZ26.CME vs USDJPY=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,basis_btc_pct,Bitcoin: dated future over spot,0.188677,pct,yahoo BTCX26.CME vs BTC-USD (2026-11-15),expires 2026-11-27; closes are not time-synchronised
-2026-11-15,2026-11-15T13:41:00Z,futures_forwards,Futures & Forwards,implied_carry_btc_pct,Bitcoin: annualised forward premium,5.73892,pct,yahoo BTCX26.CME vs BTC-USD (2026-11-15),futures-implied financing rate net of income (FX: interest-rate differential)
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_pct,SOFR (floating-leg reference rate),3.9,pct,NY Fed 2026-11-12,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_avg_30d_pct,SOFR 30-day compounded average,3.91665,pct,NY Fed 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_avg_90d_pct,SOFR 90-day compounded average,3.81961,pct,NY Fed 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_avg_180d_pct,SOFR 180-day compounded average,3.7431,pct,NY Fed 2026-11-13,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2026_12_pct,Implied 3-month SOFR starting Dec 2026,4.305,pct,yahoo SR3Z26.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2027_03_pct,Implied 3-month SOFR starting Mar 2027,4.6,pct,yahoo SR3H27.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2027_06_pct,Implied 3-month SOFR starting Jun 2027,4.77,pct,yahoo SR3M27.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2027_09_pct,Implied 3-month SOFR starting Sep 2027,4.82,pct,yahoo SR3U27.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2027_12_pct,Implied 3-month SOFR starting Dec 2027,4.8,pct,yahoo SR3Z27.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2028_03_pct,Implied 3-month SOFR starting Mar 2028,4.765,pct,yahoo SR3H28.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2028_06_pct,Implied 3-month SOFR starting Jun 2028,4.73,pct,yahoo SR3M28.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2028_09_pct,Implied 3-month SOFR starting Sep 2028,4.705,pct,yahoo SR3U28.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2028_12_pct,Implied 3-month SOFR starting Dec 2028,4.68,pct,yahoo SR3Z28.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2029_03_pct,Implied 3-month SOFR starting Mar 2029,4.66,pct,yahoo SR3H29.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2029_06_pct,Implied 3-month SOFR starting Jun 2029,4.645,pct,yahoo SR3M29.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2029_09_pct,Implied 3-month SOFR starting Sep 2029,4.64,pct,yahoo SR3U29.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2029_12_pct,Implied 3-month SOFR starting Dec 2029,4.635,pct,yahoo SR3Z29.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2030_03_pct,Implied 3-month SOFR starting Mar 2030,4.635,pct,yahoo SR3H30.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2030_06_pct,Implied 3-month SOFR starting Jun 2030,4.645,pct,yahoo SR3M30.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2030_09_pct,Implied 3-month SOFR starting Sep 2030,4.655,pct,yahoo SR3U30.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2030_12_pct,Implied 3-month SOFR starting Dec 2030,4.675,pct,yahoo SR3Z30.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2031_03_pct,Implied 3-month SOFR starting Mar 2031,4.7,pct,yahoo SR3H31.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2031_06_pct,Implied 3-month SOFR starting Jun 2031,4.725,pct,yahoo SR3M31.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_fwd_3m_2031_09_pct,Implied 3-month SOFR starting Sep 2031,4.755,pct,yahoo SR3U31.CME,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_swap_implied_1y_pct,Implied 1-year SOFR OIS par swap rate,4.6212,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,swap_spread_1y_bps,1-year swap spread (implied swap minus Treasury),6.28276,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_swap_implied_2y_pct,Implied 2-year SOFR OIS par swap rate,4.68503,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,swap_spread_2y_bps,2-year swap spread (implied swap minus Treasury),-10.1695,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_swap_implied_3y_pct,Implied 3-year SOFR OIS par swap rate,4.67601,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,swap_spread_3y_bps,3-year swap spread (implied swap minus Treasury),-15.0947,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,sofr_swap_implied_5y_pct,Implied 5-year SOFR OIS par swap rate,4.67639,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,swap_spread_5y_bps,5-year swap spread (implied swap minus Treasury),-21.0556,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,fed_funds_implied_3m_pct,Fed funds rate implied for 2027-02,4.34,pct,yahoo ZQG27.CBT,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,fed_funds_implied_6m_pct,Fed funds rate implied for 2027-05,4.605,pct,yahoo ZQK27.CBT,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,fed_funds_implied_12m_pct,Fed funds rate implied for 2027-11,4.74,pct,yahoo ZQX27.CBT,
-2026-11-15,2026-11-15T13:41:00Z,swaps,Swaps,fed_cuts_priced_12m,25 bp Fed cuts priced over 12 months,-3.43999,count,yahoo ZQX27.CBT; NY Fed EFFR,negative = hikes priced
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,preferreds_vs_agg_3m_pts,"Preferreds (PFF) minus core bonds (AGG), 3-month return",-6.28573,pts,yahoo adjusted closes,
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,convertibles_vs_sp500_3m_pts,"Convertibles (CWB) minus S&P 500 (SPY), 3-month return",-11.0096,pts,yahoo adjusted closes,
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,bufr_vs_spy_3m_pts,"Buffer ETF (BUFR) minus SPY, 3-month return",2.17951,pts,yahoo adjusted closes,BUFR +0.1% vs SPY -2.1%
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,jepi_vs_spy_3m_pts,"Equity-premium income (JEPI) minus SPY, 3-month return",4.32113,pts,yahoo adjusted closes,JEPI +2.2% vs SPY -2.1%
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,xyld_vs_spy_3m_pts,"Covered call (XYLD) minus SPY, 3-month return",3.26178,pts,yahoo adjusted closes,XYLD +1.1% vs SPY -2.1%
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,qyld_vs_qqq_3m_pts,"Covered call (QYLD) minus QQQ, 3-month return",7.04501,pts,yahoo adjusted closes,QYLD +0.3% vs QQQ -6.8%
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,clo_bbb_vs_aaa_3m_pts,"BBB CLOs (JBBB) minus AAA CLOs (JAAA), 3-month return",-0.890993,pts,yahoo adjusted closes,securitised-credit risk appetite
-2026-11-15,2026-11-15T13:41:00Z,structured,Structured Products & Hybrid Securities,mbs_vs_treasury_1m_pts,"Agency MBS (MBB) minus 7-10Y Treasuries (IEF), 1-month return",0.127746,pts,yahoo adjusted closes,
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_payout_age60_pct,"Life annuity payout rate, age 60 (model)",7.75662,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_monthly_income_age60_usd,"Monthly income per $100,000 premium, age 60 (model)",646.385,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_payout_age65_pct,"Life annuity payout rate, age 65 (model)",8.60203,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_monthly_income_age65_usd,"Monthly income per $100,000 premium, age 65 (model)",716.836,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_payout_age70_pct,"Life annuity payout rate, age 70 (model)",9.78907,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_monthly_income_age70_usd,"Monthly income per $100,000 premium, age 70 (model)",815.756,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_payout_age75_pct,"Life annuity payout rate, age 75 (model)",11.4878,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,spia_monthly_income_age75_usd,"Monthly income per $100,000 premium, age 75 (model)",957.317,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,ust_5y_reference_pct,5-year Treasury yield (fixed-annuity rate reference),4.98,pct,treasury.gov par yield curve 2026-11-13,multi-year guaranteed annuity rates are set off this part of the curve
-2026-11-15,2026-11-15T13:41:00Z,annuities,Annuities,insurers_vs_sp500_1m_pts,"Insurers (KIE) minus S&P 500 (SPY), 1-month return",8.4,pts,yahoo adjusted closes,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,tbill_4w_yield_pct,4-week T-bill coupon-equivalent yield,4.02,pct,treasury.gov bill rates 2026-11-13,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,tbill_8w_yield_pct,8-week T-bill coupon-equivalent yield,4.16,pct,treasury.gov bill rates 2026-11-13,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,tbill_13w_yield_pct,13-week T-bill coupon-equivalent yield,4.23,pct,treasury.gov bill rates 2026-11-13,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,tbill_26w_yield_pct,26-week T-bill coupon-equivalent yield,4.47,pct,treasury.gov bill rates 2026-11-13,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,tbill_52w_yield_pct,52-week T-bill coupon-equivalent yield,4.63,pct,treasury.gov bill rates 2026-11-13,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,sofr_pct,SOFR (secured overnight),3.9,pct,NY Fed 2026-11-12,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,effr_pct,Effective Fed funds rate,3.88,pct,NY Fed 2026-11-12,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,obfr_pct,Overnight bank funding rate,3.88,pct,NY Fed 2026-11-12,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,fed_target_lower_pct,"Fed funds target range, lower bound",3.75,pct,NY Fed,
-2026-11-15,2026-11-15T13:41:23Z,cash,Cash & Cash Equivalents,fed_target_upper_pct,"Fed funds target range, upper bound",4,pct,NY Fed,
+2026-11-15,2026-11-15T13:46:57Z,stocks,Stocks (Equities),megacap_above_50dma_pct,Mega-caps above their 50-day average,80,pct,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,stocks,Stocks (Equities),small_vs_large_1m_pts,"Russell 2000 minus S&P 500, 1-month return",3.19432,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,stocks,Stocks (Equities),equal_vs_cap_weight_1m_pts,"Equal-weight (RSP) minus cap-weight (SPY), 1-month return",5.12221,pts,yahoo daily closes,breadth gauge
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_1m,Treasury par yield 1M,4.1,pct,treasury.gov par yield curve 2026-11-13,prior session 4.12
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_2m,Treasury par yield 2M,4.26,pct,treasury.gov par yield curve 2026-11-13,prior session 4.26
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_3m,Treasury par yield 3M,4.32,pct,treasury.gov par yield curve 2026-11-13,prior session 4.32
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_4m,Treasury par yield 4M,4.34,pct,treasury.gov par yield curve 2026-11-13,prior session 4.35
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_6m,Treasury par yield 6M,4.42,pct,treasury.gov par yield curve 2026-11-13,prior session 4.42
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_1y,Treasury par yield 1Y,4.65,pct,treasury.gov par yield curve 2026-11-13,prior session 4.65
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_2y,Treasury par yield 2Y,4.88,pct,treasury.gov par yield curve 2026-11-13,prior session 4.86
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_3y,Treasury par yield 3Y,4.92,pct,treasury.gov par yield curve 2026-11-13,prior session 4.9
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_5y,Treasury par yield 5Y,4.98,pct,treasury.gov par yield curve 2026-11-13,prior session 4.95
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_7y,Treasury par yield 7Y,5.05,pct,treasury.gov par yield curve 2026-11-13,prior session 5.02
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_10y,Treasury par yield 10Y,5.15,pct,treasury.gov par yield curve 2026-11-13,prior session 5.1
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_20y,Treasury par yield 20Y,5.52,pct,treasury.gov par yield curve 2026-11-13,prior session 5.48
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_par_30y,Treasury par yield 30Y,5.47,pct,treasury.gov par yield curve 2026-11-13,prior session 5.43
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),curve_2s10s_bps,2s10s curve slope,27,bps,treasury.gov par yield curve 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),curve_3m10y_bps,3m10y curve slope,83,bps,treasury.gov par yield curve 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ust_10y_change_1d_bps,"10Y par yield, 1-session change",5,bps,treasury.gov par yield curve 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),high_yield_vs_treasury_1m_pts,"High yield (HYG) minus 7-10Y Treasuries (IEF), 1-month return",0.277162,pts,yahoo daily closes,credit-risk appetite proxy; negative = credit lagging
+2026-11-15,2026-11-15T13:46:57Z,bonds,Bonds (Fixed Income),ig_vs_treasury_1m_pts,"IG corporates (LQD) minus 7-10Y Treasuries (IEF), 1-month return",-0.279943,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,tbill_4w_yield_pct,4-week T-bill coupon-equivalent yield,4.02,pct,treasury.gov bill rates 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,tbill_8w_yield_pct,8-week T-bill coupon-equivalent yield,4.16,pct,treasury.gov bill rates 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,tbill_13w_yield_pct,13-week T-bill coupon-equivalent yield,4.23,pct,treasury.gov bill rates 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,tbill_26w_yield_pct,26-week T-bill coupon-equivalent yield,4.47,pct,treasury.gov bill rates 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,tbill_52w_yield_pct,52-week T-bill coupon-equivalent yield,4.63,pct,treasury.gov bill rates 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,sofr_pct,SOFR (secured overnight),3.9,pct,NY Fed 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,effr_pct,Effective Fed funds rate,3.88,pct,NY Fed 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,obfr_pct,Overnight bank funding rate,3.88,pct,NY Fed 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,fed_target_lower_pct,"Fed funds target range, lower bound",3.75,pct,NY Fed,
+2026-11-15,2026-11-15T13:46:57Z,cash,Cash & Cash Equivalents,fed_target_upper_pct,"Fed funds target range, upper bound",4,pct,NY Fed,
+2026-11-15,2026-11-15T13:46:57Z,commodities,Commodities,gold_silver_ratio,Gold / silver ratio,79.1169,ratio,yahoo front-month futures,
+2026-11-15,2026-11-15T13:46:57Z,commodities,Commodities,copper_gold_ratio_x1000,Copper / gold ratio (x1000),1.56717,ratio,yahoo front-month futures,growth-vs-safety gauge
+2026-11-15,2026-11-15T13:46:57Z,commodities,Commodities,brent_wti_spread_usd,Brent minus WTI,7.28,usd,yahoo front-month futures,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,mortgage_30y_pct,30-year fixed mortgage rate,7.11,pct,Freddie Mac PMMS 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,mortgage_15y_pct,15-year fixed mortgage rate,6.45,pct,Freddie Mac PMMS 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,mortgage_30y_change_1w_bps,"30-year mortgage rate, 1-week change",-7,bps,Freddie Mac PMMS 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,mortgage_30y_change_1y_bps,"30-year mortgage rate, 1-year change",87,bps,Freddie Mac PMMS 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,mortgage_spread_10y_pts,30-year mortgage rate minus 10Y Treasury,1.96,pts,Freddie Mac PMMS 2026-11-12; treasury.gov par yield curve 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,real_estate,Real Estate,reits_vs_sp500_3m_pts,"REITs (VNQ) minus S&P 500 (SPY), 3-month return",1.43879,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,alternatives,Alternative Investments,btc_realized_vol_30d_pct,Bitcoin 30-day realised volatility,36.364,pct,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,alternatives,Alternative Investments,managed_futures_vs_sp500_1m_pts,"Managed futures (DBMF) minus S&P 500 (SPY), 1-month return",1.00822,pts,yahoo daily closes,diversifier check
+2026-11-15,2026-11-15T13:46:57Z,alternatives,Alternative Investments,listed_pe_vs_sp500_3m_pts,"Listed private equity (PSP) minus S&P 500 (SPY), 3-month return",-2.68408,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,alternatives,Alternative Investments,bdc_vs_high_yield_3m_pts,"BDCs (BIZD) minus high-yield bonds (HYG), 3-month return",0.0525266,pts,yahoo daily closes,private-credit stress proxy
+2026-11-15,2026-11-15T13:46:57Z,etfs,Exchange-Traded Funds (ETFs),tracked_dollar_volume_usd,Dollar volume across tracked ETFs (latest session),9.08538e+10,usd,yahoo daily bars,
+2026-11-15,2026-11-15T13:46:57Z,etfs,Exchange-Traded Funds (ETFs),growth_vs_value_1m_pts,"Growth (VUG) minus value (VTV), 1-month return",-9.1149,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,etfs,Exchange-Traded Funds (ETFs),emerging_vs_developed_1m_pts,"Emerging (VWO) minus developed ex-US (VEA), 1-month return",-3.78351,pts,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vfiax_pts,"VFIAX minus SPY, 1-year total return",0.0464326,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_fxaix_pts,"FXAIX minus SPY, 1-year total return",0.0840995,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_swppx_pts,"SWPPX minus SPY, 1-year total return",0.0509706,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vtsax_pts,"VTSAX minus VTI, 1-year total return",0.0105728,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_fskax_pts,"FSKAX minus VTI, 1-year total return",-0.155273,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vimax_pts,"VIMAX minus VO, 1-year total return",-0.0544494,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vsmax_pts,"VSMAX minus VB, 1-year total return",-0.0253971,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vtiax_pts,"VTIAX minus VXUS, 1-year total return",-0.102891,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_ftihx_pts,"FTIHX minus VXUS, 1-year total return",0.0998463,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_vbtlx_pts,"VBTLX minus AGG, 1-year total return",0.0107903,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,index_funds,Index Funds,tracking_gap_1y_fxnax_pts,"FXNAX minus AGG, 1-year total return",-0.0313282,pts,yahoo adjusted closes,index fund vs the ETF on the same benchmark
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_fcntx_pts,"FCNTX minus SPY, 1-year total return",0.976773,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_agthx_pts,"AGTHX minus SPY, 1-year total return",-5.99407,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_prgfx_pts,"PRGFX minus SPY, 1-year total return",-16.6122,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_trbcx_pts,"TRBCX minus SPY, 1-year total return",-15.6557,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_vpmax_pts,"VPMAX minus SPY, 1-year total return",11.5331,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_awshx_pts,"AWSHX minus SPY, 1-year total return",1.32047,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_dodgx_pts,"DODGX minus SPY, 1-year total return",2.78036,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_oakmx_pts,"OAKMX minus SPY, 1-year total return",6.76404,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_dodfx_pts,"DODFX minus VXUS, 1-year total return",1.05688,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_abalx_pts,"ABALX minus AOR, 1-year total return",2.88253,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_vwelx_pts,"VWELX minus AOR, 1-year total return",-0.0263762,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_vwinx_pts,"VWINX minus AOK, 1-year total return",1.8893,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_vfifx_pts,"VFIFX minus AOA, 1-year total return",1.4127,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_pttrx_pts,"PTTRX minus AGG, 1-year total return",-0.0111156,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_dodix_pts,"DODIX minus AGG, 1-year total return",-0.324747,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,excess_return_1y_fagix_pts,"FAGIX minus HYG, 1-year total return",4.61201,pts,yahoo adjusted closes,active fund vs passive benchmark ETF
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,funds_beating_benchmark_1y_pct,Active funds ahead of their benchmark over 1 year,62.5,pct,yahoo adjusted closes,16 funds
+2026-11-15,2026-11-15T13:46:57Z,mutual_funds,Mutual Funds,median_excess_return_1y_pts,Median 1-year excess return of active funds,1.18868,pts,yahoo adjusted closes,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,vix_percentile_1y_pct,VIX percentile over the past year (IV rank),74.8031,pct,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,vix_term_ratio,VIX / VIX3M term-structure ratio,0.935984,ratio,yahoo daily closes,above 1 = backwardation (near-term stress)
+2026-11-15,2026-11-15T13:46:57Z,options,Options,vix9d_vix_ratio,VIX9D / VIX ratio,0.923316,ratio,yahoo daily closes,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_volume_ratio_spy,SPY put/call volume ratio,1.14161,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_oi_ratio_spy,SPY put/call open-interest ratio,1.84944,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,iv30_spy_pct,SPY 30-day implied volatility,14.874,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,atm_iv_spy_pct,SPY at-the-money IV (2026-12-11 expiry),15.07,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,skew_25d_spy_pts,SPY 25-delta put minus call IV,5.99,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
+2026-11-15,2026-11-15T13:46:57Z,options,Options,option_volume_spy,SPY option contracts traded,3.6158e+06,contracts,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_volume_ratio_qqq,QQQ put/call volume ratio,1.15611,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_oi_ratio_qqq,QQQ put/call open-interest ratio,1.11238,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,iv30_qqq_pct,QQQ 30-day implied volatility,25.328,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,atm_iv_qqq_pct,QQQ at-the-money IV (2026-12-11 expiry),26.19,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,skew_25d_qqq_pts,QQQ 25-delta put minus call IV,7.56,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
+2026-11-15,2026-11-15T13:46:57Z,options,Options,option_volume_qqq,QQQ option contracts traded,2.22466e+06,contracts,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_volume_ratio_iwm,IWM put/call volume ratio,2.52204,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_oi_ratio_iwm,IWM put/call open-interest ratio,2.39895,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,iv30_iwm_pct,IWM 30-day implied volatility,18.594,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,atm_iv_iwm_pct,IWM at-the-money IV (2026-12-11 expiry),18.665,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,skew_25d_iwm_pts,IWM 25-delta put minus call IV,4.92,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
+2026-11-15,2026-11-15T13:46:57Z,options,Options,option_volume_iwm,IWM option contracts traded,724194,contracts,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_volume_ratio_tlt,TLT put/call volume ratio,0.583922,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_oi_ratio_tlt,TLT put/call open-interest ratio,0.549062,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,iv30_tlt_pct,TLT 30-day implied volatility,11.86,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,atm_iv_tlt_pct,TLT at-the-money IV (2026-12-11 expiry),11.73,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,skew_25d_tlt_pts,TLT 25-delta put minus call IV,0.38,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
+2026-11-15,2026-11-15T13:46:57Z,options,Options,option_volume_tlt,TLT option contracts traded,417300,contracts,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_volume_ratio_gld,GLD put/call volume ratio,3.06072,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,put_call_oi_ratio_gld,GLD put/call open-interest ratio,0.504227,ratio,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,iv30_gld_pct,GLD 30-day implied volatility,23.329,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,atm_iv_gld_pct,GLD at-the-money IV (2026-12-11 expiry),23.36,pct,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,options,Options,skew_25d_gld_pts,GLD 25-delta put minus call IV,1.85,pts,Cboe delayed chain 2026-11-13,positive = downside protection costs more
+2026-11-15,2026-11-15T13:46:57Z,options,Options,option_volume_gld,GLD option contracts traded,450090,contracts,Cboe delayed chain 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_cl_pct,WTI crude: 12-month futures curve slope,-14.7554,pct,yahoo CLF27.NYM vs CLF28.NYM (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_ng_pct,Natural gas: 12-month futures curve slope,19.6949,pct,yahoo NGF27.NYM vs NGF28.NYM (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_gc_pct,Gold: 12-month futures curve slope,5.31608,pct,yahoo GCG27.CMX vs GCG28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_si_pct,Silver: 12-month futures curve slope,5.47086,pct,yahoo SIH27.CMX vs SIH28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_hg_pct,Copper: 12-month futures curve slope,5.19848,pct,yahoo HGH27.CMX vs HGH28.CMX (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,term_structure_12m_zc_pct,Corn: 12-month futures curve slope,8.04598,pct,yahoo ZCH27.CBT vs ZCH28.CBT (2026-11-13),"positive = contango (far above near), negative = backwardation"
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_es_pct,S&P 500: dated future over spot,0.282082,pct,yahoo ESZ26.CME vs ^GSPC (2026-11-13),expires 2026-12-18; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_es_pct,S&P 500: annualised forward premium,2.94171,pct,yahoo ESZ26.CME vs ^GSPC (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_nq_pct,Nasdaq-100: dated future over spot,0.325689,pct,yahoo NQZ26.CME vs ^NDX (2026-11-13),expires 2026-12-18; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_nq_pct,Nasdaq-100: annualised forward premium,3.39647,pct,yahoo NQZ26.CME vs ^NDX (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_6e_pct,EUR/USD: dated future over spot,-0.119563,pct,yahoo 6EZ26.CME vs EURUSD=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_6e_pct,EUR/USD: annualised forward premium,-1.40776,pct,yahoo 6EZ26.CME vs EURUSD=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_6b_pct,GBP/USD: dated future over spot,-0.16147,pct,yahoo 6BZ26.CME vs GBPUSD=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_6b_pct,GBP/USD: annualised forward premium,-1.90118,pct,yahoo 6BZ26.CME vs GBPUSD=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_6j_pct,JPY/USD: dated future over spot,0.289588,pct,yahoo 6JZ26.CME vs USDJPY=X (2026-11-13),expires 2026-12-14; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_6j_pct,JPY/USD: annualised forward premium,3.40967,pct,yahoo 6JZ26.CME vs USDJPY=X (2026-11-13),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,basis_btc_pct,Bitcoin: dated future over spot,0.14927,pct,yahoo BTCX26.CME vs BTC-USD (2026-11-15),expires 2026-11-27; closes are not time-synchronised
+2026-11-15,2026-11-15T13:46:57Z,futures_forwards,Futures & Forwards,implied_carry_btc_pct,Bitcoin: annualised forward premium,4.54029,pct,yahoo BTCX26.CME vs BTC-USD (2026-11-15),futures-implied financing rate net of income (FX: interest-rate differential)
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_pct,SOFR (floating-leg reference rate),3.9,pct,NY Fed 2026-11-12,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_avg_30d_pct,SOFR 30-day compounded average,3.91665,pct,NY Fed 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_avg_90d_pct,SOFR 90-day compounded average,3.81961,pct,NY Fed 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_avg_180d_pct,SOFR 180-day compounded average,3.7431,pct,NY Fed 2026-11-13,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2026_12_pct,Implied 3-month SOFR starting Dec 2026,4.305,pct,yahoo SR3Z26.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2027_03_pct,Implied 3-month SOFR starting Mar 2027,4.6,pct,yahoo SR3H27.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2027_06_pct,Implied 3-month SOFR starting Jun 2027,4.77,pct,yahoo SR3M27.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2027_09_pct,Implied 3-month SOFR starting Sep 2027,4.82,pct,yahoo SR3U27.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2027_12_pct,Implied 3-month SOFR starting Dec 2027,4.8,pct,yahoo SR3Z27.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2028_03_pct,Implied 3-month SOFR starting Mar 2028,4.765,pct,yahoo SR3H28.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2028_06_pct,Implied 3-month SOFR starting Jun 2028,4.73,pct,yahoo SR3M28.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2028_09_pct,Implied 3-month SOFR starting Sep 2028,4.705,pct,yahoo SR3U28.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2028_12_pct,Implied 3-month SOFR starting Dec 2028,4.68,pct,yahoo SR3Z28.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2029_03_pct,Implied 3-month SOFR starting Mar 2029,4.66,pct,yahoo SR3H29.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2029_06_pct,Implied 3-month SOFR starting Jun 2029,4.645,pct,yahoo SR3M29.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2029_09_pct,Implied 3-month SOFR starting Sep 2029,4.64,pct,yahoo SR3U29.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2029_12_pct,Implied 3-month SOFR starting Dec 2029,4.635,pct,yahoo SR3Z29.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2030_03_pct,Implied 3-month SOFR starting Mar 2030,4.635,pct,yahoo SR3H30.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2030_06_pct,Implied 3-month SOFR starting Jun 2030,4.645,pct,yahoo SR3M30.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2030_09_pct,Implied 3-month SOFR starting Sep 2030,4.655,pct,yahoo SR3U30.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2030_12_pct,Implied 3-month SOFR starting Dec 2030,4.675,pct,yahoo SR3Z30.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2031_03_pct,Implied 3-month SOFR starting Mar 2031,4.7,pct,yahoo SR3H31.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2031_06_pct,Implied 3-month SOFR starting Jun 2031,4.725,pct,yahoo SR3M31.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_fwd_3m_2031_09_pct,Implied 3-month SOFR starting Sep 2031,4.755,pct,yahoo SR3U31.CME,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_swap_implied_1y_pct,Implied 1-year SOFR OIS par swap rate,4.6212,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,swap_spread_1y_bps,1-year swap spread (implied swap minus Treasury),6.28276,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_swap_implied_2y_pct,Implied 2-year SOFR OIS par swap rate,4.68503,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,swap_spread_2y_bps,2-year swap spread (implied swap minus Treasury),-10.1695,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_swap_implied_3y_pct,Implied 3-year SOFR OIS par swap rate,4.67601,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,swap_spread_3y_bps,3-year swap spread (implied swap minus Treasury),-15.0947,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,sofr_swap_implied_5y_pct,Implied 5-year SOFR OIS par swap rate,4.67639,pct,SOFR futures strip (yahoo) + NY Fed SOFR,"model: no convexity adjustment, ACT/360 quarterly"
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,swap_spread_5y_bps,5-year swap spread (implied swap minus Treasury),-21.0556,bps,SOFR futures strip; treasury.gov par yield curve 2026-11-13,model estimate; negative spreads are normal for SOFR swaps
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,fed_funds_implied_3m_pct,Fed funds rate implied for 2027-02,4.34,pct,yahoo ZQG27.CBT,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,fed_funds_implied_6m_pct,Fed funds rate implied for 2027-05,4.605,pct,yahoo ZQK27.CBT,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,fed_funds_implied_12m_pct,Fed funds rate implied for 2027-11,4.74,pct,yahoo ZQX27.CBT,
+2026-11-15,2026-11-15T13:46:57Z,swaps,Swaps,fed_cuts_priced_12m,25 bp Fed cuts priced over 12 months,-3.43999,count,yahoo ZQX27.CBT; NY Fed EFFR,negative = hikes priced
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,preferreds_vs_agg_3m_pts,"Preferreds (PFF) minus core bonds (AGG), 3-month return",-6.28572,pts,yahoo adjusted closes,
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,convertibles_vs_sp500_3m_pts,"Convertibles (CWB) minus S&P 500 (SPY), 3-month return",-11.0096,pts,yahoo adjusted closes,
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,bufr_vs_spy_3m_pts,"Buffer ETF (BUFR) minus SPY, 3-month return",2.17951,pts,yahoo adjusted closes,BUFR +0.1% vs SPY -2.1%
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,jepi_vs_spy_3m_pts,"Equity-premium income (JEPI) minus SPY, 3-month return",4.32113,pts,yahoo adjusted closes,JEPI +2.2% vs SPY -2.1%
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,xyld_vs_spy_3m_pts,"Covered call (XYLD) minus SPY, 3-month return",3.26178,pts,yahoo adjusted closes,XYLD +1.1% vs SPY -2.1%
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,qyld_vs_qqq_3m_pts,"Covered call (QYLD) minus QQQ, 3-month return",7.04501,pts,yahoo adjusted closes,QYLD +0.3% vs QQQ -6.8%
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,clo_bbb_vs_aaa_3m_pts,"BBB CLOs (JBBB) minus AAA CLOs (JAAA), 3-month return",-0.890984,pts,yahoo adjusted closes,securitised-credit risk appetite
+2026-11-15,2026-11-15T13:46:57Z,structured,Structured Products & Hybrid Securities,mbs_vs_treasury_1m_pts,"Agency MBS (MBB) minus 7-10Y Treasuries (IEF), 1-month return",0.127746,pts,yahoo adjusted closes,
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_payout_age60_pct,"Life annuity payout rate, age 60 (model)",7.75662,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_monthly_income_age60_usd,"Monthly income per $100,000 premium, age 60 (model)",646.385,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_payout_age65_pct,"Life annuity payout rate, age 65 (model)",8.60203,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_monthly_income_age65_usd,"Monthly income per $100,000 premium, age 65 (model)",716.836,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_payout_age70_pct,"Life annuity payout rate, age 70 (model)",9.78907,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_monthly_income_age70_usd,"Monthly income per $100,000 premium, age 70 (model)",815.756,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_payout_age75_pct,"Life annuity payout rate, age 75 (model)",11.4878,pct,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)","actuarially fair, life-only, unisex; real quotes are lower after insurer loads"
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,spia_monthly_income_age75_usd,"Monthly income per $100,000 premium, age 75 (model)",957.317,usd,"model: treasury.gov par yield curve 2026-11-13 + Gompertz mortality (m=88, b=10)",
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,ust_5y_reference_pct,5-year Treasury yield (fixed-annuity rate reference),4.98,pct,treasury.gov par yield curve 2026-11-13,multi-year guaranteed annuity rates are set off this part of the curve
+2026-11-15,2026-11-15T13:46:57Z,annuities,Annuities,insurers_vs_sp500_1m_pts,"Insurers (KIE) minus S&P 500 (SPY), 1-month return",8.4,pts,yahoo adjusted closes,

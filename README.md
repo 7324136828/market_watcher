@@ -48,5 +48,8 @@ python3 scripts/watch_asset_classes.py --list
 ```bash
 # Terminal dashboard + reports/asset_classes_dashboard.html & reports/asset_classes_overview.png
 python3 scripts/visualize_asset_classes.py
+
+# Top and bottom movers per class over another horizon (1d 5d 1m 3m ytd 1y), 3 or 5 per side
+python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 5
 ```
 The PNG needs Pillow (`pip install pillow`); the terminal view and HTML dashboard need only the standard library.
