@@ -39,6 +39,9 @@ python3 scripts/watch_asset_classes.py --dry-run
 # Update data/asset_class*.csv and write a Markdown brief
 python3 scripts/watch_asset_classes.py --write-csv --write-report reports/asset-classes-YYYY-MM-DD.md
 
+# The run also saves the movers collection (up to 100 top and 100 bottom per class and horizon, plus an
+# all-classes ranking) to data/asset_class_movers.csv; --movers-limit N keeps fewer
+
 # Only some classes, or list the watched universe
 python3 scripts/watch_asset_classes.py --classes options swaps annuities --dry-run
 python3 scripts/watch_asset_classes.py --list
@@ -49,7 +52,7 @@ python3 scripts/watch_asset_classes.py --list
 # Terminal dashboard + reports/asset_classes_dashboard.html & reports/asset_classes_overview.png
 python3 scripts/visualize_asset_classes.py
 
-# Top and bottom movers per class over another horizon (1d 5d 1m 3m ytd 1y), 3 or 5 per side
-python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 5
+# Top and bottom movers per class over another horizon (1d 5d 1m 3m ytd 1y), 1-100 per side in the terminal
+python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 25
 ```
 The PNG needs Pillow (`pip install pillow`); the terminal view and HTML dashboard need only the standard library.
