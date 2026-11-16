@@ -37,7 +37,7 @@
 
 ## 3. Agent Tooling, Direct Python Fetcher & Data Visualization
 
-The agent executes its data ingestion, quantitative modeling, and visualization directly via six zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), the asset-class taxonomy watcher and its visualizer (C, D), and the goods, drugs and housing price watcher and its visualizer (E, F).
+The agent executes its data ingestion, quantitative modeling, and visualization directly via seven zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), the asset-class taxonomy watcher and its visualizer (C, D), the goods, drugs and housing price watcher and its visualizer (E, F), and the weekly Market Update PDF builder (G).
 
 ### A. Direct Market Data Fetcher (`scripts/fetch_market_data.py`)
 
@@ -208,6 +208,44 @@ Reads `data/luxury_brands.csv`, `luxury_models.csv`, `drug_prices.csv`, `housing
 python3 scripts/visualize_goods_drugs_housing.py
 python3 scripts/visualize_goods_drugs_housing.py --html reports/goods_drugs_housing_dashboard.html --png reports/goods_drugs_housing_overview.png --open
 ```
+
+### G. Weekly Market Update PDF (`scripts/build_market_update.py`)
+
+Builds a numbered, outline-style weekly briefing on world markets — `#1.`, `#2.` … sections grouped into parts, nested `1.` / `a.` / `i.` points, and a linked source citation such as `(Reuters)` after every news item — as Markdown and as a PDF with a `MARKET UPDATE` masthead, a `subscribe at czpzc.com` line and the site and page number on every page (`--site` changes the name).
+
+| Part | Contents | Built from |
+| :--- | :--- | :--- |
+| 1. Global Stock Market Summary | US indices for the week, equal-weight and style, yields, oil, gold, dollar, Bitcoin, VIX; the most widely reported stories; every major index in Europe, Asia-Pacific, the Americas and the Middle East / Africa; US sectors and stock movers | Yahoo Finance daily bars, treasury.gov par curve, `asset_class_movers.csv` |
+| 2. The Week's Stories | AI and technology; politics, trade and geopolitics; deals, credit and capital markets; earnings; the economy | News feeds |
+| 3. Rates, Credit and Central Banks | Treasury curve and slope, bond funds, the Fed path, mortgage rate; central-bank and inflation stories | treasury.gov, Yahoo Finance, `asset_class_metrics.csv`, news feeds |
+| 4. Commodities, Currencies and Crypto | Weekly and year-to-date moves with the related stories | Yahoo Finance, news feeds |
+| 5. Around the World | Europe, Asia-Pacific, Latin America, Middle East and Africa: local indices, one market wrap and the region's stories | Yahoo Finance, news feeds |
+| 6. Other Prices We Track | Home prices, US drug prices and luxury resale prices, when those CSVs exist | `housing_prices.csv`, `drug_prices.csv`, `luxury_*.csv` |
+
+How the news is handled, in line with §7:
+- **Sources.** Google News searches by theme and region plus the BBC, Financial Times, WSJ Markets, Nikkei Asia, South China Morning Post, Economic Times, The Guardian, DW and France 24 feeds. Only outlets on the script's `ALLOWED_SOURCES` list are used; advice columns, live blogs, press releases and stock-picking pieces are filtered out.
+- **No invented text.** Price statements are computed from data. News items are the publishers' own headlines, quoted as published and linked; the script writes no analysis and does not summarise articles.
+- **Ranking.** Headlines are grouped into stories by shared rare keywords and by subject (the most used proper noun, e.g. Nvidia). A story covered by more outlets ranks higher; a single-outlet headline is used only from a major outlet. Each region gets one market wrap rather than one per day.
+- **Week covered.** The last completed week (Friday close against the previous Friday's close), dated the following Monday. `--week-ending` picks another week, but the feeds reach back only about seven days, so older issues carry little news.
+
+To add commentary, edit the generated Markdown (headings `## Part`, `### #N. …`, list items indented three spaces per level, `**bold**`, `*italic*`, `[(Source)](url)`) and render it again with `--from-markdown`. The PDF writer is built in (standard Helvetica fonts, no third-party packages); characters outside Western European text are transliterated.
+
+#### CLI Usage (`scripts/build_market_update.py`)
+```bash
+# Last completed week -> reports/market-update-YYYY-MM-DD.md and .pdf
+python3 scripts/build_market_update.py
+
+# Another week, another site name, or market data only
+python3 scripts/build_market_update.py --week-ending 2026-11-13
+python3 scripts/build_market_update.py --site czpzc.com
+python3 scripts/build_market_update.py --no-news
+
+# Re-render the PDF after editing the Markdown; or preview the Markdown without writing files
+python3 scripts/build_market_update.py --from-markdown reports/market-update-2026-11-16.md
+python3 scripts/build_market_update.py --dry-run
+```
+
+For the fullest issue, run the other watchers first (`watch_asset_classes.py --write-csv`, `watch_goods_drugs_housing.py --write-csv`) so Parts 1, 3 and 6 can use their CSVs.
 
 ---
 

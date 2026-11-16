@@ -76,3 +76,15 @@ python3 scripts/watch_goods_drugs_housing.py --section drugs housing --dry-run
 # Terminal dashboard + reports/goods_drugs_housing_dashboard.html & reports/goods_drugs_housing_overview.png
 python3 scripts/visualize_goods_drugs_housing.py
 ```
+
+### 7. Build the Weekly Market Update PDF (`scripts/build_market_update.py`)
+A numbered briefing on the week in world markets — index, rate, commodity, currency and crypto moves plus the
+week's most widely reported stories with linked sources — written to Markdown and typeset to PDF.
+```bash
+# Last completed week -> reports/market-update-YYYY-MM-DD.md and .pdf
+python3 scripts/build_market_update.py
+
+# Edit the Markdown, then render it again
+python3 scripts/build_market_update.py --from-markdown reports/market-update-YYYY-MM-DD.md
+```
+No third-party packages are needed. News items are publishers' headlines with links, not written analysis.
