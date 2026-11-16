@@ -88,3 +88,7 @@ python3 scripts/build_market_update.py
 python3 scripts/build_market_update.py --from-markdown reports/market-update-YYYY-MM-DD.md
 ```
 No third-party packages are needed. News items are publishers' headlines with links, not written analysis.
+
+Only the Markdown is committed. The PDF is published by GitHub Actions: every push to `main` typesets the latest
+`reports/market-update-*.md` and adds the PDF to the `market-dashboard-<sha>` workflow artifact, next to the
+dashboards. Running the workflow by hand with **fresh_market_update** ticked builds a new issue from live data instead.

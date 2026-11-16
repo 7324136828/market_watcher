@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Market Update PDFs are published as a GitHub Actions artifact, not committed
+reports/market-update-*.pdf
