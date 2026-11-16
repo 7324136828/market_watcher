@@ -1,11 +1,18 @@
 name: Build dashboard
 
-# On every push to main (including PR merges), build the HTML dashboard
-# and PNG overview from data/*.csv and upload them as a workflow artifact.
+# On every push to main (including PR merges), build the HTML dashboards and
+# PNG overviews from data/*.csv plus the weekly Market Update PDF, and upload
+# them as one workflow artifact. The PDF is not committed to the repository;
+# this artifact is where it is published.
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      fresh_market_update:
+        description: "Build a new Market Update from live prices and news instead of typesetting the latest committed issue"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -36,6 +43,21 @@ jobs:
             --html dist/goods_drugs_housing_dashboard.html \
             --png dist/goods_drugs_housing_overview.png
 
+      # By default the latest committed issue (reports/market-update-*.md) is
+      # typeset, so the PDF always matches the Markdown in the repository.
+      # A manual run with "fresh_market_update" fetches prices and news instead.
+      - name: Build Market Update PDF
+        env:
+          FRESH: ${{ inputs.fresh_market_update }}
+        run: |
+          mkdir -p dist
+          if [ "$FRESH" = "true" ]; then
+            python3 scripts/build_market_update.py --out-dir dist
+          else
+            latest=$(ls reports/market-update-*.md | sort | tail -n 1)
+            python3 scripts/build_market_update.py --from-markdown "$latest" --out-dir dist
+          fi
+
       - name: Upload dashboard artifact
         uses: actions/upload-artifact@v4
         with:
@@ -47,5 +69,7 @@ jobs:
             dist/asset_classes_overview.png
             dist/goods_drugs_housing_dashboard.html
             dist/goods_drugs_housing_overview.png
+            dist/market-update-*.pdf
+            dist/market-update-*.md
           if-no-files-found: error
           retention-days: 30

@@ -1247,6 +1247,7 @@ def main() -> int:
         if not source.exists():
             print(f"[ERR] No such file: {source}", file=sys.stderr)
             return 1
+        Path(args.out_dir).mkdir(parents=True, exist_ok=True)
         pdf_path = Path(args.out_dir) / (source.stem + ".pdf")
         pages = render_pdf(parse_markdown(source.read_text(encoding="utf-8").splitlines()), pdf_path, args.site)
         print(f"[OK] Rendered {source} -> {pdf_path} ({pages} pages)")

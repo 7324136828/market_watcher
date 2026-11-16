@@ -245,6 +245,8 @@ python3 scripts/build_market_update.py --from-markdown reports/market-update-202
 python3 scripts/build_market_update.py --dry-run
 ```
 
+**Where the PDF lives.** Commit the Markdown issue only; `reports/market-update-*.pdf` is git-ignored. The "Build dashboard" workflow (`.github/workflows/visualize.yml`) typesets the latest committed `reports/market-update-*.md` on every push to `main` and uploads the PDF in the `market-dashboard-<sha>` artifact with the dashboards. A manual run of that workflow with `fresh_market_update` ticked builds a new issue from live prices and news instead and uploads both its Markdown and PDF.
+
 For the fullest issue, run the other watchers first (`watch_asset_classes.py --write-csv`, `watch_goods_drugs_housing.py --write-csv`) so Parts 1, 3 and 6 can use their CSVs.
 
 ---
