@@ -23,3 +23,31 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-15,2026-11-15T14:14:06Z,info,PGX,Structured Products & Hybrid Securities,new_52w_low,9.67,close at 1-year low,Invesco Preferred (PGX) closed at a 1-year low of 9.6700.
 2026-11-15,2026-11-15T14:14:06Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.7554,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.8% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-13).
 2026-11-15,2026-11-15T14:14:06Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,19.6949,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +19.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-13).
+2026-11-16,2026-11-16T12:09:56Z,medium,annuities,Annuities,class_rally,4.03584,class median 5d move >= 3.0%,Annuities: median instrument +4.04% over 5 sessions; 90% above their 50-day average.
+2026-11-16,2026-11-16T12:09:56Z,medium,^VIX,Options,iv_rank_high,81.0277,1y percentile >= 80%,VIX sits at the 81th percentile of its past year.
+2026-11-16,2026-11-16T12:09:56Z,medium,BTC=F,Futures & Forwards,z_score_extreme,-2.63779,|Z| >= 2.5,"CME Bitcoin (BTC=F) at 64,590: Z=-2.64 vs its 20-day mean, 1d -6.28%, volume 0.6x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-16,2026-11-16T12:09:56Z,medium,PGX,Structured Products & Hybrid Securities,z_score_extreme,-2.71938,|Z| >= 2.5,"Invesco Preferred (PGX) at 9.6700: Z=-2.72 vs its 20-day mean, 1d -0.92%, volume 1.2x average."
+2026-11-16,2026-11-16T12:09:56Z,info,ZQ,Swaps,fed_path_repricing,-3.42,>= 2 moves priced in 12 months,Fed funds futures price 3.4 hikes of 25 bp over the next 12 months.
+2026-11-16,2026-11-16T12:09:56Z,info,CRBG,Annuities,new_52w_high,36.35,close at 1-year high,Corebridge Financial (CRBG) closed at a 1-year high of 36.35.
+2026-11-16,2026-11-16T12:09:56Z,info,AAPL,Stocks (Equities),new_52w_high,356.27,close at 1-year high,Apple (AAPL) closed at a 1-year high of 356.27.
+2026-11-16,2026-11-16T12:09:56Z,info,ABBV,Stocks (Equities),new_52w_high,295.03,close at 1-year high,AbbVie (ABBV) closed at a 1-year high of 295.03.
+2026-11-16,2026-11-16T12:09:56Z,info,BRK-B,Stocks (Equities),new_52w_high,592.94,close at 1-year high,Berkshire Hathaway B (BRK-B) closed at a 1-year high of 592.94.
+2026-11-16,2026-11-16T12:09:56Z,info,CL,Stocks (Equities),new_52w_high,99.67,close at 1-year high,Colgate-Palmolive (CL) closed at a 1-year high of 99.67.
+2026-11-16,2026-11-16T12:09:56Z,info,COST,Stocks (Equities),new_52w_high,1106.21,close at 1-year high,"Costco (COST) closed at a 1-year high of 1,106."
+2026-11-16,2026-11-16T12:09:56Z,info,JNJ,Stocks (Equities),new_52w_high,285.75,close at 1-year high,Johnson & Johnson (JNJ) closed at a 1-year high of 285.75.
+2026-11-16,2026-11-16T12:09:56Z,info,KO,Stocks (Equities),new_52w_high,99.25,close at 1-year high,Coca-Cola (KO) closed at a 1-year high of 99.25.
+2026-11-16,2026-11-16T12:09:56Z,info,LLY,Stocks (Equities),new_52w_high,1443.5,close at 1-year high,"Eli Lilly (LLY) closed at a 1-year high of 1,444."
+2026-11-16,2026-11-16T12:09:56Z,info,MDLZ,Stocks (Equities),new_52w_high,67.54,close at 1-year high,Mondelez (MDLZ) closed at a 1-year high of 67.54.
+2026-11-16,2026-11-16T12:09:56Z,info,MO,Stocks (Equities),new_52w_high,78.64,close at 1-year high,Altria (MO) closed at a 1-year high of 78.64.
+2026-11-16,2026-11-16T12:09:56Z,info,PG,Stocks (Equities),new_52w_high,169.8,close at 1-year high,Procter & Gamble (PG) closed at a 1-year high of 169.80.
+2026-11-16,2026-11-16T12:09:56Z,info,^FTSE,Stocks (Equities),new_52w_high,10945.7,close at 1-year high,"FTSE 100 (^FTSE) closed at a 1-year high of 10,946."
+2026-11-16,2026-11-16T12:09:56Z,info,GC=F,Commodities,new_52w_low,3876.9,close at 1-year low,"Gold (GC=F) closed at a 1-year low of 3,877. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-16,2026-11-16T12:09:56Z,info,SI=F,Commodities,new_52w_low,47.655,close at 1-year low,"Silver (SI=F) closed at a 1-year low of 47.65. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-16,2026-11-16T12:09:56Z,info,SLV,Commodities,new_52w_low,44.13,close at 1-year low,iShares Silver Trust (SLV) closed at a 1-year low of 44.13.
+2026-11-16,2026-11-16T12:09:56Z,info,6E=F,Futures & Forwards,new_52w_low,1.10225,close at 1-year low,"Euro FX (6E=F) closed at a 1-year low of 1.1022. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-16,2026-11-16T12:09:56Z,info,NVDA,Stocks (Equities),new_52w_low,162.85,close at 1-year low,NVIDIA (NVDA) closed at a 1-year low of 162.85.
+2026-11-16,2026-11-16T12:09:56Z,info,PFF,Structured Products & Hybrid Securities,new_52w_low,27.88,close at 1-year low,iShares Preferred & Income (PFF) closed at a 1-year low of 27.88.
+2026-11-16,2026-11-16T12:09:56Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.59,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.59.
+2026-11-16,2026-11-16T12:09:56Z,info,PGX,Structured Products & Hybrid Securities,new_52w_low,9.67,close at 1-year low,Invesco Preferred (PGX) closed at a 1-year low of 9.6700.
+2026-11-16,2026-11-16T12:09:56Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.7554,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.8% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-13).
+2026-11-16,2026-11-16T12:09:56Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,21.4185,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +21.4% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-16).

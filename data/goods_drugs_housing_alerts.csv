@@ -8,3 +8,12 @@ date,timestamp_utc,severity,asset_id,section,signal_type,value,threshold,details
 2026-11-15,2026-11-15T23:19:45Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
 2026-11-15,2026-11-15T23:19:45Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
 2026-11-15,2026-11-15T23:19:45Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
+2026-11-16,2026-11-16T12:09:56Z,medium,entyvio,drugs,drug_price_change,-3.11257,|change| >= 3% since the previous file,"Entyvio (Medicare Part B payment limit (ASP + 6%)): -3.1% since the previous file; reference cost $6,285."
+2026-11-16,2026-11-16T12:09:56Z,info,jardiance,drugs,drug_price_change_1y,-44.4158,|change| >= 8% over one year,Jardiance (NADAC (pharmacy acquisition cost)): -44.4% over one year; reference cost $336.
+2026-11-16,2026-11-16T12:09:56Z,info,eliquis,drugs,drug_price_change_1y,-43.0409,|change| >= 8% over one year,Eliquis (NADAC (pharmacy acquisition cost)): -43.0% over one year; reference cost $331.
+2026-11-16,2026-11-16T12:09:56Z,info,farxiga,drugs,drug_price_change_1y,-36.9958,|change| >= 8% over one year,Farxiga (NADAC (pharmacy acquisition cost)): -37.0% over one year; reference cost $362.
+2026-11-16,2026-11-16T12:09:56Z,info,enhertu,drugs,drug_price_change_1y,8.92321,|change| >= 8% over one year,"Enhertu (Medicare Part B payment limit (ASP + 6%)): +8.9% over one year; reference cost $3,265."
+2026-11-16,2026-11-16T12:09:56Z,info,bis-tr,housing,housing_price_surge,25.1423,1y change <= -5% or >= +15%,Türkiye (World): +25.1% over one year (2026-Q2).
+2026-11-16,2026-11-16T12:09:56Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
+2026-11-16,2026-11-16T12:09:56Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
+2026-11-16,2026-11-16T12:09:56Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
