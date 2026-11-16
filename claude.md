@@ -37,7 +37,7 @@
 
 ## 3. Agent Tooling, Direct Python Fetcher & Data Visualization
 
-The agent executes its data ingestion, quantitative modeling, and visualization directly via four zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), and the asset-class taxonomy watcher and its visualizer (C, D).
+The agent executes its data ingestion, quantitative modeling, and visualization directly via seven zero-config Python scripts in `scripts/`: the market data fetcher and its visualizer (A, B), the asset-class taxonomy watcher and its visualizer (C, D), the goods, drugs and housing price watcher and its visualizer (E, F), and the weekly Market Update PDF builder (G).
 
 ### A. Direct Market Data Fetcher (`scripts/fetch_market_data.py`)
 
@@ -158,6 +158,94 @@ python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 25
 ```
 
 Movers are read from the watcher's collection (`data/asset_class_movers.csv`), so every view uses the same ranking; if that file has no rows for the latest date the visualizer rebuilds the ranking from `asset_classes.csv`. Treasury yield series are excluded (a rising yield is a falling bond price), and a class with fewer than twice the requested count shows half its instruments per side. Continuous front-month futures (`=F`) splice contracts together, so their Z-score and 52-week alerts are capped at `medium` and carry a roll caveat; rate futures are read from dated contracts only.
+
+### E. Goods, Drugs & Housing Price Watcher (`scripts/watch_goods_drugs_housing.py`)
+
+Watches real-world prices in three sections, all from public key-free sources. Each section states exactly which price it is, because none of them is a quoted market price.
+
+| Section | What is watched | Price basis | Sources |
+| :--- | :--- | :--- | :--- |
+| `luxury` | 18 brands (Louis Vuitton, Chanel, Gucci, Hermès, Christian Dior, Prada, Saint Laurent, Bottega Veneta, Fendi, Celine, Goyard, Balenciaga, Loewe, Burberry, Cartier, Van Cleef & Arpels, Tiffany, Rolex) by category, and 57 iconic models (Neverfull MM, Classic Flap, Birkin 30, GG Marmont, Love bracelet, Datejust, ...) | **Resale asking price** of live pre-owned listings, USD. Not boutique retail, not sold prices. | Public product feeds of Fashionphile, Dallas Designer Handbags, Madison Avenue Couture |
+| `drugs` | 20 pharmacy drugs (Ozempic, Wegovy, Rybelsus, Mounjaro, Zepbound, Trulicity, Eliquis, Xarelto, Jardiance, Farxiga, Entresto, Januvia, Humira, Enbrel, Dupixent, Stelara, Skyrizi, Biktarvy, Lantus, Humalog) | **NADAC**: what US retail pharmacies pay per unit (weekly), scaled to a reference pack | data.medicaid.gov |
+| `drugs` | 11 physician-administered drugs (Keytruda, Opdivo, Tecentriq, Imfinzi, Darzalex Faspro, Enhertu, Eylea, Prolia, Ocrevus, Entyvio, Botox) | **Medicare Part B payment limit**: average sales price + 6% per billing unit (quarterly), scaled to a reference dose | cms.gov payment-limit files |
+| `housing` | United States: nation, 51 states, 50 largest metros | Typical home value (USD) and typical rent | Zillow Research (ZHVI, ZORI) |
+| `housing` | Brazil: 56 cities + composite; national collateral-value index | Asking price per m² (BRL), rent per m², rental yield; IVG-R index | FIPE / ZAP (FipeZap), Banco Central do Brasil |
+| `housing` | Europe: about 30 countries + EU / euro-area aggregates; UK nations and 9 English regions | House price index (2015 = 100); UK average price (GBP) | Eurostat `prc_hpi_q`, HM Land Registry UK HPI |
+| `housing` | Other economies: about 60 countries + world / advanced / emerging aggregates | Residential property price index, nominal and inflation-adjusted change | BIS `WS_SPP` |
+
+Rules that carry over from §7: a brand, category or model with fewer than 3 listings is `LOW_LIQUIDITY_UNPRICED` (§7.4); model matching is strict on whole-word keywords, excluded words and category so that pouches, wallets and straps are not counted as the bag (§7.2); medians with quartiles are used instead of means so one extreme listing cannot move a figure (§7.1). Housing values stay in local currency and index levels are never compared across sources.
+
+Limits to know: drug figures are not list prices, patient prices or net prices after rebates, and cover the US only. Luxury figures are a sample of up to 1,000 of the newest listings per brand and store (`--luxury-pages`), fetched one request at a time because the largest feed rate-limits faster access. Brand boutiques' own retail prices are not collected: the brand sites either block automated access or do not publish prices in the page.
+
+Alerts: a model's median moving ≥ 10% since the previous run, a drug price moving ≥ 3% since the previous file or ≥ 8% over a year, and a region's home prices falling ≥ 5% or rising ≥ 15% over a year.
+
+#### CLI Usage (`scripts/watch_goods_drugs_housing.py`)
+```bash
+# Preview all three sections in the terminal without writing files (about 4 minutes; luxury is the slow part)
+python3 scripts/watch_goods_drugs_housing.py --dry-run
+
+# Update data/luxury_*.csv, drug_prices.csv, housing_*.csv and write a Markdown brief
+python3 scripts/watch_goods_drugs_housing.py --write-csv --write-report reports/goods-drugs-housing-YYYY-MM-DD.md
+
+# Only some sections (luxury drugs housing); drugs and housing together take under a minute
+python3 scripts/watch_goods_drugs_housing.py --section drugs housing --dry-run
+
+# Read more or fewer luxury listings per brand and store (pages of 250, newest first; default 4)
+python3 scripts/watch_goods_drugs_housing.py --section luxury --luxury-pages 8 --dry-run
+```
+
+To watch another brand, model or drug, add a line to `LUXURY_STORES` / `LUXURY_MODELS`, `RETAIL_DRUGS` (exact NADAC description and pack size) or `PART_B_DRUGS` (HCPCS code and reference dose) at the top of the relevant section.
+
+### F. Goods, Drugs & Housing Visualizer (`scripts/visualize_goods_drugs_housing.py`)
+
+Reads `data/luxury_brands.csv`, `luxury_models.csv`, `drug_prices.csv`, `housing_prices.csv`, `housing_history.csv` and `goods_drugs_housing_alerts.csv`; a section with no data is left out.
+
+1. **Terminal dashboard (`stdout`):** brand medians with bars, model table, both drug tables, one-year housing movers per market, alerts.
+2. **PNG overview (`reports/goods_drugs_housing_overview.png`, needs Pillow):** nine panels — luxury brand medians, luxury models, pharmacy drugs, physician-administered drugs, and one-year home-price movers for US metros, US states, Brazilian cities, Europe / UK and the world.
+3. **Interactive HTML dashboard (`reports/goods_drugs_housing_dashboard.html`):** brand bars by store and category, sortable model table with a link to the cheapest listing, drug tables, and a housing explorer per market (US metros, US states, Brazil cities, Europe, UK regions, World) with movers, a filterable sortable table and an indexed price-history chart of the selected regions.
+
+```bash
+python3 scripts/visualize_goods_drugs_housing.py
+python3 scripts/visualize_goods_drugs_housing.py --html reports/goods_drugs_housing_dashboard.html --png reports/goods_drugs_housing_overview.png --open
+```
+
+### G. Weekly Market Update PDF (`scripts/build_market_update.py`)
+
+Builds a numbered, outline-style weekly briefing on world markets — `#1.`, `#2.` … sections grouped into parts, nested `1.` / `a.` / `i.` points, and a linked source citation such as `(Reuters)` after every news item — as Markdown and as a PDF with a `MARKET UPDATE` masthead, a `subscribe at czpzc.com` line and the site and page number on every page (`--site` changes the name).
+
+| Part | Contents | Built from |
+| :--- | :--- | :--- |
+| 1. Global Stock Market Summary | US indices for the week, equal-weight and style, yields, oil, gold, dollar, Bitcoin, VIX; the most widely reported stories; every major index in Europe, Asia-Pacific, the Americas and the Middle East / Africa; US sectors and stock movers | Yahoo Finance daily bars, treasury.gov par curve, `asset_class_movers.csv` |
+| 2. The Week's Stories | AI and technology; politics, trade and geopolitics; deals, credit and capital markets; earnings; the economy | News feeds |
+| 3. Rates, Credit and Central Banks | Treasury curve and slope, bond funds, the Fed path, mortgage rate; central-bank and inflation stories | treasury.gov, Yahoo Finance, `asset_class_metrics.csv`, news feeds |
+| 4. Commodities, Currencies and Crypto | Weekly and year-to-date moves with the related stories | Yahoo Finance, news feeds |
+| 5. Around the World | Europe, Asia-Pacific, Latin America, Middle East and Africa: local indices, one market wrap and the region's stories | Yahoo Finance, news feeds |
+| 6. Other Prices We Track | Home prices, US drug prices and luxury resale prices, when those CSVs exist | `housing_prices.csv`, `drug_prices.csv`, `luxury_*.csv` |
+
+How the news is handled, in line with §7:
+- **Sources.** Google News searches by theme and region plus the BBC, Financial Times, WSJ Markets, Nikkei Asia, South China Morning Post, Economic Times, The Guardian, DW and France 24 feeds. Only outlets on the script's `ALLOWED_SOURCES` list are used; advice columns, live blogs, press releases and stock-picking pieces are filtered out.
+- **No invented text.** Price statements are computed from data. News items are the publishers' own headlines, quoted as published and linked; the script writes no analysis and does not summarise articles.
+- **Ranking.** Headlines are grouped into stories by shared rare keywords and by subject (the most used proper noun, e.g. Nvidia). A story covered by more outlets ranks higher; a single-outlet headline is used only from a major outlet. Each region gets one market wrap rather than one per day.
+- **Week covered.** The last completed week (Friday close against the previous Friday's close), dated the following Monday. `--week-ending` picks another week, but the feeds reach back only about seven days, so older issues carry little news.
+
+To add commentary, edit the generated Markdown (headings `## Part`, `### #N. …`, list items indented three spaces per level, `**bold**`, `*italic*`, `[(Source)](url)`) and render it again with `--from-markdown`. The PDF writer is built in (standard Helvetica fonts, no third-party packages); characters outside Western European text are transliterated.
+
+#### CLI Usage (`scripts/build_market_update.py`)
+```bash
+# Last completed week -> reports/market-update-YYYY-MM-DD.md and .pdf
+python3 scripts/build_market_update.py
+
+# Another week, another site name, or market data only
+python3 scripts/build_market_update.py --week-ending 2026-11-13
+python3 scripts/build_market_update.py --site czpzc.com
+python3 scripts/build_market_update.py --no-news
+
+# Re-render the PDF after editing the Markdown; or preview the Markdown without writing files
+python3 scripts/build_market_update.py --from-markdown reports/market-update-2026-11-16.md
+python3 scripts/build_market_update.py --dry-run
+```
+
+For the fullest issue, run the other watchers first (`watch_asset_classes.py --write-csv`, `watch_goods_drugs_housing.py --write-csv`) so Parts 1, 3 and 6 can use their CSVs.
 
 ---
 

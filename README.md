@@ -56,3 +56,35 @@ python3 scripts/visualize_asset_classes.py
 python3 scripts/visualize_asset_classes.py --movers-horizon 1m --movers-count 25
 ```
 The PNG needs Pillow (`pip install pillow`); the terminal view and HTML dashboard need only the standard library.
+
+### 5. Watch Luxury Goods, Drug and Home Prices (`scripts/watch_goods_drugs_housing.py`)
+Resale asking prices for 18 luxury brands and 57 iconic models, US prices for 31 drugs (Ozempic, Wegovy,
+Keytruda, ...), and home prices for 269 regions in the US, Brazil, Europe and about 60 other economies.
+```bash
+# Preview in the terminal (about 4 minutes; the luxury feeds are fetched slowly on purpose)
+python3 scripts/watch_goods_drugs_housing.py --dry-run
+
+# Update the CSVs in data/ and write a Markdown brief
+python3 scripts/watch_goods_drugs_housing.py --write-csv --write-report reports/goods-drugs-housing-YYYY-MM-DD.md
+
+# Only some sections: luxury, drugs, housing
+python3 scripts/watch_goods_drugs_housing.py --section drugs housing --dry-run
+```
+
+### 6. Visualize Them (`scripts/visualize_goods_drugs_housing.py`)
+```bash
+# Terminal dashboard + reports/goods_drugs_housing_dashboard.html & reports/goods_drugs_housing_overview.png
+python3 scripts/visualize_goods_drugs_housing.py
+```
+
+### 7. Build the Weekly Market Update PDF (`scripts/build_market_update.py`)
+A numbered briefing on the week in world markets — index, rate, commodity, currency and crypto moves plus the
+week's most widely reported stories with linked sources — written to Markdown and typeset to PDF.
+```bash
+# Last completed week -> reports/market-update-YYYY-MM-DD.md and .pdf
+python3 scripts/build_market_update.py
+
+# Edit the Markdown, then render it again
+python3 scripts/build_market_update.py --from-markdown reports/market-update-YYYY-MM-DD.md
+```
+No third-party packages are needed. News items are publishers' headlines with links, not written analysis.
