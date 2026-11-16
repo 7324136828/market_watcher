@@ -65,3 +65,4 @@ date,timestamp_utc,regime_status,us2y_pct,us10y_pct,us30y_pct,us10y_change_48h_b
 2026-11-13,,,4.88,5.15,5.47,17,103.41,,19.3,159.875,1.10502,,289529915113,,treasury.gov + yfinance + DefiLlama backfill
 2026-11-14,2026-11-15T03:25:37Z,RISK-OFF,4.88,5.15,5.47,17,103.41,103.17,19.3,159.875,1.10502,-0.000682,287040924259,true,treasury.gov daily par yield curve 2026-11-13; yfinance 2026-11-13 closes; OKX funding; DefiLlama 2026-11-15
 2026-11-15,2026-11-15T12:04:16Z,RISK-OFF,4.88,5.15,5.47,17,103.41,103.17,19.3,159.875,1.10502,-0.000243,287082974104,true,treasury.gov daily par yield curve 2026-11-13; yfinance 2026-11-13 closes; OKX funding; DefiLlama 2026-11-15
+2026-11-16,2026-11-16T12:09:23Z,RISK-OFF,4.88,5.15,5.47,17,103.5,103.41,20,159.528,1.1012,0.001486,287067298876,true,treasury.gov daily par yield curve 2026-11-13; yfinance 2026-11-16 closes; OKX funding; DefiLlama 2026-11-16
