@@ -12248,3 +12248,286 @@ date,timestamp_utc,asset_id,asset_name,category,metric,value,unit,source
 2026-11-16,2026-11-16T12:09:23Z,gpu-rental-rtx-5090-runpod-community,RTX 5090 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,0.69,usd_per_hr,runpod pricing page 12:09Z
 2026-11-16,2026-11-16T12:09:23Z,gpu-rental-rtx-5090-runpod-secure,RTX 5090 rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,1.39,usd_per_hr,runpod pricing page 12:09Z
 2026-11-16,2026-11-16T12:09:23Z,gpu-rental-rtx-4090-runpod-community,RTX 4090 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,0.34,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,price,739.950012,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,change_24h_pct,-1.911527,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,change_5d_pct,-1.692595,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,z_score_20d,-1.550488,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,volume,69044100,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,SPY,SPDR S&P 500 ETF,Equity ETF,vol_ratio_20d,1.424939,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,price,661.75,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,change_24h_pct,-2.668081,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,change_5d_pct,-2.590708,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,z_score_20d,-1.379715,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,volume,42801200,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,QQQ,Invesco QQQ Trust,Equity ETF,vol_ratio_20d,0.86243,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,price,51.470001,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,change_24h_pct,-1.455099,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,change_5d_pct,-2.776724,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,z_score_20d,-1.035098,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,volume,13786500,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLB,Materials Select Sector SPDR,Sector ETF,vol_ratio_20d,1.13803,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,price,106.82,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,change_24h_pct,-1.720492,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,change_5d_pct,-0.502981,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,z_score_20d,0.501919,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,volume,6116900,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLC,Communication Services Select Sector SPDR,Sector ETF,vol_ratio_20d,0.768246,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,price,63.689999,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,change_24h_pct,-1.95505,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,change_5d_pct,2.825315,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,z_score_20d,-0.795852,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,volume,31190900,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLE,Energy Select Sector SPDR,Sector ETF,vol_ratio_20d,0.854473,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,price,58.18,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,change_24h_pct,-0.852079,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,change_5d_pct,0.32764,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,z_score_20d,0.904153,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,volume,38641300,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLF,Financial Select Sector SPDR,Sector ETF,vol_ratio_20d,1.157062,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,price,165.660004,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,change_24h_pct,-1.848557,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,change_5d_pct,-1.912485,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,z_score_20d,-0.888397,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,volume,9097000,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLI,Industrial Select Sector SPDR,Sector ETF,vol_ratio_20d,1.025595,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,price,164.759995,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,change_24h_pct,-3.241722,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,change_5d_pct,-3.581467,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,z_score_20d,-1.465098,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,volume,13158300,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLK,Technology Select Sector SPDR,Sector ETF,vol_ratio_20d,1.034978,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,price,92.599998,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,change_24h_pct,0.270709,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,change_5d_pct,1.881394,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,z_score_20d,1.570675,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,volume,19121300,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLP,Consumer Staples Select Sector SPDR,Sector ETF,vol_ratio_20d,0.993838,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,price,44.25,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,change_24h_pct,-0.270451,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,change_5d_pct,-0.873655,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,z_score_20d,0.75212,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,volume,6161600,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLRE,Real Estate Select Sector SPDR,Sector ETF,vol_ratio_20d,0.781594,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,price,44.119999,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,change_24h_pct,0.181649,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,change_5d_pct,0.753592,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,z_score_20d,1.420911,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,volume,18240200,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLU,Utilities Select Sector SPDR,Sector ETF,vol_ratio_20d,0.737638,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,price,187.880005,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,change_24h_pct,-0.513636,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,change_5d_pct,-0.238941,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,z_score_20d,0.951305,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,volume,9661100,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLV,Health Care Select Sector SPDR,Sector ETF,vol_ratio_20d,0.858896,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,price,118.150002,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,change_24h_pct,-1.525256,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,change_5d_pct,-2.363442,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,z_score_20d,0.241466,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,volume,8769800,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,XLY,Consumer Discretionary Select Sector SPDR,Sector ETF,vol_ratio_20d,0.963646,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,price,30.440001,usd,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,change_24h_pct,-4.396984,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,change_5d_pct,-11.357017,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,z_score_20d,-2.006855,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,volume,3946500,shares,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,URA,Global X Uranium ETF,Sector ETF,vol_ratio_20d,0.872899,ratio,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,price,7452.5,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,change_24h_pct,0.181476,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,change_5d_pct,-1.216158,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,z_score_20d,-1.331604,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,volume,214814,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,ES=F,E-mini S&P 500 future,Future,vol_ratio_20d,0.113532,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,price,27454,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,change_24h_pct,0.622154,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,change_5d_pct,-1.369666,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,z_score_20d,-1.107051,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,volume,143485,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,NQ=F,E-mini Nasdaq-100 future,Future,vol_ratio_20d,0.189582,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,price,86.260002,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,change_24h_pct,0.629959,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,change_5d_pct,0.255696,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,z_score_20d,-1.170753,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,volume,45689,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,CL=F,WTI crude oil future,Future,vol_ratio_20d,0.158508,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,price,3870.300049,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,change_24h_pct,0.449002,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,change_5d_pct,-3.967543,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,z_score_20d,-1.553276,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,volume,54931,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,GC=F,Gold future,Future,vol_ratio_20d,0.321443,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,price,47.630001,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,change_24h_pct,1.806137,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,change_5d_pct,-6.792432,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,z_score_20d,-1.626671,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,volume,18424,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,SI=F,Silver future,Future,vol_ratio_20d,18.335987,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,PL=F,Platinum future,Future,price,1449.300049,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,PL=F,Platinum future,Future,change_24h_pct,0.089782,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,PL=F,Platinum future,Future,change_5d_pct,-5.822339,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,PL=F,Platinum future,Future,z_score_20d,-1.333607,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,price,5.989,usd,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,change_24h_pct,-0.141727,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,change_5d_pct,-3.706089,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,z_score_20d,-1.878695,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,volume,19130,shares,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,HG=F,Copper future,Future,vol_ratio_20d,8.076671,ratio,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,^VIX,CBOE Volatility Index,Volatility,price,22.58,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,^VIX,CBOE Volatility Index,Volatility,change_24h_pct,-1.440419,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,^VIX,CBOE Volatility Index,Volatility,change_5d_pct,16.032893,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,^VIX,CBOE Volatility Index,Volatility,z_score_20d,0.917927,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,DX-Y.NYB,US Dollar Index,FX Index,price,103.615997,index,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,DX-Y.NYB,US Dollar Index,FX Index,change_24h_pct,0.063732,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,DX-Y.NYB,US Dollar Index,FX Index,change_5d_pct,1.35576,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,DX-Y.NYB,US Dollar Index,FX Index,z_score_20d,2.019941,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,DX-Y.NYB,US Dollar Index,FX Index,high_30d,103.550003,index,yfinance daily closes
+2026-11-17,2026-11-17T12:08:39Z,USDJPY=X,USD/JPY,FX,price,159.251999,rate,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,USDJPY=X,USD/JPY,FX,change_24h_pct,-0.330454,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,USDJPY=X,USD/JPY,FX,change_5d_pct,0.803249,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,USDJPY=X,USD/JPY,FX,z_score_20d,1.16778,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,EURUSD=X,EUR/USD,FX,price,1.099505,rate,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,EURUSD=X,EUR/USD,FX,change_24h_pct,-0.270481,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,EURUSD=X,EUR/USD,FX,change_5d_pct,-2.026389,pct,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,EURUSD=X,EUR/USD,FX,z_score_20d,-2.403877,sigma,yfinance daily close 2026-11-17
+2026-11-17,2026-11-17T12:08:39Z,^TNX,US 10Y Treasury yield (CBOE),Yield,price,5.121,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TNX,US 10Y Treasury yield (CBOE),Yield,change_24h_pct,-0.640279,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TNX,US 10Y Treasury yield (CBOE),Yield,change_5d_pct,5.283717,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TNX,US 10Y Treasury yield (CBOE),Yield,z_score_20d,1.371122,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TYX,US 30Y Treasury yield (CBOE),Yield,price,5.467,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TYX,US 30Y Treasury yield (CBOE),Yield,change_24h_pct,-0.255427,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TYX,US 30Y Treasury yield (CBOE),Yield,change_5d_pct,4.014459,pct,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,^TYX,US 30Y Treasury yield (CBOE),Yield,z_score_20d,1.798012,sigma,yfinance daily close 2026-11-16
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,price,64839,usd,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,change_24h_pct,0.973283,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,change_5d_pct,-9.116482,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,z_score_20d,-1.719727,sigma,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,volume,33177059328,shares,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,vol_ratio_20d,1.107314,ratio,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,market_cap_usd,1304116637469.626465,usd,coingecko live
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,price,1814.87,usd,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,change_24h_pct,0.795742,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,change_5d_pct,-10.013722,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,z_score_20d,-1.595424,sigma,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,volume,11950649344,shares,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,vol_ratio_20d,0.969691,ratio,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,market_cap_usd,221818093148.50528,usd,coingecko live
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,price,73.27,usd,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,change_24h_pct,3.241481,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,change_5d_pct,-10.275109,pct,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,z_score_20d,-1.474072,sigma,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,volume,2943639552,shares,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,vol_ratio_20d,0.981327,ratio,coingecko live 2026-11-17T12:08Z; z & volume from yfinance daily bars
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,market_cap_usd,43354831227.59938,usd,coingecko live
+2026-11-17,2026-11-17T12:08:39Z,CRYPTO-TOTAL-MCAP,Total crypto market cap,Crypto,market_cap_usd,2196210305315.555908,usd,coingecko global
+2026-11-17,2026-11-17T12:08:39Z,CRYPTO-TOTAL-MCAP,Total crypto market cap,Crypto,change_24h_pct,-1.972856,pct,coingecko global
+2026-11-17,2026-11-17T12:08:39Z,BTC-DOMINANCE,Bitcoin dominance,Crypto,share_pct,59.236109,pct,coingecko global
+2026-11-17,2026-11-17T12:08:39Z,STABLECOIN-MCAP,Total stablecoin market cap,Crypto,stablecoin_mcap_usd,286417364325.669983,usd,DefiLlama
+2026-11-17,2026-11-17T12:08:39Z,US2Y,US 2Y Treasury par yield,Yield,yield_pct,4.83,pct,treasury.gov daily par yield curve
+2026-11-17,2026-11-17T12:08:39Z,US10Y,US 10Y Treasury par yield,Yield,yield_pct,5.12,pct,treasury.gov daily par yield curve
+2026-11-17,2026-11-17T12:08:39Z,US30Y,US 30Y Treasury par yield,Yield,yield_pct,5.46,pct,treasury.gov daily par yield curve
+2026-11-17,2026-11-17T12:08:39Z,US10Y,US 10Y Treasury par yield,Yield,change_48h_bps,2,bps,treasury.gov par yields
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,funding_rate_pct,-0.002258,pct_per_8h,okx public api 12:08Z OKX (BTC-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,open_interest_usd,2055201639.080239,usd,okx public api 12:08Z OKX (BTC-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,funding_rate_pct,-0.003408,pct_per_8h,okx public api 12:08Z OKX (ETH-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,ETH-USD,Ethereum,Crypto,open_interest_usd,1219213114.928402,usd,okx public api 12:08Z OKX (ETH-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,funding_rate_pct,-0.006855,pct_per_8h,okx public api 12:08Z OKX (SOL-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,SOL-USD,Solana,Crypto,open_interest_usd,243390950.136,usd,okx public api 12:08Z OKX (SOL-USDT-SWAP)
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,funding_rate_pct,0.000305,pct_per_8h,deribit public api 12:08Z Deribit (BTC-PERPETUAL)
+2026-11-17,2026-11-17T12:08:39Z,BTC-USD,Bitcoin,Crypto,open_interest_usd,693525450,usd,deribit public api 12:08Z Deribit (BTC-PERPETUAL)
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636,Will the Fed increase interest rates by 25 bps after the December 2026 meeting?,Prediction,probability,0.915,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636,Will the Fed increase interest rates by 25 bps after the December 2026 meeting?,Prediction,change_24h_pts,4,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636,Will the Fed increase interest rates by 25 bps after the December 2026 meeting?,Prediction,volume_24h_usd,165229.36,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637,Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?,Prediction,probability,0.052,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637,Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?,Prediction,change_24h_pts,-3.65,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637,Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?,Prediction,volume_24h_usd,290182.59,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635,Will there be no change in Fed interest rates after the December 2026 meeting?,Prediction,probability,0.034,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635,Will there be no change in Fed interest rates after the December 2026 meeting?,Prediction,change_24h_pts,-0.15,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635,Will there be no change in Fed interest rates after the December 2026 meeting?,Prediction,volume_24h_usd,373421.47,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634,Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?,Prediction,probability,0.0045,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634,Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?,Prediction,change_24h_pts,0.1,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634,Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?,Prediction,volume_24h_usd,176188.04,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-by-december-31-2026-from-july-21,"Will Bitcoin dip to $60,000 by December 31, 2026?",Prediction,probability,0.615,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-by-december-31-2026-from-july-21,"Will Bitcoin dip to $60,000 by December 31, 2026?",Prediction,change_24h_pts,-2,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-by-december-31-2026-from-july-21,"Will Bitcoin dip to $60,000 by December 31, 2026?",Prediction,volume_24h_usd,27603.73,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55000-by-december-31-2026-527-627-868-745-188-361-314-673-612-946-821-624-855-557-684-381-884-939-182-939-516,"Will Bitcoin dip to $55,000 by December 31, 2026?",Prediction,probability,0.305,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55000-by-december-31-2026-527-627-868-745-188-361-314-673-612-946-821-624-855-557-684-381-884-939-182-939-516,"Will Bitcoin dip to $55,000 by December 31, 2026?",Prediction,change_24h_pts,-1,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55000-by-december-31-2026-527-627-868-745-188-361-314-673-612-946-821-624-855-557-684-381-884-939-182-939-516,"Will Bitcoin dip to $55,000 by December 31, 2026?",Prediction,volume_24h_usd,60061.39,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451-853-523-111,"Will Bitcoin dip to $50,000 by December 31, 2026?",Prediction,probability,0.158,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451-853-523-111,"Will Bitcoin dip to $50,000 by December 31, 2026?",Prediction,change_24h_pts,-1.45,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451-853-523-111,"Will Bitcoin dip to $50,000 by December 31, 2026?",Prediction,volume_24h_usd,68042.05,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55k-in-november-2026,"Will Bitcoin dip to $55,000 in November?",Prediction,probability,0.1345,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55k-in-november-2026,"Will Bitcoin dip to $55,000 in November?",Prediction,change_24h_pts,-2.8,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-55k-in-november-2026,"Will Bitcoin dip to $55,000 in November?",Prediction,volume_24h_usd,31424.41,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-reach-90000-by-december-31-2026-113-862-581-343,"Will Bitcoin reach $90,000 by December 31, 2026?",Prediction,probability,0.055,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-reach-90000-by-december-31-2026-113-862-581-343,"Will Bitcoin reach $90,000 by December 31, 2026?",Prediction,change_24h_pts,0,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-reach-90000-by-december-31-2026-113-862-581-343,"Will Bitcoin reach $90,000 by December 31, 2026?",Prediction,volume_24h_usd,22552.48,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-45000-by-december-31-2026-674-923-755-971-998-525-926-245-316-517-544-589-965-923-986-841-815-224-586-231-289-533-573,"Will Bitcoin dip to $45,000 by December 31, 2026?",Prediction,probability,0.0765,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-45000-by-december-31-2026-674-923-755-971-998-525-926-245-316-517-544-589-965-923-986-841-815-224-586-231-289-533-573,"Will Bitcoin dip to $45,000 by December 31, 2026?",Prediction,change_24h_pts,-1.4,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-45000-by-december-31-2026-674-923-755-971-998-525-926-245-316-517-544-589-965-923-986-841-815-224-586-231-289-533-573,"Will Bitcoin dip to $45,000 by December 31, 2026?",Prediction,volume_24h_usd,75794.15,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-in-november-2026,"Will Bitcoin dip to $60,000 in November?",Prediction,probability,0.375,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-in-november-2026,"Will Bitcoin dip to $60,000 in November?",Prediction,change_24h_pts,-9,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-60k-in-november-2026,"Will Bitcoin dip to $60,000 in November?",Prediction,volume_24h_usd,49008.17,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-57pt5k-in-november-2026,"Will Bitcoin dip to $57,500 in November?",Prediction,probability,0.2165,prob,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-57pt5k-in-november-2026,"Will Bitcoin dip to $57,500 in November?",Prediction,change_24h_pts,-5.7,pts,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,will-bitcoin-dip-to-57pt5k-in-november-2026,"Will Bitcoin dip to $57,500 in November?",Prediction,volume_24h_usd,35525.27,usd,polymarket gamma 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H25,Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?,Prediction,probability,0.91,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H25,Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?,Prediction,change_24h_pts,3,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H25,Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?,Prediction,open_interest_contracts,1999419.26,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H26,Will the Federal Reserve Hike rates by >25bps at their December 2026 meeting?,Prediction,probability,0.06,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H26,Will the Federal Reserve Hike rates by >25bps at their December 2026 meeting?,Prediction,change_24h_pts,-2,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H26,Will the Federal Reserve Hike rates by >25bps at their December 2026 meeting?,Prediction,open_interest_contracts,2430519.28,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H0,Will the Federal Reserve Hike rates by 0bps at their December 2026 meeting?,Prediction,probability,0.05,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H0,Will the Federal Reserve Hike rates by 0bps at their December 2026 meeting?,Prediction,change_24h_pts,0,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-H0,Will the Federal Reserve Hike rates by 0bps at their December 2026 meeting?,Prediction,open_interest_contracts,2924632.16,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C25,Will the Federal Reserve Cut rates by 25bps at their December 2026 meeting?,Prediction,probability,0.01,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C25,Will the Federal Reserve Cut rates by 25bps at their December 2026 meeting?,Prediction,change_24h_pts,0,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C25,Will the Federal Reserve Cut rates by 25bps at their December 2026 meeting?,Prediction,open_interest_contracts,869646.08,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C26,Will the Federal Reserve Cut rates by >25bps at their December 2026 meeting?,Prediction,probability,0.01,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C26,Will the Federal Reserve Cut rates by >25bps at their December 2026 meeting?,Prediction,change_24h_pts,0,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXFEDDECISION-26DEC-C26,Will the Federal Reserve Cut rates by >25bps at their December 2026 meeting?,Prediction,open_interest_contracts,349722.02,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.2,Will the rate of CPI inflation be above 3.2% for the year ending in November 202,Prediction,probability,0.99,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.2,Will the rate of CPI inflation be above 3.2% for the year ending in November 202,Prediction,change_24h_pts,0,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.2,Will the rate of CPI inflation be above 3.2% for the year ending in November 202,Prediction,open_interest_contracts,9895.34,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.6,Will the rate of CPI inflation be above 3.6% for the year ending in November 202,Prediction,probability,0.84,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.6,Will the rate of CPI inflation be above 3.6% for the year ending in November 202,Prediction,change_24h_pts,-5,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T3.6,Will the rate of CPI inflation be above 3.6% for the year ending in November 202,Prediction,open_interest_contracts,71716.61,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T4.0,Will the rate of CPI inflation be above 4.0% for the year ending in November 202,Prediction,probability,0.01,prob,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T4.0,Will the rate of CPI inflation be above 4.0% for the year ending in November 202,Prediction,change_24h_pts,-1,pts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,KXCPIYOY-26NOV-T4.0,Will the rate of CPI inflation be above 4.0% for the year ending in November 202,Prediction,open_interest_contracts,60304.34,contracts,kalshi public api 12:08Z
+2026-11-17,2026-11-17T12:08:39Z,pokemon-evolving-skies-booster-box-sealed,pokemon-evolving-skies-booster-box-sealed,TCG,fmv_30d_usd,2190,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,pokemon-evolving-skies-booster-box-sealed,pokemon-evolving-skies-booster-box-sealed,TCG,n_comps,21,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,pokemon-sv151-jp-booster-box-sealed,pokemon-sv151-jp-booster-box-sealed,TCG,fmv_30d_usd,229.1,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,pokemon-sv151-jp-booster-box-sealed,pokemon-sv151-jp-booster-box-sealed,TCG,n_comps,25,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,pokemon-umbreon-vmax-215-203-psa10,pokemon-umbreon-vmax-215-203-psa10,TCG,fmv_30d_usd,3513,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,pokemon-umbreon-vmax-215-203-psa10,pokemon-umbreon-vmax-215-203-psa10,TCG,n_comps,30,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,lego-75192-ucs-millennium-falcon-sealed,lego-75192-ucs-millennium-falcon-sealed,LEGO,fmv_30d_usd,875,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,lego-75192-ucs-millennium-falcon-sealed,lego-75192-ucs-millennium-falcon-sealed,LEGO,n_comps,30,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,lego-10255-assembly-square-sealed,lego-10255-assembly-square-sealed,LEGO,fmv_30d_usd,322,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,lego-10255-assembly-square-sealed,lego-10255-assembly-square-sealed,LEGO,n_comps,28,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,lego-10179-ucs-millennium-falcon-sealed,lego-10179-ucs-millennium-falcon-sealed,LEGO,fmv_30d_usd,2200,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,lego-10179-ucs-millennium-falcon-sealed,lego-10179-ucs-millennium-falcon-sealed,LEGO,n_comps,3,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,super-mario-64-n64-cib,super-mario-64-n64-cib,Retro game,fmv_30d_usd,130.75,usd,pricecharting ebay sold comps (trimmed median)
+2026-11-17,2026-11-17T12:08:39Z,super-mario-64-n64-cib,super-mario-64-n64-cib,Retro game,n_comps,30,count,pricecharting ebay sold comps
+2026-11-17,2026-11-17T12:08:39Z,XAU-SPOT,Gold spot bid (Kitco),Spot metal,price,3867.3,usd,kitco precious metals page (2026-11-17T07:07:56.82Z)
+2026-11-17,2026-11-17T12:08:39Z,XAG-SPOT,Silver spot bid (Kitco),Spot metal,price,47.523,usd,kitco precious metals page (2026-11-17T07:07:56.85Z)
+2026-11-17,2026-11-17T12:08:39Z,XPT-SPOT,Platinum spot bid (Kitco),Spot metal,price,1445,usd,kitco precious metals page (2026-11-17T07:07:56.88Z)
+2026-11-17,2026-11-17T12:08:39Z,XPD-SPOT,Palladium spot bid (Kitco),Spot metal,price,972,usd,kitco precious metals page (2026-11-17T07:07:56.91Z)
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-sxm-vast,H100 SXM rental (Vast.ai cheapest on-demand),GPU rental,rental_usd_per_gpu_hr,1.7872,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-sxm-vast-verified,H100 SXM rental (Vast.ai cheapest verified host),GPU rental,rental_usd_per_gpu_hr,1.7872,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-5090-vast,RTX 5090 rental (Vast.ai cheapest on-demand),GPU rental,rental_usd_per_gpu_hr,0.4022,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-5090-vast-verified,RTX 5090 rental (Vast.ai cheapest verified host),GPU rental,rental_usd_per_gpu_hr,0.5341,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-4090-vast,RTX 4090 rental (Vast.ai cheapest on-demand),GPU rental,rental_usd_per_gpu_hr,0.4711,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-4090-vast-verified,RTX 4090 rental (Vast.ai cheapest verified host),GPU rental,rental_usd_per_gpu_hr,0.4711,usd_per_hr,vast.ai offers api 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-b200-runpod-community,B200 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,5.98,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-b200-runpod-secure,B200 rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,7.99,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h200-runpod-community,H200 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,3.59,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h200-runpod-secure,H200 rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,5.29,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-sxm-runpod-community,H100 SXM rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,2.69,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-sxm-runpod-secure,H100 SXM rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,4.39,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-nvl-runpod-community,H100 NVL rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,2.59,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-nvl-runpod-secure,H100 NVL rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,3.19,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-pcie-runpod-community,H100 PCIe rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,1.99,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-h100-pcie-runpod-secure,H100 PCIe rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,2.89,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-5090-runpod-community,RTX 5090 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,0.69,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-5090-runpod-secure,RTX 5090 rental (RunPod Secure Cloud),GPU rental,rental_usd_per_gpu_hr,1.39,usd_per_hr,runpod pricing page 12:09Z
+2026-11-17,2026-11-17T12:08:39Z,gpu-rental-rtx-4090-runpod-community,RTX 4090 rental (RunPod Community Cloud),GPU rental,rental_usd_per_gpu_hr,0.34,usd_per_hr,runpod pricing page 12:09Z
