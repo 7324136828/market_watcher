@@ -76,3 +76,24 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-17,2026-11-17T12:08:39Z,info,CDX,Swaps,new_52w_low,19.76,close at 1-year low,Simplify High Yield (credit-hedge overlay) (CDX) closed at a 1-year low of 19.76.
 2026-11-17,2026-11-17T12:08:39Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.1234,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.1% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-16).
 2026-11-17,2026-11-17T12:08:39Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,22.2506,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +22.3% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-17).
+2026-11-18,2026-11-18T12:08:20Z,medium,alternatives,Alternative Investments,class_selloff,-3.13786,class median 5d move >= 3.0%,Alternative Investments: median instrument -3.14% over 5 sessions; 16% above their 50-day average.
+2026-11-18,2026-11-18T12:08:20Z,medium,^VIX,Options,iv_rank_high,91.7323,1y percentile >= 80%,VIX sits at the 92th percentile of its past year.
+2026-11-18,2026-11-18T12:08:20Z,medium,IBM,Stocks (Equities),z_score_extreme,-3.02546,|Z| >= 2.5,"IBM (IBM) at 231.09: Z=-3.03 vs its 20-day mean, 1d -4.71%, volume 1.0x average."
+2026-11-18,2026-11-18T12:08:20Z,info,ZQ,Swaps,fed_path_repricing,-3.15999,>= 2 moves priced in 12 months,Fed funds futures price 3.2 hikes of 25 bp over the next 12 months.
+2026-11-18,2026-11-18T12:08:20Z,info,^IRX,Bonds (Fixed Income),new_52w_high,4.138,close at 1-year high,13-Week T-Bill Yield (^IRX) closed at a 1-year high of 4.1380.
+2026-11-18,2026-11-18T12:08:20Z,info,HYG,Bonds (Fixed Income),new_52w_low,76.63,close at 1-year low,iShares High Yield Corporate (HYG) closed at a 1-year low of 76.63.
+2026-11-18,2026-11-18T12:08:20Z,info,JNK,Bonds (Fixed Income),new_52w_low,91.93,close at 1-year low,SPDR High Yield (JNK) closed at a 1-year low of 91.93.
+2026-11-18,2026-11-18T12:08:20Z,info,GC=F,Commodities,new_52w_low,3765.7,close at 1-year low,"Gold (GC=F) closed at a 1-year low of 3,766. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-18,2026-11-18T12:08:20Z,info,GLD,Commodities,new_52w_low,352.48,close at 1-year low,SPDR Gold Shares (GLD) closed at a 1-year low of 352.48.
+2026-11-18,2026-11-18T12:08:20Z,info,PL=F,Commodities,new_52w_low,1366.9,close at 1-year low,"Platinum (PL=F) closed at a 1-year low of 1,367. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-18,2026-11-18T12:08:20Z,info,SI=F,Commodities,new_52w_low,45.625,close at 1-year low,"Silver (SI=F) closed at a 1-year low of 45.62. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-18,2026-11-18T12:08:20Z,info,6E=F,Futures & Forwards,new_52w_low,1.0974,close at 1-year low,"Euro FX (6E=F) closed at a 1-year low of 1.0974. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-18,2026-11-18T12:08:20Z,info,REM,Real Estate,new_52w_low,15.72,close at 1-year low,iShares Mortgage Real Estate (REM) closed at a 1-year low of 15.72.
+2026-11-18,2026-11-18T12:08:20Z,info,BA,Stocks (Equities),new_52w_low,163.91,close at 1-year low,Boeing (BA) closed at a 1-year low of 163.91.
+2026-11-18,2026-11-18T12:08:20Z,info,NFLX,Stocks (Equities),new_52w_low,59.68,close at 1-year low,Netflix (NFLX) closed at a 1-year low of 59.68.
+2026-11-18,2026-11-18T12:08:20Z,info,NVDA,Stocks (Equities),new_52w_low,155.46,close at 1-year low,NVIDIA (NVDA) closed at a 1-year low of 155.46.
+2026-11-18,2026-11-18T12:08:20Z,info,FPE,Structured Products & Hybrid Securities,new_52w_low,16.87,close at 1-year low,First Trust Preferred Securities (FPE) closed at a 1-year low of 16.87.
+2026-11-18,2026-11-18T12:08:20Z,info,PFF,Structured Products & Hybrid Securities,new_52w_low,27.5,close at 1-year low,iShares Preferred & Income (PFF) closed at a 1-year low of 27.50.
+2026-11-18,2026-11-18T12:08:20Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.44,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.44.
+2026-11-18,2026-11-18T12:08:20Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-15.2983,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -15.3% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-17).
+2026-11-18,2026-11-18T12:08:20Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,19.1507,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +19.2% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-18).
