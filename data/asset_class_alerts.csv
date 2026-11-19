@@ -97,3 +97,38 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-18,2026-11-18T12:08:20Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.44,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.44.
 2026-11-18,2026-11-18T12:08:20Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-15.2983,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -15.3% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-17).
 2026-11-18,2026-11-18T12:08:20Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,19.1507,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +19.2% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-18).
+2026-11-19,2026-11-19T12:08:14Z,high,UNH,Stocks (Equities),z_score_volume_breakout,-3.65911,|Z| >= 2.5 and volume > 1.8x 20d avg,"UnitedHealth (UNH) at 349.91: Z=-3.66 on 3.1x average volume, 1d -10.21%."
+2026-11-19,2026-11-19T12:08:14Z,high,DIVO,Structured Products & Hybrid Securities,z_score_volume_breakout,-2.87101,|Z| >= 2.5 and volume > 1.8x 20d avg,"Amplify CWP Enhanced Dividend Income (DIVO) at 45.47: Z=-2.87 on 2.2x average volume, 1d -1.69%."
+2026-11-19,2026-11-19T12:08:14Z,medium,annuities,Annuities,class_selloff,-3.41336,class median 5d move >= 3.0%,Annuities: median instrument -3.41% over 5 sessions; 50% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,commodities,Commodities,class_selloff,-4.2578,class median 5d move >= 3.0%,Commodities: median instrument -4.26% over 5 sessions; 9% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,etfs,Exchange-Traded Funds (ETFs),class_selloff,-4.09465,class median 5d move >= 3.0%,Exchange-Traded Funds (ETFs): median instrument -4.09% over 5 sessions; 21% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,index_funds,Index Funds,class_selloff,-3.86035,class median 5d move >= 3.0%,Index Funds: median instrument -3.86% over 5 sessions; 9% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,mutual_funds,Mutual Funds,class_selloff,-3.5701,class median 5d move >= 3.0%,Mutual Funds: median instrument -3.57% over 5 sessions; 25% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,stocks,Stocks (Equities),class_selloff,-3.47913,class median 5d move >= 3.0%,Stocks (Equities): median instrument -3.48% over 5 sessions; 50% above their 50-day average.
+2026-11-19,2026-11-19T12:08:14Z,medium,^VIX,Options,iv_rank_high,87.0079,1y percentile >= 80%,VIX sits at the 87th percentile of its past year.
+2026-11-19,2026-11-19T12:08:14Z,medium,DIA,Exchange-Traded Funds (ETFs),z_score_extreme,-2.61,|Z| >= 2.5,"SPDR Dow Jones Industrial (DIA) at 501.73: Z=-2.61 vs its 20-day mean, 1d -1.10%, volume 1.1x average."
+2026-11-19,2026-11-19T12:08:14Z,medium,DODFX,Mutual Funds,z_score_extreme,-2.55455,|Z| >= 2.5,"Dodge & Cox International Stock (DODFX) at 17.45: Z=-2.55 vs its 20-day mean, 1d -0.91% (no usable volume)."
+2026-11-19,2026-11-19T12:08:14Z,medium,^SKEW,Options,z_score_extreme,-2.6531,|Z| >= 2.5,"Cboe SKEW Index (^SKEW) at 142.84: Z=-2.65 vs its 20-day mean, 1d -1.56% (no usable volume)."
+2026-11-19,2026-11-19T12:08:14Z,medium,ACN,Stocks (Equities),z_score_extreme,-2.5071,|Z| >= 2.5,"Accenture (ACN) at 227.49: Z=-2.51 vs its 20-day mean, 1d -4.93%, volume 1.0x average."
+2026-11-19,2026-11-19T12:08:14Z,medium,BMY,Stocks (Equities),z_score_extreme,-2.52188,|Z| >= 2.5,"Bristol-Myers Squibb (BMY) at 59.56: Z=-2.52 vs its 20-day mean, 1d -2.92%, volume 1.1x average."
+2026-11-19,2026-11-19T12:08:14Z,medium,IBM,Stocks (Equities),z_score_extreme,-2.61817,|Z| >= 2.5,"IBM (IBM) at 228.53: Z=-2.62 vs its 20-day mean, 1d -1.11%, volume 0.9x average."
+2026-11-19,2026-11-19T12:08:14Z,medium,USB,Stocks (Equities),z_score_extreme,-2.5354,|Z| >= 2.5,"U.S. Bancorp (USB) at 58.28: Z=-2.54 vs its 20-day mean, 1d -1.52%, volume 0.9x average."
+2026-11-19,2026-11-19T12:08:14Z,medium,^DJI,Stocks (Equities),z_score_extreme,-2.64046,|Z| >= 2.5,"Dow Jones Industrial Average (^DJI) at 50,198: Z=-2.64 vs its 20-day mean, 1d -1.11%, volume 1.1x average."
+2026-11-19,2026-11-19T12:08:14Z,info,ZQ,Swaps,fed_path_repricing,-3.27999,>= 2 moves priced in 12 months,Fed funds futures price 3.3 hikes of 25 bp over the next 12 months.
+2026-11-19,2026-11-19T12:08:14Z,info,^IRX,Bonds (Fixed Income),new_52w_high,4.145,close at 1-year high,13-Week T-Bill Yield (^IRX) closed at a 1-year high of 4.1450.
+2026-11-19,2026-11-19T12:08:14Z,info,DIS,Stocks (Equities),new_52w_high,122.36,close at 1-year high,Walt Disney (DIS) closed at a 1-year high of 122.36.
+2026-11-19,2026-11-19T12:08:14Z,info,WOOD,Alternative Investments,new_52w_low,63.77,close at 1-year low,iShares Global Timber & Forestry (WOOD) closed at a 1-year low of 63.77.
+2026-11-19,2026-11-19T12:08:14Z,info,GC=F,Commodities,new_52w_low,3722,close at 1-year low,"Gold (GC=F) closed at a 1-year low of 3,722. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-19,2026-11-19T12:08:14Z,info,GLD,Commodities,new_52w_low,341.19,close at 1-year low,SPDR Gold Shares (GLD) closed at a 1-year low of 341.19.
+2026-11-19,2026-11-19T12:08:14Z,info,SI=F,Commodities,new_52w_low,44.915,close at 1-year low,"Silver (SI=F) closed at a 1-year low of 44.92. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-19,2026-11-19T12:08:14Z,info,SLV,Commodities,new_52w_low,40.7,close at 1-year low,iShares Silver Trust (SLV) closed at a 1-year low of 40.70.
+2026-11-19,2026-11-19T12:08:14Z,info,REM,Real Estate,new_52w_low,15.69,close at 1-year low,iShares Mortgage Real Estate (REM) closed at a 1-year low of 15.69.
+2026-11-19,2026-11-19T12:08:14Z,info,BA,Stocks (Equities),new_52w_low,162.91,close at 1-year low,Boeing (BA) closed at a 1-year low of 162.91.
+2026-11-19,2026-11-19T12:08:14Z,info,NVDA,Stocks (Equities),new_52w_low,150.96,close at 1-year low,NVIDIA (NVDA) closed at a 1-year low of 150.96.
+2026-11-19,2026-11-19T12:08:14Z,info,ORCL,Stocks (Equities),new_52w_low,113.89,close at 1-year low,Oracle (ORCL) closed at a 1-year low of 113.89.
+2026-11-19,2026-11-19T12:08:14Z,info,FPE,Structured Products & Hybrid Securities,new_52w_low,16.87,close at 1-year low,First Trust Preferred Securities (FPE) closed at a 1-year low of 16.87.
+2026-11-19,2026-11-19T12:08:14Z,info,PFF,Structured Products & Hybrid Securities,new_52w_low,27.44,close at 1-year low,iShares Preferred & Income (PFF) closed at a 1-year low of 27.44.
+2026-11-19,2026-11-19T12:08:14Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.4,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.40.
+2026-11-19,2026-11-19T12:08:14Z,info,HYGH,Swaps,new_52w_low,84.4,close at 1-year low,iShares Interest Rate Hedged High Yield Bond (HYGH) closed at a 1-year low of 84.40.
+2026-11-19,2026-11-19T12:08:14Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.8865,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.9% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-18).
+2026-11-19,2026-11-19T12:08:14Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,16.6887,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +16.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-19).

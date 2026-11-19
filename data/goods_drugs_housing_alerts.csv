@@ -37,3 +37,22 @@ date,timestamp_utc,severity,asset_id,section,signal_type,value,threshold,details
 2026-11-18,2026-11-18T12:08:20Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
 2026-11-18,2026-11-18T12:08:20Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
 2026-11-18,2026-11-18T12:08:20Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
+2026-11-19,2026-11-19T12:08:14Z,medium,entyvio,drugs,drug_price_change,-3.11257,|change| >= 3% since the previous file,"Entyvio (Medicare Part B payment limit (ASP + 6%)): -3.1% since the previous file; reference cost $6,285."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-birkin-35,luxury,luxury_model_price_shift,-34.907,|median change| >= 10% vs previous run,"Hermès Birkin 35: median asking price -34.9% since 2026-11-18 to $13,995 (19 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-birkin-30,luxury,luxury_model_price_shift,-27.6312,|median change| >= 10% vs previous run,"Hermès Birkin 30: median asking price -27.6% since 2026-11-18 to $18,995 (30 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-evelyne,luxury,luxury_model_price_shift,-25.4667,|median change| >= 10% vs previous run,"Hermès Evelyne: median asking price -25.5% since 2026-11-18 to $2,795 (73 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-kelly-28,luxury,luxury_model_price_shift,-20.0111,|median change| >= 10% vs previous run,"Hermès Kelly 28: median asking price -20.0% since 2026-11-18 to $17,998 (28 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-constance,luxury,luxury_model_price_shift,-19.2925,|median change| >= 10% vs previous run,"Hermès Constance: median asking price -19.3% since 2026-11-18 to $9,925 (44 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-birkin-25,luxury,luxury_model_price_shift,-15.6274,|median change| >= 10% vs previous run,"Hermès Birkin 25: median asking price -15.6% since 2026-11-18 to $26,995 (28 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-lindy,luxury,luxury_model_price_shift,-14.8433,|median change| >= 10% vs previous run,"Hermès Lindy: median asking price -14.8% since 2026-11-18 to $7,745 (30 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-picotin,luxury,luxury_model_price_shift,-14.7191,|median change| >= 10% vs previous run,"Hermès Picotin: median asking price -14.7% since 2026-11-18 to $3,795 (63 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,hermes-kelly-25,luxury,luxury_model_price_shift,-11.5351,|median change| >= 10% vs previous run,"Hermès Kelly 25: median asking price -11.5% since 2026-11-18 to $25,212 (20 listings)."
+2026-11-19,2026-11-19T12:08:14Z,medium,gucci-jackie,luxury,luxury_model_price_shift,-10.9709,|median change| >= 10% vs previous run,"Gucci Jackie: median asking price -11.0% since 2026-11-18 to $1,376 (36 listings)."
+2026-11-19,2026-11-19T12:08:14Z,info,jardiance,drugs,drug_price_change_1y,-44.4263,|change| >= 8% over one year,Jardiance (NADAC (pharmacy acquisition cost)): -44.4% over one year; reference cost $336.
+2026-11-19,2026-11-19T12:08:14Z,info,eliquis,drugs,drug_price_change_1y,-43.0481,|change| >= 8% over one year,Eliquis (NADAC (pharmacy acquisition cost)): -43.0% over one year; reference cost $331.
+2026-11-19,2026-11-19T12:08:14Z,info,farxiga,drugs,drug_price_change_1y,-37.0079,|change| >= 8% over one year,Farxiga (NADAC (pharmacy acquisition cost)): -37.0% over one year; reference cost $362.
+2026-11-19,2026-11-19T12:08:14Z,info,enhertu,drugs,drug_price_change_1y,8.92321,|change| >= 8% over one year,"Enhertu (Medicare Part B payment limit (ASP + 6%)): +8.9% over one year; reference cost $3,265."
+2026-11-19,2026-11-19T12:08:14Z,info,bis-tr,housing,housing_price_surge,25.1423,1y change <= -5% or >= +15%,Türkiye (World): +25.1% over one year (2026-Q2).
+2026-11-19,2026-11-19T12:08:14Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
+2026-11-19,2026-11-19T12:08:14Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
+2026-11-19,2026-11-19T12:08:14Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
