@@ -353,3 +353,151 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-21,2026-11-21T12:07:22Z,info,HYGH,Swaps,new_52w_low,83.53,close at 1-year low,iShares Interest Rate Hedged High Yield Bond (HYGH) closed at a 1-year low of 83.53.
 2026-11-21,2026-11-21T12:07:22Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.6794,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-20).
 2026-11-21,2026-11-21T12:07:22Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,17.7428,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +17.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-20).
+2026-11-22,2026-11-22T12:07:53Z,high,^VIX,Options,vix_term_backwardation,1.15999,VIX / VIX3M > 1,VIX is above 3-month VIX (ratio 1.160): near-term protection is bid over longer-dated.
+2026-11-22,2026-11-22T12:07:53Z,high,GLD,Commodities,z_score_volume_breakout,-2.64348,|Z| >= 2.5 and volume > 1.8x 20d avg,"SPDR Gold Shares (GLD) at 322.87: Z=-2.64 on 2.3x average volume, 1d -3.67%."
+2026-11-22,2026-11-22T12:07:53Z,high,SLV,Commodities,z_score_volume_breakout,-2.56135,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares Silver Trust (SLV) at 36.97: Z=-2.56 on 2.2x average volume, 1d -6.74%."
+2026-11-22,2026-11-22T12:07:53Z,high,EEM,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.79381,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares MSCI Emerging Markets (EEM) at 53.84: Z=-2.79 on 2.0x average volume, 1d -5.13%."
+2026-11-22,2026-11-22T12:07:53Z,high,EFA,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-3.02548,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares MSCI EAFE (EFA) at 96.14: Z=-3.03 on 1.9x average volume, 1d -2.67%."
+2026-11-22,2026-11-22T12:07:53Z,high,IVV,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.87745,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares Core S&P 500 (IVV) at 693.71: Z=-2.88 on 1.9x average volume, 1d -3.52%."
+2026-11-22,2026-11-22T12:07:53Z,high,IWM,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.81833,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares Russell 2000 (IWM) at 256.61: Z=-2.82 on 2.2x average volume, 1d -2.88%."
+2026-11-22,2026-11-22T12:07:53Z,high,SPY,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.89887,|Z| >= 2.5 and volume > 1.8x 20d avg,"SPDR S&P 500 (SPY) at 689.81: Z=-2.90 on 2.6x average volume, 1d -3.64%."
+2026-11-22,2026-11-22T12:07:53Z,high,VEA,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.96286,|Z| >= 2.5 and volume > 1.8x 20d avg,"Vanguard Developed Markets (VEA) at 63.62: Z=-2.96 on 2.0x average volume, 1d -3.17%."
+2026-11-22,2026-11-22T12:07:53Z,high,VOO,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.85944,|Z| >= 2.5 and volume > 1.8x 20d avg,"Vanguard S&P 500 (VOO) at 635.54: Z=-2.86 on 3.4x average volume, 1d -3.41%."
+2026-11-22,2026-11-22T12:07:53Z,high,VTI,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.90702,|Z| >= 2.5 and volume > 1.8x 20d avg,"Vanguard Total Stock Market (VTI) at 340.02: Z=-2.91 on 2.6x average volume, 1d -3.52%."
+2026-11-22,2026-11-22T12:07:53Z,high,VUG,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.70125,|Z| >= 2.5 and volume > 1.8x 20d avg,"Vanguard Growth (VUG) at 75.69: Z=-2.70 on 2.6x average volume, 1d -5.32%."
+2026-11-22,2026-11-22T12:07:53Z,high,VWO,Exchange-Traded Funds (ETFs),z_score_volume_breakout,-2.98228,|Z| >= 2.5 and volume > 1.8x 20d avg,"Vanguard Emerging Markets (VWO) at 50.62: Z=-2.98 on 1.9x average volume, 1d -3.87%."
+2026-11-22,2026-11-22T12:07:53Z,high,GS,Stocks (Equities),z_score_volume_breakout,-3.1678,|Z| >= 2.5 and volume > 1.8x 20d avg,"Goldman Sachs (GS) at 790.69: Z=-3.17 on 2.1x average volume, 1d -6.71%."
+2026-11-22,2026-11-22T12:07:53Z,high,INTU,Stocks (Equities),z_score_volume_breakout,-3.35748,|Z| >= 2.5 and volume > 1.8x 20d avg,"Intuit (INTU) at 270.44: Z=-3.36 on 3.1x average volume, 1d -12.77%."
+2026-11-22,2026-11-22T12:07:53Z,high,TXN,Stocks (Equities),z_score_volume_breakout,-2.61976,|Z| >= 2.5 and volume > 1.8x 20d avg,"Texas Instruments (TXN) at 263.75: Z=-2.62 on 1.9x average volume, 1d -7.70%."
+2026-11-22,2026-11-22T12:07:53Z,high,PJAN,Structured Products & Hybrid Securities,z_score_volume_breakout,-3.14837,|Z| >= 2.5 and volume > 1.8x 20d avg,"Innovator US Equity Power Buffer Jan (PJAN) at 48.14: Z=-3.15 on 2.5x average volume, 1d -2.17%."
+2026-11-22,2026-11-22T12:07:53Z,high,XYLD,Structured Products & Hybrid Securities,z_score_volume_breakout,-3.04143,|Z| >= 2.5 and volume > 1.8x 20d avg,"Global X S&P 500 Covered Call (XYLD) at 37.90: Z=-3.04 on 2.3x average volume, 1d -3.22%."
+2026-11-22,2026-11-22T12:07:53Z,high,HYGH,Swaps,z_score_volume_breakout,-3.00144,|Z| >= 2.5 and volume > 1.8x 20d avg,"iShares Interest Rate Hedged High Yield Bond (HYGH) at 83.53: Z=-3.00 on 3.4x average volume, 1d -0.96%."
+2026-11-22,2026-11-22T12:07:53Z,medium,alternatives,Alternative Investments,class_selloff,-5.24179,class median 5d move >= 3.0%,Alternative Investments: median instrument -5.24% over 5 sessions; 11% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,annuities,Annuities,class_selloff,-6.8745,class median 5d move >= 3.0%,Annuities: median instrument -6.87% over 5 sessions; 30% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,commodities,Commodities,class_selloff,-5.62755,class median 5d move >= 3.0%,Commodities: median instrument -5.63% over 5 sessions; 9% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,etfs,Exchange-Traded Funds (ETFs),class_selloff,-8.35966,class median 5d move >= 3.0%,Exchange-Traded Funds (ETFs): median instrument -8.36% over 5 sessions; 4% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,index_funds,Index Funds,class_selloff,-8.51555,class median 5d move >= 3.0%,Index Funds: median instrument -8.52% over 5 sessions; 18% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,mutual_funds,Mutual Funds,class_selloff,-6.86035,class median 5d move >= 3.0%,Mutual Funds: median instrument -6.86% over 5 sessions; 12% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,real_estate,Real Estate,class_selloff,-3.96507,class median 5d move >= 3.0%,Real Estate: median instrument -3.97% over 5 sessions; 39% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,stocks,Stocks (Equities),class_selloff,-6.96602,class median 5d move >= 3.0%,Stocks (Equities): median instrument -6.97% over 5 sessions; 35% above their 50-day average.
+2026-11-22,2026-11-22T12:07:53Z,medium,^VIX,Options,iv_rank_high,100,1y percentile >= 80%,VIX sits at the 100th percentile of its past year.
+2026-11-22,2026-11-22T12:07:53Z,medium,BX,Alternative Investments,z_score_extreme,-2.54423,|Z| >= 2.5,"Blackstone (BX) at 110.80: Z=-2.54 vs its 20-day mean, 1d -4.47%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,QAI,Alternative Investments,z_score_extreme,-2.89088,|Z| >= 2.5,"NYLI Hedge Multi-Strategy Tracker (QAI) at 34.42: Z=-2.89 vs its 20-day mean, 1d -1.35%, volume 0.9x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,WOOD,Alternative Investments,z_score_extreme,-2.75011,|Z| >= 2.5,"iShares Global Timber & Forestry (WOOD) at 61.27: Z=-2.75 vs its 20-day mean, 1d -2.00%, volume 1.7x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,CRBG,Annuities,z_score_extreme,-2.69433,|Z| >= 2.5,"Corebridge Financial (CRBG) at 32.57: Z=-2.69 vs its 20-day mean, 1d -3.07%, volume 0.9x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,EQH,Annuities,z_score_extreme,-2.67917,|Z| >= 2.5,"Equitable Holdings (EQH) at 50.32: Z=-2.68 vs its 20-day mean, 1d -2.93%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,MET,Annuities,z_score_extreme,-2.70146,|Z| >= 2.5,"MetLife (MET) at 95.67: Z=-2.70 vs its 20-day mean, 1d -1.98%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,PFG,Annuities,z_score_extreme,-2.72339,|Z| >= 2.5,"Principal Financial (PFG) at 104.58: Z=-2.72 vs its 20-day mean, 1d -2.38%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,GC=F,Commodities,z_score_extreme,-2.8054,|Z| >= 2.5,"Gold (GC=F) at 3,515: Z=-2.81 vs its 20-day mean, 1d -4.62%, volume 1.7x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,NG=F,Commodities,z_score_extreme,2.53926,|Z| >= 2.5,"Natural Gas (NG=F) at 3.7480: Z=+2.54 vs its 20-day mean, 1d +14.69%, volume 1.0x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,PL=F,Commodities,z_score_extreme,-2.53738,|Z| >= 2.5,"Platinum (PL=F) at 1,290: Z=-2.54 vs its 20-day mean, 1d -4.30%, volume 7.9x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,SI=F,Commodities,z_score_extreme,-2.59499,|Z| >= 2.5,"Silver (SI=F) at 41.07: Z=-2.59 vs its 20-day mean, 1d -7.33%, volume 19.7x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,DIA,Exchange-Traded Funds (ETFs),z_score_extreme,-2.87854,|Z| >= 2.5,"SPDR Dow Jones Industrial (DIA) at 481.08: Z=-2.88 vs its 20-day mean, 1d -1.87%, volume 1.4x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,QUAL,Exchange-Traded Funds (ETFs),z_score_extreme,-3.09898,|Z| >= 2.5,"iShares MSCI USA Quality (QUAL) at 51.87: Z=-3.10 vs its 20-day mean, 1d -2.70%, volume 1.5x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,RSP,Exchange-Traded Funds (ETFs),z_score_extreme,-2.92476,|Z| >= 2.5,"Invesco S&P 500 Equal Weight (RSP) at 207.44: Z=-2.92 vs its 20-day mean, 1d -1.98%, volume 1.5x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,SCHD,Exchange-Traded Funds (ETFs),z_score_extreme,-2.52029,|Z| >= 2.5,"Schwab US Dividend Equity (SCHD) at 33.94: Z=-2.52 vs its 20-day mean, 1d -0.76%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,USMV,Exchange-Traded Funds (ETFs),z_score_extreme,-2.8919,|Z| >= 2.5,"iShares MSCI USA Min Vol (USMV) at 98.20: Z=-2.89 vs its 20-day mean, 1d -1.53%, volume 1.8x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,VTV,Exchange-Traded Funds (ETFs),z_score_extreme,-2.84268,|Z| >= 2.5,"Vanguard Value (VTV) at 214.22: Z=-2.84 vs its 20-day mean, 1d -1.62%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,ES=F,Futures & Forwards,z_score_extreme,-2.86775,|Z| >= 2.5,"E-mini S&P 500 (ES=F) at 6,935: Z=-2.87 vs its 20-day mean, 1d -3.64%, volume 1.4x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,RTY=F,Futures & Forwards,z_score_extreme,-2.80035,|Z| >= 2.5,"E-mini Russell 2000 (RTY=F) at 2,587: Z=-2.80 vs its 20-day mean, 1d -2.85%, volume 1.5x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,YM=F,Futures & Forwards,z_score_extreme,-2.85344,|Z| >= 2.5,"E-mini Dow (YM=F) at 48,216: Z=-2.85 vs its 20-day mean, 1d -1.96%, volume 1.3x average. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,medium,FSKAX,Index Funds,z_score_extreme,-2.9134,|Z| >= 2.5,"Fidelity Total Market Index (FSKAX) at 190.37: Z=-2.91 vs its 20-day mean, 1d -3.65% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,FTIHX,Index Funds,z_score_extreme,-2.96499,|Z| >= 2.5,"Fidelity Total International Index (FTIHX) at 17.43: Z=-2.96 vs its 20-day mean, 1d -3.22% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,FXAIX,Index Funds,z_score_extreme,-2.91368,|Z| >= 2.5,"Fidelity 500 Index (FXAIX) at 240.44: Z=-2.91 vs its 20-day mean, 1d -3.69% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,SWPPX,Index Funds,z_score_extreme,-2.90877,|Z| >= 2.5,"Schwab S&P 500 Index (SWPPX) at 17.88: Z=-2.91 vs its 20-day mean, 1d -3.66% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VFIAX,Index Funds,z_score_extreme,-2.91354,|Z| >= 2.5,"Vanguard 500 Index Admiral (VFIAX) at 638.60: Z=-2.91 vs its 20-day mean, 1d -3.69% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VIMAX,Index Funds,z_score_extreme,-2.911,|Z| >= 2.5,"Vanguard Mid-Cap Index Admiral (VIMAX) at 377.03: Z=-2.91 vs its 20-day mean, 1d -2.42% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VSMAX,Index Funds,z_score_extreme,-2.94339,|Z| >= 2.5,"Vanguard Small-Cap Index Admiral (VSMAX) at 129.49: Z=-2.94 vs its 20-day mean, 1d -2.80% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VTIAX,Index Funds,z_score_extreme,-2.95968,|Z| >= 2.5,"Vanguard Total International Admiral (VTIAX) at 40.47: Z=-2.96 vs its 20-day mean, 1d -3.18% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VTSAX,Index Funds,z_score_extreme,-2.92485,|Z| >= 2.5,"Vanguard Total Stock Market Admiral (VTSAX) at 165.34: Z=-2.92 vs its 20-day mean, 1d -3.60% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,ABALX,Mutual Funds,z_score_extreme,-2.87904,|Z| >= 2.5,"American Funds American Balanced (ABALX) at 38.24: Z=-2.88 vs its 20-day mean, 1d -1.57% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,AGTHX,Mutual Funds,z_score_extreme,-2.89106,|Z| >= 2.5,"American Funds Growth Fund of America (AGTHX) at 76.63: Z=-2.89 vs its 20-day mean, 1d -4.59% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,AWSHX,Mutual Funds,z_score_extreme,-2.99797,|Z| >= 2.5,"American Funds Washington Mutual (AWSHX) at 64.99: Z=-3.00 vs its 20-day mean, 1d -2.20% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,DODFX,Mutual Funds,z_score_extreme,-3.0065,|Z| >= 2.5,"Dodge & Cox International Stock (DODFX) at 16.76: Z=-3.01 vs its 20-day mean, 1d -2.27% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,DODGX,Mutual Funds,z_score_extreme,-2.95277,|Z| >= 2.5,"Dodge & Cox Stock (DODGX) at 16.99: Z=-2.95 vs its 20-day mean, 1d -1.96% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,FAGIX,Mutual Funds,z_score_extreme,-2.63544,|Z| >= 2.5,"Fidelity Capital & Income (FAGIX) at 10.50: Z=-2.64 vs its 20-day mean, 1d -1.32% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,FCNTX,Mutual Funds,z_score_extreme,-2.92314,|Z| >= 2.5,"Fidelity Contrafund (FCNTX) at 24.51: Z=-2.92 vs its 20-day mean, 1d -3.66% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,PRGFX,Mutual Funds,z_score_extreme,-2.63958,|Z| >= 2.5,"T. Rowe Price Growth Stock (PRGFX) at 92.15: Z=-2.64 vs its 20-day mean, 1d -5.80% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,TRBCX,Mutual Funds,z_score_extreme,-2.82087,|Z| >= 2.5,"T. Rowe Price Blue Chip Growth (TRBCX) at 178.79: Z=-2.82 vs its 20-day mean, 1d -5.94% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VFIFX,Mutual Funds,z_score_extreme,-2.94703,|Z| >= 2.5,"Vanguard Target Retirement 2050 (VFIFX) at 60.19: Z=-2.95 vs its 20-day mean, 1d -3.01% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VPMAX,Mutual Funds,z_score_extreme,-2.61695,|Z| >= 2.5,"Vanguard PRIMECAP Admiral (VPMAX) at 200.64: Z=-2.62 vs its 20-day mean, 1d -4.29% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VWELX,Mutual Funds,z_score_extreme,-2.9485,|Z| >= 2.5,"Vanguard Wellington (VWELX) at 44.18: Z=-2.95 vs its 20-day mean, 1d -2.11% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,VWINX,Mutual Funds,z_score_extreme,-2.6145,|Z| >= 2.5,"Vanguard Wellesley Income (VWINX) at 25.28: Z=-2.61 vs its 20-day mean, 1d -0.47% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^GVZ,Options,z_score_extreme,3.47191,|Z| >= 2.5,"Cboe Gold Volatility (^GVZ) at 34.80: Z=+3.47 vs its 20-day mean, 1d +21.25% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^SKEW,Options,z_score_extreme,-2.54699,|Z| >= 2.5,"Cboe SKEW Index (^SKEW) at 138.84: Z=-2.55 vs its 20-day mean, 1d -1.43% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VIX,Options,z_score_extreme,2.91951,|Z| >= 2.5,"Cboe Volatility Index (30d S&P 500) (^VIX) at 35.89: Z=+2.92 vs its 20-day mean, 1d +26.20% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VIX3M,Options,z_score_extreme,2.83868,|Z| >= 2.5,"Cboe 3-Month Volatility (^VIX3M) at 30.94: Z=+2.84 vs its 20-day mean, 1d +14.47% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VIX6M,Options,z_score_extreme,2.86762,|Z| >= 2.5,"Cboe 6-Month Volatility (^VIX6M) at 29.54: Z=+2.87 vs its 20-day mean, 1d +10.02% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VIX9D,Options,z_score_extreme,2.9046,|Z| >= 2.5,"Cboe 9-Day Volatility (^VIX9D) at 40.72: Z=+2.90 vs its 20-day mean, 1d +39.17% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VXD,Options,z_score_extreme,2.77943,|Z| >= 2.5,"Cboe DJIA Volatility (^VXD) at 27.62: Z=+2.78 vs its 20-day mean, 1d +15.52% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,^VXN,Options,z_score_extreme,2.83515,|Z| >= 2.5,"Cboe Nasdaq-100 Volatility (^VXN) at 45.25: Z=+2.84 vs its 20-day mean, 1d +24.04% (no usable volume)."
+2026-11-22,2026-11-22T12:07:53Z,medium,DLR,Real Estate,z_score_extreme,-3.3177,|Z| >= 2.5,"Digital Realty (DLR) at 162.46: Z=-3.32 vs its 20-day mean, 1d -6.64%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,AXP,Stocks (Equities),z_score_extreme,-2.72783,|Z| >= 2.5,"American Express (AXP) at 301.70: Z=-2.73 vs its 20-day mean, 1d -3.02%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,BAC,Stocks (Equities),z_score_extreme,-2.92959,|Z| >= 2.5,"Bank of America (BAC) at 47.04: Z=-2.93 vs its 20-day mean, 1d -3.15%, volume 1.4x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,BNY,Stocks (Equities),z_score_extreme,-2.66848,|Z| >= 2.5,"BNY Mellon (BNY) at 141.24: Z=-2.67 vs its 20-day mean, 1d -2.48%, volume 1.8x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,C,Stocks (Equities),z_score_extreme,-2.9845,|Z| >= 2.5,"Citigroup (C) at 110.62: Z=-2.98 vs its 20-day mean, 1d -4.04%, volume 1.7x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,DHR,Stocks (Equities),z_score_extreme,-2.6585,|Z| >= 2.5,"Danaher (DHR) at 220.36: Z=-2.66 vs its 20-day mean, 1d -3.16%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,EMR,Stocks (Equities),z_score_extreme,-2.85663,|Z| >= 2.5,"Emerson Electric (EMR) at 150.93: Z=-2.86 vs its 20-day mean, 1d -4.23%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,JPM,Stocks (Equities),z_score_extreme,-2.81515,|Z| >= 2.5,"JPMorgan Chase (JPM) at 310.53: Z=-2.82 vs its 20-day mean, 1d -3.03%, volume 1.8x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,META,Stocks (Equities),z_score_extreme,-3.23588,|Z| >= 2.5,"Meta Platforms (META) at 560.84: Z=-3.24 vs its 20-day mean, 1d -5.93%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,MS,Stocks (Equities),z_score_extreme,-3.17756,|Z| >= 2.5,"Morgan Stanley (MS) at 165.67: Z=-3.18 vs its 20-day mean, 1d -5.32%, volume 1.6x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,NKE,Stocks (Equities),z_score_extreme,-2.77235,|Z| >= 2.5,"Nike (NKE) at 32.92: Z=-2.77 vs its 20-day mean, 1d -4.11%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,PYPL,Stocks (Equities),z_score_extreme,-2.67039,|Z| >= 2.5,"PayPal (PYPL) at 53.29: Z=-2.67 vs its 20-day mean, 1d -5.46%, volume 1.6x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,USB,Stocks (Equities),z_score_extreme,-2.94318,|Z| >= 2.5,"U.S. Bancorp (USB) at 56.05: Z=-2.94 vs its 20-day mean, 1d -2.11%, volume 1.5x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,WFC,Stocks (Equities),z_score_extreme,-2.5506,|Z| >= 2.5,"Wells Fargo (WFC) at 78.62: Z=-2.55 vs its 20-day mean, 1d -2.47%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,^DJI,Stocks (Equities),z_score_extreme,-2.87305,|Z| >= 2.5,"Dow Jones Industrial Average (^DJI) at 48,147: Z=-2.87 vs its 20-day mean, 1d -1.93%, volume 1.8x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,^FTSE,Stocks (Equities),z_score_extreme,-2.73019,|Z| >= 2.5,"FTSE 100 (^FTSE) at 10,346: Z=-2.73 vs its 20-day mean, 1d -1.02%, volume 0.9x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,^GSPC,Stocks (Equities),z_score_extreme,-2.90872,|Z| >= 2.5,"S&P 500 (^GSPC) at 6,910: Z=-2.91 vs its 20-day mean, 1d -3.70%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,^IXIC,Stocks (Equities),z_score_extreme,-2.68815,|Z| >= 2.5,"Nasdaq Composite (^IXIC) at 22,618: Z=-2.69 vs its 20-day mean, 1d -5.28%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,^RUT,Stocks (Equities),z_score_extreme,-2.78765,|Z| >= 2.5,"Russell 2000 (^RUT) at 2,582: Z=-2.79 vs its 20-day mean, 1d -2.76%, volume 1.2x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,BUFR,Structured Products & Hybrid Securities,z_score_extreme,-2.98806,|Z| >= 2.5,"FT Vest Laddered Buffer (BUFR) at 35.09: Z=-2.99 vs its 20-day mean, 1d -2.58%, volume 1.6x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,DIVO,Structured Products & Hybrid Securities,z_score_extreme,-2.78136,|Z| >= 2.5,"Amplify CWP Enhanced Dividend Income (DIVO) at 43.98: Z=-2.78 vs its 20-day mean, 1d -1.52%, volume 1.8x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,JEPI,Structured Products & Hybrid Securities,z_score_extreme,-3.04535,|Z| >= 2.5,"JPMorgan Equity Premium Income (ELNs) (JEPI) at 54.25: Z=-3.05 vs its 20-day mean, 1d -2.32%, volume 1.6x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,QYLD,Structured Products & Hybrid Securities,z_score_extreme,-2.70257,|Z| >= 2.5,"Global X Nasdaq 100 Covered Call (QYLD) at 15.96: Z=-2.70 vs its 20-day mean, 1d -5.17%, volume 1.3x average."
+2026-11-22,2026-11-22T12:07:53Z,medium,LQDH,Swaps,z_score_extreme,-2.56873,|Z| >= 2.5,"iShares Interest Rate Hedged Corporate Bond (LQDH) at 91.22: Z=-2.57 vs its 20-day mean, 1d -0.56%, volume 0.9x average."
+2026-11-22,2026-11-22T12:07:53Z,info,ZQ,Swaps,fed_path_repricing,-2.26,>= 2 moves priced in 12 months,Fed funds futures price 2.3 hikes of 25 bp over the next 12 months.
+2026-11-22,2026-11-22T12:07:53Z,info,^VIX,Options,new_52w_high,35.89,close at 1-year high,Cboe Volatility Index (30d S&P 500) (^VIX) closed at a 1-year high of 35.89.
+2026-11-22,2026-11-22T12:07:53Z,info,^VIX3M,Options,new_52w_high,30.94,close at 1-year high,Cboe 3-Month Volatility (^VIX3M) closed at a 1-year high of 30.94.
+2026-11-22,2026-11-22T12:07:53Z,info,^VIX9D,Options,new_52w_high,40.72,close at 1-year high,Cboe 9-Day Volatility (^VIX9D) closed at a 1-year high of 40.72.
+2026-11-22,2026-11-22T12:07:53Z,info,^VXN,Options,new_52w_high,45.25,close at 1-year high,Cboe Nasdaq-100 Volatility (^VXN) closed at a 1-year high of 45.25.
+2026-11-22,2026-11-22T12:07:53Z,info,WOOD,Alternative Investments,new_52w_low,61.27,close at 1-year low,iShares Global Timber & Forestry (WOOD) closed at a 1-year low of 61.27.
+2026-11-22,2026-11-22T12:07:53Z,info,BHF,Annuities,new_52w_low,40.84,close at 1-year low,Brighthouse Financial (BHF) closed at a 1-year low of 40.84.
+2026-11-22,2026-11-22T12:07:53Z,info,EMB,Bonds (Fixed Income),new_52w_low,89.92,close at 1-year low,iShares USD Emerging Markets (EMB) closed at a 1-year low of 89.92.
+2026-11-22,2026-11-22T12:07:53Z,info,HYG,Bonds (Fixed Income),new_52w_low,76.33,close at 1-year low,iShares High Yield Corporate (HYG) closed at a 1-year low of 76.33.
+2026-11-22,2026-11-22T12:07:53Z,info,JNK,Bonds (Fixed Income),new_52w_low,91.54,close at 1-year low,SPDR High Yield (JNK) closed at a 1-year low of 91.54.
+2026-11-22,2026-11-22T12:07:53Z,info,GC=F,Commodities,new_52w_low,3515.4,close at 1-year low,"Gold (GC=F) closed at a 1-year low of 3,515. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,info,GLD,Commodities,new_52w_low,322.87,close at 1-year low,SPDR Gold Shares (GLD) closed at a 1-year low of 322.87.
+2026-11-22,2026-11-22T12:07:53Z,info,PA=F,Commodities,new_52w_low,893.1,close at 1-year low,"Palladium (PA=F) closed at a 1-year low of 893.10. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,info,PL=F,Commodities,new_52w_low,1289.6,close at 1-year low,"Platinum (PL=F) closed at a 1-year low of 1,290. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,info,SI=F,Commodities,new_52w_low,41.07,close at 1-year low,"Silver (SI=F) closed at a 1-year low of 41.07. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,info,SLV,Commodities,new_52w_low,36.97,close at 1-year low,iShares Silver Trust (SLV) closed at a 1-year low of 36.97.
+2026-11-22,2026-11-22T12:07:53Z,info,VWO,Exchange-Traded Funds (ETFs),new_52w_low,50.62,close at 1-year low,Vanguard Emerging Markets (VWO) closed at a 1-year low of 50.62.
+2026-11-22,2026-11-22T12:07:53Z,info,6B=F,Futures & Forwards,new_52w_low,1.3088,close at 1-year low,"British Pound (6B=F) closed at a 1-year low of 1.3088. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-22,2026-11-22T12:07:53Z,info,FAGIX,Mutual Funds,new_52w_low,10.5,close at 1-year low,Fidelity Capital & Income (FAGIX) closed at a 1-year low of 10.50.
+2026-11-22,2026-11-22T12:07:53Z,info,TRBCX,Mutual Funds,new_52w_low,178.79,close at 1-year low,T. Rowe Price Blue Chip Growth (TRBCX) closed at a 1-year low of 178.79.
+2026-11-22,2026-11-22T12:07:53Z,info,MAA,Real Estate,new_52w_low,112.91,close at 1-year low,Mid-America Apartment Communities (MAA) closed at a 1-year low of 112.91.
+2026-11-22,2026-11-22T12:07:53Z,info,PLD,Real Estate,new_52w_low,122.5,close at 1-year low,Prologis (PLD) closed at a 1-year low of 122.50.
+2026-11-22,2026-11-22T12:07:53Z,info,REM,Real Estate,new_52w_low,15.49,close at 1-year low,iShares Mortgage Real Estate (REM) closed at a 1-year low of 15.49.
+2026-11-22,2026-11-22T12:07:53Z,info,BA,Stocks (Equities),new_52w_low,155.89,close at 1-year low,Boeing (BA) closed at a 1-year low of 155.89.
+2026-11-22,2026-11-22T12:07:53Z,info,BKNG,Stocks (Equities),new_52w_low,144.91,close at 1-year low,Booking Holdings (BKNG) closed at a 1-year low of 144.91.
+2026-11-22,2026-11-22T12:07:53Z,info,CAT,Stocks (Equities),new_52w_low,510.45,close at 1-year low,Caterpillar (CAT) closed at a 1-year low of 510.45.
+2026-11-22,2026-11-22T12:07:53Z,info,GOOGL,Stocks (Equities),new_52w_low,265.29,close at 1-year low,Alphabet (GOOGL) closed at a 1-year low of 265.29.
+2026-11-22,2026-11-22T12:07:53Z,info,NFLX,Stocks (Equities),new_52w_low,56.73,close at 1-year low,Netflix (NFLX) closed at a 1-year low of 56.73.
+2026-11-22,2026-11-22T12:07:53Z,info,NKE,Stocks (Equities),new_52w_low,32.92,close at 1-year low,Nike (NKE) closed at a 1-year low of 32.92.
+2026-11-22,2026-11-22T12:07:53Z,info,NVDA,Stocks (Equities),new_52w_low,125.53,close at 1-year low,NVIDIA (NVDA) closed at a 1-year low of 125.53.
+2026-11-22,2026-11-22T12:07:53Z,info,ORCL,Stocks (Equities),new_52w_low,101.19,close at 1-year low,Oracle (ORCL) closed at a 1-year low of 101.19.
+2026-11-22,2026-11-22T12:07:53Z,info,UBER,Stocks (Equities),new_52w_low,63.47,close at 1-year low,Uber Technologies (UBER) closed at a 1-year low of 63.47.
+2026-11-22,2026-11-22T12:07:53Z,info,^HSI,Stocks (Equities),new_52w_low,22410.8,close at 1-year low,"Hang Seng (^HSI) closed at a 1-year low of 22,411."
+2026-11-22,2026-11-22T12:07:53Z,info,CWB,Structured Products & Hybrid Securities,new_52w_low,86.68,close at 1-year low,SPDR Convertible Securities (CWB) closed at a 1-year low of 86.68.
+2026-11-22,2026-11-22T12:07:53Z,info,DIVO,Structured Products & Hybrid Securities,new_52w_low,43.98,close at 1-year low,Amplify CWP Enhanced Dividend Income (DIVO) closed at a 1-year low of 43.98.
+2026-11-22,2026-11-22T12:07:53Z,info,FPE,Structured Products & Hybrid Securities,new_52w_low,16.77,close at 1-year low,First Trust Preferred Securities (FPE) closed at a 1-year low of 16.77.
+2026-11-22,2026-11-22T12:07:53Z,info,JEPI,Structured Products & Hybrid Securities,new_52w_low,54.25,close at 1-year low,JPMorgan Equity Premium Income (ELNs) (JEPI) closed at a 1-year low of 54.25.
+2026-11-22,2026-11-22T12:07:53Z,info,JEPQ,Structured Products & Hybrid Securities,new_52w_low,50.84,close at 1-year low,JPMorgan Nasdaq Equity Premium Income (JEPQ) closed at a 1-year low of 50.84.
+2026-11-22,2026-11-22T12:07:53Z,info,PFF,Structured Products & Hybrid Securities,new_52w_low,26.9,close at 1-year low,iShares Preferred & Income (PFF) closed at a 1-year low of 26.90.
+2026-11-22,2026-11-22T12:07:53Z,info,PFFD,Structured Products & Hybrid Securities,new_52w_low,16.1,close at 1-year low,Global X US Preferred (PFFD) closed at a 1-year low of 16.10.
+2026-11-22,2026-11-22T12:07:53Z,info,PGX,Structured Products & Hybrid Securities,new_52w_low,9.56,close at 1-year low,Invesco Preferred (PGX) closed at a 1-year low of 9.5600.
+2026-11-22,2026-11-22T12:07:53Z,info,QYLD,Structured Products & Hybrid Securities,new_52w_low,15.96,close at 1-year low,Global X Nasdaq 100 Covered Call (QYLD) closed at a 1-year low of 15.96.
+2026-11-22,2026-11-22T12:07:53Z,info,XYLD,Structured Products & Hybrid Securities,new_52w_low,37.9,close at 1-year low,Global X S&P 500 Covered Call (XYLD) closed at a 1-year low of 37.90.
+2026-11-22,2026-11-22T12:07:53Z,info,HYGH,Swaps,new_52w_low,83.53,close at 1-year low,iShares Interest Rate Hedged High Yield Bond (HYGH) closed at a 1-year low of 83.53.
+2026-11-22,2026-11-22T12:07:53Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.6794,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-20).
+2026-11-22,2026-11-22T12:07:53Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,17.7428,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +17.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-20).
