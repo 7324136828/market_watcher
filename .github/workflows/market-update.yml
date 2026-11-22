@@ -1,0 +1,83 @@
+name: Weekly Market Update
+
+# Builds the weekly Market Update (prices plus the news briefing) for the last
+# completed week, commits the Markdown issue to main and uploads the Markdown
+# and PDF as a workflow artifact. Runs on Saturday, once Friday's close is in
+# and while the news feeds still reach back over the whole week.
+on:
+  schedule:
+    - cron: "17 13 * * 6"
+  workflow_dispatch:
+    inputs:
+      week_ending:
+        description: "Friday that ends the week covered (YYYY-MM-DD); empty for the last completed week"
+        type: string
+        default: ""
+      commit:
+        description: "Commit the Markdown issue to main"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-update
+  cancel-in-progress: false
+
+jobs:
+  market-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build Market Update (prices and news)
+        env:
+          WEEK_ENDING: ${{ inputs.week_ending }}
+        run: |
+          if [ -n "$WEEK_ENDING" ]; then
+            python3 scripts/build_market_update.py --week-ending "$WEEK_ENDING"
+          else
+            python3 scripts/build_market_update.py
+          fi
+
+      # A feed outage must not publish an issue without its news sections.
+      - name: Check that the issue cites news
+        run: |
+          issue=$(ls -t reports/market-update-*.md | head -n 1)
+          cited=$(grep -c '](http' "$issue" || true)
+          echo "$issue: $cited lines with a cited source"
+          if [ "$cited" -lt 10 ]; then
+            echo "::error::Only $cited cited news lines in $issue; not publishing."
+            exit 1
+          fi
+          echo "ISSUE=$issue" >> "$GITHUB_ENV"
+
+      - name: Upload Market Update artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-update-${{ github.run_id }}
+          path: |
+            reports/market-update-*.pdf
+            ${{ env.ISSUE }}
+          if-no-files-found: error
+          retention-days: 90
+
+      # The PDF is git-ignored; only the Markdown issue is committed.
+      - name: Commit the Markdown issue
+        if: github.event_name == 'schedule' || inputs.commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$ISSUE"
+          if git diff --cached --quiet; then
+            echo "No change to $ISSUE."
+            exit 0
+          fi
+          git commit -m "Add $(basename "$ISSUE" .md | sed 's/market-update-/Market Update /')"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
