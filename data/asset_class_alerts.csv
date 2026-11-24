@@ -634,3 +634,17 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-23,2026-11-23T12:09:02Z,info,HYGH,Swaps,new_52w_low,83.53,close at 1-year low,iShares Interest Rate Hedged High Yield Bond (HYGH) closed at a 1-year low of 83.53.
 2026-11-23,2026-11-23T12:09:02Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.6794,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-20).
 2026-11-23,2026-11-23T12:09:02Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,23.3296,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +23.3% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-23).
+2026-11-24,2026-11-24T12:08:24Z,high,^VIX,Options,vix_term_backwardation,1.11176,VIX / VIX3M > 1,VIX is above 3-month VIX (ratio 1.112): near-term protection is bid over longer-dated.
+2026-11-24,2026-11-24T12:08:24Z,medium,annuities,Annuities,class_selloff,-3.29246,class median 5d move >= 3.0%,Annuities: median instrument -3.29% over 5 sessions; 30% above their 50-day average.
+2026-11-24,2026-11-24T12:08:24Z,medium,commodities,Commodities,class_selloff,-5.30203,class median 5d move >= 3.0%,Commodities: median instrument -5.30% over 5 sessions; 14% above their 50-day average.
+2026-11-24,2026-11-24T12:08:24Z,medium,stocks,Stocks (Equities),class_selloff,-3.3333,class median 5d move >= 3.0%,Stocks (Equities): median instrument -3.33% over 5 sessions; 45% above their 50-day average.
+2026-11-24,2026-11-24T12:08:24Z,medium,^VIX,Options,iv_rank_high,98.0315,1y percentile >= 80%,VIX sits at the 98th percentile of its past year.
+2026-11-24,2026-11-24T12:08:24Z,info,ZQ,Swaps,fed_path_repricing,-2.43999,>= 2 moves priced in 12 months,Fed funds futures price 2.4 hikes of 25 bp over the next 12 months.
+2026-11-24,2026-11-24T12:08:24Z,info,^IRX,Bonds (Fixed Income),new_52w_high,4.147,close at 1-year high,13-Week T-Bill Yield (^IRX) closed at a 1-year high of 4.1470.
+2026-11-24,2026-11-24T12:08:24Z,info,CTA,Alternative Investments,new_52w_low,24.76,close at 1-year low,Simplify Managed Futures (CTA) closed at a 1-year low of 24.76.
+2026-11-24,2026-11-24T12:08:24Z,info,PA=F,Commodities,new_52w_low,875,close at 1-year low,"Palladium (PA=F) closed at a 1-year low of 875.00. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-24,2026-11-24T12:08:24Z,info,PL=F,Commodities,new_52w_low,1289.4,close at 1-year low,"Platinum (PL=F) closed at a 1-year low of 1,289. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-24,2026-11-24T12:08:24Z,info,TRBCX,Mutual Funds,new_52w_low,178.79,close at 1-year low,T. Rowe Price Blue Chip Growth (TRBCX) closed at a 1-year low of 178.79.
+2026-11-24,2026-11-24T12:08:24Z,info,^HSI,Stocks (Equities),new_52w_low,22219.7,close at 1-year low,"Hang Seng (^HSI) closed at a 1-year low of 22,220."
+2026-11-24,2026-11-24T12:08:24Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.267,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.3% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-24).
+2026-11-24,2026-11-24T12:08:24Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,22.2005,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +22.2% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-24).
