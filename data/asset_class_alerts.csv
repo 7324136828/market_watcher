@@ -648,3 +648,22 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-24,2026-11-24T12:08:24Z,info,^HSI,Stocks (Equities),new_52w_low,22219.7,close at 1-year low,"Hang Seng (^HSI) closed at a 1-year low of 22,220."
 2026-11-24,2026-11-24T12:08:24Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.267,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.3% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-24).
 2026-11-24,2026-11-24T12:08:24Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,22.2005,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +22.2% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-24).
+2026-11-25,2026-11-25T12:08:19Z,high,^VIX,Options,vix_term_backwardation,1.18414,VIX / VIX3M > 1,VIX is above 3-month VIX (ratio 1.184): near-term protection is bid over longer-dated.
+2026-11-25,2026-11-25T12:08:19Z,medium,commodities,Commodities,class_selloff,-3.63609,class median 5d move >= 3.0%,Commodities: median instrument -3.64% over 5 sessions; 14% above their 50-day average.
+2026-11-25,2026-11-25T12:08:19Z,medium,^VIX,Options,iv_rank_high,98.8189,1y percentile >= 80%,VIX sits at the 99th percentile of its past year.
+2026-11-25,2026-11-25T12:08:19Z,medium,GILD,Stocks (Equities),z_score_extreme,2.6118,|Z| >= 2.5,"Gilead Sciences (GILD) at 178.29: Z=+2.61 vs its 20-day mean, 1d +4.51%, volume 1.4x average."
+2026-11-25,2026-11-25T12:08:19Z,info,ZQ,Swaps,fed_path_repricing,-2.33999,>= 2 moves priced in 12 months,Fed funds futures price 2.3 hikes of 25 bp over the next 12 months.
+2026-11-25,2026-11-25T12:08:19Z,info,^IRX,Bonds (Fixed Income),new_52w_high,4.168,close at 1-year high,13-Week T-Bill Yield (^IRX) closed at a 1-year high of 4.1680.
+2026-11-25,2026-11-25T12:08:19Z,info,ABBV,Stocks (Equities),new_52w_high,300.28,close at 1-year high,AbbVie (ABBV) closed at a 1-year high of 300.28.
+2026-11-25,2026-11-25T12:08:19Z,info,DIS,Stocks (Equities),new_52w_high,122.51,close at 1-year high,Walt Disney (DIS) closed at a 1-year high of 122.51.
+2026-11-25,2026-11-25T12:08:19Z,info,GILD,Stocks (Equities),new_52w_high,178.29,close at 1-year high,Gilead Sciences (GILD) closed at a 1-year high of 178.29.
+2026-11-25,2026-11-25T12:08:19Z,info,TGT,Stocks (Equities),new_52w_high,176.06,close at 1-year high,Target (TGT) closed at a 1-year high of 176.06.
+2026-11-25,2026-11-25T12:08:19Z,info,BTC-USD,Alternative Investments,new_52w_low,58429.4,close at 1-year low,"Bitcoin (BTC-USD) closed at a 1-year low of 58,429."
+2026-11-25,2026-11-25T12:08:19Z,info,PA=F,Commodities,new_52w_low,839.5,close at 1-year low,"Palladium (PA=F) closed at a 1-year low of 839.50. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-25,2026-11-25T12:08:19Z,info,PL=F,Commodities,new_52w_low,1228.1,close at 1-year low,"Platinum (PL=F) closed at a 1-year low of 1,228. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-25,2026-11-25T12:08:19Z,info,SI=F,Commodities,new_52w_low,39.895,close at 1-year low,"Silver (SI=F) closed at a 1-year low of 39.90. Continuous front-month series: confirm against the dated contract, a roll can cause this."
+2026-11-25,2026-11-25T12:08:19Z,info,SLV,Commodities,new_52w_low,36.84,close at 1-year low,iShares Silver Trust (SLV) closed at a 1-year low of 36.84.
+2026-11-25,2026-11-25T12:08:19Z,info,^HSI,Stocks (Equities),new_52w_low,21966,close at 1-year low,"Hang Seng (^HSI) closed at a 1-year low of 21,966."
+2026-11-25,2026-11-25T12:08:19Z,info,CDX,Swaps,new_52w_low,19.66,close at 1-year low,Simplify High Yield (credit-hedge overlay) (CDX) closed at a 1-year low of 19.66.
+2026-11-25,2026-11-25T12:08:19Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-13.3577,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -13.4% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-24).
+2026-11-25,2026-11-25T12:08:19Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,19.9345,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +19.9% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-25).
