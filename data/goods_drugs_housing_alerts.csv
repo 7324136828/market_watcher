@@ -114,3 +114,13 @@ date,timestamp_utc,severity,asset_id,section,signal_type,value,threshold,details
 2026-11-25,2026-11-25T12:08:43Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
 2026-11-25,2026-11-25T12:08:43Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
 2026-11-25,2026-11-25T12:08:43Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
+2026-11-26,2026-11-26T12:07:49Z,medium,entyvio,drugs,drug_price_change,-3.11257,|change| >= 3% since the previous file,"Entyvio (Medicare Part B payment limit (ASP + 6%)): -3.1% since the previous file; reference cost $6,285."
+2026-11-26,2026-11-26T12:07:49Z,medium,louis-vuitton-speedy-30,luxury,luxury_model_price_shift,-12.9129,|median change| >= 10% vs previous run,"Louis Vuitton Speedy 30: median asking price -12.9% since 2026-11-25 to $1,450 (31 listings)."
+2026-11-26,2026-11-26T12:07:49Z,info,jardiance,drugs,drug_price_change_1y,-44.4263,|change| >= 8% over one year,Jardiance (NADAC (pharmacy acquisition cost)): -44.4% over one year; reference cost $336.
+2026-11-26,2026-11-26T12:07:49Z,info,eliquis,drugs,drug_price_change_1y,-43.0481,|change| >= 8% over one year,Eliquis (NADAC (pharmacy acquisition cost)): -43.0% over one year; reference cost $331.
+2026-11-26,2026-11-26T12:07:49Z,info,farxiga,drugs,drug_price_change_1y,-37.0079,|change| >= 8% over one year,Farxiga (NADAC (pharmacy acquisition cost)): -37.0% over one year; reference cost $362.
+2026-11-26,2026-11-26T12:07:49Z,info,enhertu,drugs,drug_price_change_1y,8.92321,|change| >= 8% over one year,"Enhertu (Medicare Part B payment limit (ASP + 6%)): +8.9% over one year; reference cost $3,265."
+2026-11-26,2026-11-26T12:07:49Z,info,bis-tr,housing,housing_price_surge,25.1423,1y change <= -5% or >= +15%,Türkiye (World): +25.1% over one year (2026-Q2).
+2026-11-26,2026-11-26T12:07:49Z,info,eu-pt,housing,housing_price_surge,16.4812,1y change <= -5% or >= +15%,Portugal (Europe): +16.5% over one year (2026-Q2).
+2026-11-26,2026-11-26T12:07:49Z,info,eu-bg,housing,housing_price_surge,15.4673,1y change <= -5% or >= +15%,Bulgaria (Europe): +15.5% over one year (2026-Q2).
+2026-11-26,2026-11-26T12:07:49Z,info,bis-cn,housing,housing_price_fall,-5.90023,1y change <= -5% or >= +15%,China (World): -5.9% over one year (2026-Q2).
