@@ -675,3 +675,10 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-26,2026-11-26T12:07:27Z,info,PG,Stocks (Equities),new_52w_high,173.23,close at 1-year high,Procter & Gamble (PG) closed at a 1-year high of 173.23.
 2026-11-26,2026-11-26T12:07:27Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.6511,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-25).
 2026-11-26,2026-11-26T12:07:27Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,20.722,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +20.7% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-26).
+2026-11-27,2026-11-27T12:07:29Z,medium,^VIX,Options,iv_rank_high,93.3071,1y percentile >= 80%,VIX sits at the 93th percentile of its past year.
+2026-11-27,2026-11-27T12:07:29Z,info,ZQ,Swaps,fed_path_repricing,-2.68001,>= 2 moves priced in 12 months,Fed funds futures price 2.7 hikes of 25 bp over the next 12 months.
+2026-11-27,2026-11-27T12:07:29Z,info,DIS,Stocks (Equities),new_52w_high,125.6,close at 1-year high,Walt Disney (DIS) closed at a 1-year high of 125.60.
+2026-11-27,2026-11-27T12:07:29Z,info,MDLZ,Stocks (Equities),new_52w_high,67.81,close at 1-year high,Mondelez (MDLZ) closed at a 1-year high of 67.81.
+2026-11-27,2026-11-27T12:07:29Z,info,PG,Stocks (Equities),new_52w_high,173.23,close at 1-year high,Procter & Gamble (PG) closed at a 1-year high of 173.23.
+2026-11-27,2026-11-27T12:07:29Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.6511,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-25).
+2026-11-27,2026-11-27T12:07:29Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,22.5725,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +22.6% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-27).
