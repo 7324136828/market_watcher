@@ -682,3 +682,13 @@ date,timestamp_utc,severity,asset_id,asset_class,signal_type,value,threshold,det
 2026-11-27,2026-11-27T12:07:29Z,info,PG,Stocks (Equities),new_52w_high,173.23,close at 1-year high,Procter & Gamble (PG) closed at a 1-year high of 173.23.
 2026-11-27,2026-11-27T12:07:29Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.6511,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.7% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-25).
 2026-11-27,2026-11-27T12:07:29Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,22.5725,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +22.6% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-27).
+2026-11-28,2026-11-28T12:07:52Z,medium,annuities,Annuities,class_rally,3.2644,class median 5d move >= 3.0%,Annuities: median instrument +3.26% over 5 sessions; 70% above their 50-day average.
+2026-11-28,2026-11-28T12:07:52Z,medium,real_estate,Real Estate,class_rally,3.07428,class median 5d move >= 3.0%,Real Estate: median instrument +3.07% over 5 sessions; 78% above their 50-day average.
+2026-11-28,2026-11-28T12:07:52Z,medium,stocks,Stocks (Equities),class_rally,3.16638,class median 5d move >= 3.0%,Stocks (Equities): median instrument +3.17% over 5 sessions; 56% above their 50-day average.
+2026-11-28,2026-11-28T12:07:52Z,medium,^VIX,Options,iv_rank_high,88.189,1y percentile >= 80%,VIX sits at the 88th percentile of its past year.
+2026-11-28,2026-11-28T12:07:52Z,info,ZQ,Swaps,fed_path_repricing,-2.74001,>= 2 moves priced in 12 months,Fed funds futures price 2.7 hikes of 25 bp over the next 12 months.
+2026-11-28,2026-11-28T12:07:52Z,info,IAK,Annuities,new_52w_high,154.38,close at 1-year high,iShares US Insurance (IAK) closed at a 1-year high of 154.38.
+2026-11-28,2026-11-28T12:07:52Z,info,AAPL,Stocks (Equities),new_52w_high,358.54,close at 1-year high,Apple (AAPL) closed at a 1-year high of 358.54.
+2026-11-28,2026-11-28T12:07:52Z,info,DIS,Stocks (Equities),new_52w_high,127.24,close at 1-year high,Walt Disney (DIS) closed at a 1-year high of 127.24.
+2026-11-28,2026-11-28T12:07:52Z,info,term_structure_12m_cl_pct,Futures & Forwards,steep_backwardation,-14.0106,|12m curve slope| >= 10%,WTI crude: 12-month futures curve slope is -14.0% (backwardation); yahoo CLF27.NYM vs CLF28.NYM (2026-11-27).
+2026-11-28,2026-11-28T12:07:52Z,info,term_structure_12m_ng_pct,Futures & Forwards,steep_contango,24.8926,|12m curve slope| >= 10%,Natural gas: 12-month futures curve slope is +24.9% (contango); yahoo NGF27.NYM vs NGF28.NYM (2026-11-27).
